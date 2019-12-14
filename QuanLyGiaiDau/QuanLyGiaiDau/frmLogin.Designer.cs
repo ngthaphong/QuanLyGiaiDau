@@ -1,6 +1,6 @@
 ﻿namespace QuanLyGiaiDau
 {
-    partial class Form1
+    partial class frmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -88,7 +88,7 @@
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // Form1
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -99,7 +99,7 @@
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.lblPass);
-            this.Name = "Form1";
+            this.Name = "frmLogin";
             this.Text = "DMM CHUNG";
             this.ResumeLayout(false);
             this.PerformLayout();
