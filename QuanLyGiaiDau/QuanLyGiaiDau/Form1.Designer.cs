@@ -100,7 +100,7 @@
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.lblPass);
             this.Name = "Form1";
-            this.Text = "DMM hung";
+            this.Text = "DMM CHUNG";
             this.ResumeLayout(false);
             this.PerformLayout();
 
