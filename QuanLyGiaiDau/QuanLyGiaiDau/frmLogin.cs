@@ -34,7 +34,7 @@ namespace QuanLyGiaiDau
             }
             this.Hide();
             frmMain main = new frmMain();
-            if (main.ShowDialog != DialogResult.OK)
+            if (main.ShowDialog() != DialogResult.OK)
                 Application.Exit();
             
         }

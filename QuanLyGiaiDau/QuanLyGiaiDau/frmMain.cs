@@ -19,8 +19,10 @@ namespace QuanLyGiaiDau
 
         void LoadText()
         {
+            
             lblWelcome.Text = "Chào mừng bạn đến với Giải Đấu";
-            lblWelcome.Height += 52;
+            lblWelcome.Font = new Font("Arial", 20);
+            lblWelcome.ForeColor = System.Drawing.Color.DarkBlue;
             lblOption.Text = "Hệ thống quản lý giải đấu";
         }
 

@@ -34,11 +34,13 @@
             this.btnLeague = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.lblOption = new System.Windows.Forms.Label();
+            this.panWelcome = new System.Windows.Forms.Panel();
+            this.panWelcome.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnHome
             // 
-            this.btnHome.Location = new System.Drawing.Point(94, 184);
+            this.btnHome.Location = new System.Drawing.Point(110, 172);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(75, 23);
             this.btnHome.TabIndex = 0;
@@ -83,19 +85,28 @@
             this.lblOption.TabIndex = 4;
             this.lblOption.Text = "label1";
             // 
+            // panWelcome
+            // 
+            this.panWelcome.Controls.Add(this.btnHome);
+            this.panWelcome.Location = new System.Drawing.Point(12, 12);
+            this.panWelcome.Name = "panWelcome";
+            this.panWelcome.Size = new System.Drawing.Size(1095, 552);
+            this.panWelcome.TabIndex = 5;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 327);
+            this.ClientSize = new System.Drawing.Size(1119, 576);
             this.Controls.Add(this.lblOption);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.btnLeague);
             this.Controls.Add(this.lblWelcome);
-            this.Controls.Add(this.btnHome);
+            this.Controls.Add(this.panWelcome);
             this.Name = "frmMain";
             this.Text = "Giao diện";
             this.Load += new System.EventHandler(this.frmMain_Load);
+            this.panWelcome.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,5 +120,6 @@
         private System.Windows.Forms.Button btnLeague;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Label lblOption;
+        private System.Windows.Forms.Panel panWelcome;
     }
 }
