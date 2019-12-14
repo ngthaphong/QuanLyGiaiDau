@@ -16,5 +16,15 @@ namespace QuanLyGiaiDau
         {
             InitializeComponent();
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnDangNhap_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
