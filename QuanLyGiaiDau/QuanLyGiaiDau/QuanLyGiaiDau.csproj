@@ -49,23 +49,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmCreate.cs">
+    <Compile Include="frmCreGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCreate.Designer.cs">
-      <DependentUpon>frmCreate.cs</DependentUpon>
+    <Compile Include="frmCreGroup.Designer.cs">
+      <DependentUpon>frmCreGroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGiai.cs">
+    <Compile Include="frmCreTeam.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGiai.Designer.cs">
-      <DependentUpon>frmGiai.cs</DependentUpon>
+    <Compile Include="frmCreTeam.Designer.cs">
+      <DependentUpon>frmCreTeam.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHome.cs">
+    <Compile Include="frmGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHome.Designer.cs">
-      <DependentUpon>frmHome.cs</DependentUpon>
+    <Compile Include="frmGroup.Designer.cs">
+      <DependentUpon>frmGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRank.Designer.cs">
+      <DependentUpon>frmRank.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -79,16 +85,25 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTime.Designer.cs">
+      <DependentUpon>frmTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmCreate.resx">
-      <DependentUpon>frmCreate.cs</DependentUpon>
+    <EmbeddedResource Include="frmCreGroup.resx">
+      <DependentUpon>frmCreGroup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGiai.resx">
-      <DependentUpon>frmGiai.cs</DependentUpon>
+    <EmbeddedResource Include="frmCreTeam.resx">
+      <DependentUpon>frmCreTeam.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHome.resx">
-      <DependentUpon>frmHome.cs</DependentUpon>
+    <EmbeddedResource Include="frmGroup.resx">
+      <DependentUpon>frmGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRank.resx">
+      <DependentUpon>frmRank.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -96,10 +111,12 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmTime.resx">
+      <DependentUpon>frmTime.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -120,6 +137,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\image-dangnhap.PNG" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\sanbong.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +150,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\create.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shirt.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

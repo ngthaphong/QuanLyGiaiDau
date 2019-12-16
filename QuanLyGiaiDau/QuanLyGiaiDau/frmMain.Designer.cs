@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panWelcome = new System.Windows.Forms.Panel();
             this.lblWelcome = new System.Windows.Forms.Label();
@@ -42,7 +41,7 @@
             // panWelcome
             // 
             this.panWelcome.BackColor = System.Drawing.Color.Transparent;
-            this.panWelcome.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panWelcome.BackgroundImage")));
+            this.panWelcome.BackgroundImage = global::QuanLyGiaiDau.Properties.Resources.sanbong;
             this.panWelcome.Controls.Add(this.lblWelcome);
             this.panWelcome.Controls.Add(this.btnLeague);
             this.panWelcome.Controls.Add(this.btnCreate);
@@ -75,7 +74,7 @@
             this.btnLeague.Name = "btnLeague";
             this.btnLeague.Size = new System.Drawing.Size(132, 116);
             this.btnLeague.TabIndex = 2;
-            this.btnLeague.Text = "Giải đấu";
+            this.btnLeague.Text = "Đội bóng";
             this.btnLeague.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLeague.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnLeague.UseVisualStyleBackColor = true;

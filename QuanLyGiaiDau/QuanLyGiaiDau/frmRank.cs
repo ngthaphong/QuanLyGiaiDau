@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyGiaiDau
 {
-    public partial class frmCreate : Form
+    public partial class frmRank : Form
     {
-        public frmCreate()
+        public frmRank()
         {
             InitializeComponent();
         }

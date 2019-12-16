@@ -92,6 +92,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::QuanLyGiaiDau.Properties.Resources.image_dangnhap;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(314, 192);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.txtUser);
@@ -99,8 +101,9 @@
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.lblPass);
+            this.DoubleBuffered = true;
             this.Name = "frmLogin";
-            this.Text = "DMM CHUNG";
+            this.Text = "Đăng nhập";
             this.ResumeLayout(false);
             this.PerformLayout();
 

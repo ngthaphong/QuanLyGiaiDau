@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyGiaiDau
 {
-    public partial class frmGiai : Form
+    public partial class frmTime : Form
     {
-        public frmGiai()
+        public frmTime()
         {
             InitializeComponent();
         }
