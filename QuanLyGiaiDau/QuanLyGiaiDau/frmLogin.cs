@@ -28,7 +28,7 @@ namespace QuanLyGiaiDau
             {
                 MessageBox.Show("Username không được để trống", "WARING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            if (txtPass.Text == "")
+            else if (txtPass.Text == "")
             {
                 MessageBox.Show("Password không được để trống", "WARING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -37,6 +37,22 @@ namespace QuanLyGiaiDau
             if (main.ShowDialog() != DialogResult.OK)
                 Application.Exit();
             
+        }
+        private void btnReg_Click(object sender, EventArgs e)
+        {
+            if (txtUser.Text == "")
+            {
+                MessageBox.Show("Username không được để trống", "WARING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txtPass.Text == "")
+            {
+                MessageBox.Show("Password không được để trống", "WARING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+
+                MessageBox.Show("Đã đăng kí thành công tài khoản, vui lòng đăng nhập để vào chương trình.", "Chúc mừng! Đăng kí thành công!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

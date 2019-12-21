@@ -34,11 +34,12 @@
             this.lblUser = new System.Windows.Forms.Label();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.btnReg = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnDangNhap
             // 
-            this.btnDangNhap.Location = new System.Drawing.Point(31, 148);
+            this.btnDangNhap.Location = new System.Drawing.Point(14, 148);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(75, 23);
             this.btnDangNhap.TabIndex = 0;
@@ -80,13 +81,24 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(167, 148);
+            this.btnThoat.Location = new System.Drawing.Point(221, 148);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
             this.btnThoat.TabIndex = 0;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // btnReg
+            // 
+            this.btnReg.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnReg.Location = new System.Drawing.Point(120, 148);
+            this.btnReg.Name = "btnReg";
+            this.btnReg.Size = new System.Drawing.Size(75, 23);
+            this.btnReg.TabIndex = 0;
+            this.btnReg.Text = "Đăng kí";
+            this.btnReg.UseVisualStyleBackColor = false;
+            this.btnReg.Click += new System.EventHandler(this.btnReg_Click);
             // 
             // frmLogin
             // 
@@ -98,6 +110,7 @@
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.btnDangNhap);
+            this.Controls.Add(this.btnReg);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.lblPass);
@@ -117,6 +130,7 @@
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.Label lblPass;
         private System.Windows.Forms.TextBox txtPass;
+        private System.Windows.Forms.Button btnReg;
     }
 }
 
