@@ -46,7 +46,7 @@ namespace QuanLyGiaiDau
                         frmMain main = new frmMain();
                         main.StartPosition = FormStartPosition.CenterScreen;
                         main.ShowDialog();
-                        break;
+                        return;
                     }
                 }
                 if (txtUser.Text != null || txtPass.Text != null)

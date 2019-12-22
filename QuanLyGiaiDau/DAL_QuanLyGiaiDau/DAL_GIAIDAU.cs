@@ -9,23 +9,25 @@ using DTO_QuanLyGiaiDau;
 
 namespace DAL_QuanLyGiaiDau
 {
-    public class DAL_DANGNHAP : DBConnect
+    public class DAL_GIAIDAU : DBConnect
     {
         //Lay het user, pass
-        public DataTable getDANGNHAP()
+        public DataTable getGIAIDAU()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT * FROM DANGNHAP", connect);
-            DataTable dtDANGNHAP = new DataTable();
-            data.Fill(dtDANGNHAP);
-            return dtDANGNHAP;
+            SqlDataAdapter data = new SqlDataAdapter("SELECT * FROM GIAIDAU", connect);
+            DataTable dtGIAIDAU = new DataTable();
+            data.Fill(dtGIAIDAU);
+            return dtGIAIDAU;
         }
         //them
-        public bool addDANGNHAP(DTO_DANGNHAP d)
+        public bool addGIAIDAU(DTO_GIAIDAU g)
         {
             try
             {
                 connect.Open();
-                string sql = string.Format("INSERT INTO DANGNHAP(MaTK,username,password) VALUES ('{0}','{1}','{2}')", d.MaTK, d.username, d.password);
+                string start = String.Format("{0:yyyy/MM/dd}", g.NgayBatDau);
+                string end = String.Format("{0:yyyy/MM/dd}", g.NgayKetThuc);
+                string sql = string.Format("INSERT INTO GIAIDAU(MaGiai,TenGiai,NgayBatDau,NgayKetThuc) VALUES ('{0}',N'{1}','{2}','{3}')", g.MaGiai, g.TenGiai, start, end);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
@@ -39,20 +41,22 @@ namespace DAL_QuanLyGiaiDau
             return false;
         }
         //top 1
-        public DataTable topDANGNHAP()
+        public DataTable topGIAIDAU()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM DANGNHAP ORDER BY MaTK DESC", connect);
-            DataTable dtDANGNHAP = new DataTable();
-            data.Fill(dtDANGNHAP);
-            return dtDANGNHAP;
+            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM GIAIDAU ORDER BY MaGiai DESC", connect);
+            DataTable dtGIAIDAU = new DataTable();
+            data.Fill(dtGIAIDAU);
+            return dtGIAIDAU;
         }
         //sua
-        public bool upDANGNHAP(DTO_DANGNHAP d)
+        public bool upGIAIDAU(DTO_GIAIDAU g)
         {
             try
             {
                 connect.Open();
-                string sql = string.Format("UPDATE DANGNHAP SET username='{0}', password='{1}' WHERE MaTK='{3}'", d.username, d.password, d.MaTK);
+                string start = String.Format("{0:yyyy/MM/dd}", g.NgayBatDau);
+                string end = String.Format("{0:yyyy/MM/dd}", g.NgayKetThuc);
+                string sql = string.Format("UPDATE GIAIDAU SET TenGiai=N'{0}', NgayBatDau='{1}', NgayKetThuc='{2}' WHERE MaGiai='{3}'", g.TenGiai,start,end,g.MaGiai);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
@@ -65,12 +69,12 @@ namespace DAL_QuanLyGiaiDau
             return false;
         }
         //xoa
-        public bool delDANGNHAP(DTO_DANGNHAP d)
+        public bool delGIAIDAU(DTO_GIAIDAU g)
         {
             try
             {
                 connect.Open();
-                string sql = string.Format("DELETE FROM DANGNHAP WHERE MaTK='{0}'", d.MaTK);
+                string sql = string.Format("DELETE FROM GIAIDAU WHERE MaGiai='{0}'", g.MaGiai);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
