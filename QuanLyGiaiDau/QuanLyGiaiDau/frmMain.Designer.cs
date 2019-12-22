@@ -58,7 +58,7 @@
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Arial Narrow", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcome.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblWelcome.Location = new System.Drawing.Point(261, 56);
+            this.lblWelcome.Location = new System.Drawing.Point(277, 63);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(559, 46);
             this.lblWelcome.TabIndex = 1;
@@ -93,6 +93,7 @@
             this.btnCreate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCreate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // lblOption
             // 

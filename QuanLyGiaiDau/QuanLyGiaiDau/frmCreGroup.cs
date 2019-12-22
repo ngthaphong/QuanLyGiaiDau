@@ -16,5 +16,15 @@ namespace QuanLyGiaiDau
         {
             InitializeComponent();
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

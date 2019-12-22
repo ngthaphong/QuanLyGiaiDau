@@ -35,5 +35,12 @@ namespace QuanLyGiaiDau
         {
             LoadText();
         }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            frmCreGroup create = new frmCreGroup();
+            create.StartPosition = FormStartPosition.CenterScreen;
+            create.ShowDialog();
+        }
     }
 }

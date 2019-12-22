@@ -30,28 +30,28 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateEnd = new System.Windows.Forms.DateTimePicker();
+            this.dateBegin = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
+            this.txtTenGiai = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.dateTimePicker2);
-            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.dateEnd);
+            this.panel1.Controls.Add(this.dateBegin);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.btnExit);
+            this.panel1.Controls.Add(this.btnCreate);
+            this.panel1.Controls.Add(this.txtTenGiai);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(273, 306);
@@ -67,20 +67,20 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Tạo một giải đấu";
             // 
-            // dateTimePicker2
+            // dateEnd
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(3, 192);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 5;
-            this.dateTimePicker2.Value = new System.DateTime(2021, 12, 17, 2, 10, 0, 0);
+            this.dateEnd.Location = new System.Drawing.Point(3, 192);
+            this.dateEnd.Name = "dateEnd";
+            this.dateEnd.Size = new System.Drawing.Size(200, 20);
+            this.dateEnd.TabIndex = 5;
+            this.dateEnd.Value = new System.DateTime(2021, 12, 17, 2, 10, 0, 0);
             // 
-            // dateTimePicker1
+            // dateBegin
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(3, 138);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 5;
+            this.dateBegin.Location = new System.Drawing.Point(3, 138);
+            this.dateBegin.Name = "dateBegin";
+            this.dateBegin.Size = new System.Drawing.Size(200, 20);
+            this.dateBegin.TabIndex = 5;
             // 
             // label2
             // 
@@ -109,30 +109,32 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Tên giải đấu:";
             // 
-            // button2
+            // btnExit
             // 
-            this.button2.Location = new System.Drawing.Point(155, 279);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Thoát";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnExit.Location = new System.Drawing.Point(155, 279);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 1;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // button1
+            // btnCreate
             // 
-            this.button1.Location = new System.Drawing.Point(44, 279);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Tạo";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCreate.Location = new System.Drawing.Point(44, 279);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(75, 23);
+            this.btnCreate.TabIndex = 1;
+            this.btnCreate.Text = "Tạo";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
-            // textBox1
+            // txtTenGiai
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 86);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(260, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtTenGiai.Location = new System.Drawing.Point(3, 86);
+            this.txtTenGiai.Name = "txtTenGiai";
+            this.txtTenGiai.Size = new System.Drawing.Size(260, 20);
+            this.txtTenGiai.TabIndex = 0;
             // 
             // frmCreGroup
             // 
@@ -153,13 +155,13 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.TextBox txtTenGiai;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateEnd;
+        private System.Windows.Forms.DateTimePicker dateBegin;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnExit;
     }
 }
