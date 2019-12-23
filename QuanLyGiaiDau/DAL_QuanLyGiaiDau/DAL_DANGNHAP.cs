@@ -52,7 +52,7 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("UPDATE DANGNHAP SET username='{0}', password='{1}' WHERE MaTK='{3}'", d.username, d.password, d.MaTK);
+                string sql = string.Format("UPDATE DANGNHAP SET username='{0}', password='{1}' WHERE MaTK='{2}'", d.username, d.password, d.MaTK);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;

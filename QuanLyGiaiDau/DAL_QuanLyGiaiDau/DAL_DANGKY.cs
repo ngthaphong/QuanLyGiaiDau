@@ -25,7 +25,8 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("INSERT INTO DANGNHAP(MaTK,username,password) VALUES ('{0}','{1}','{2}')", d.MaTK, d.username, d.password);
+                string ngaydk = String.Format("{0:yyyy/MM/dd}", d.NgayDangKy);
+                string sql = string.Format("INSERT INTO DANGKY(MaGiai,MaDD,NgayDangKy,MaTK) VALUES ('{0}','{1}','{2}','{3}')", d.MaGiai,d.MaDD,ngaydk,d.MaTK);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
@@ -41,7 +42,7 @@ namespace DAL_QuanLyGiaiDau
         //top 1
         public DataTable topDANGKY()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM DANGNHAP ORDER BY MaTK DESC", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM DANGKY ORDER BY MaGiai DESC", connect);
             DataTable dtDANGNHAP = new DataTable();
             data.Fill(dtDANGNHAP);
             return dtDANGNHAP;
@@ -52,7 +53,8 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("UPDATE DANGNHAP SET username='{0}', password='{1}' WHERE MaTK='{3}'", d.username, d.password, d.MaTK);
+                string ngaydk = String.Format("{0:yyyy/MM/dd}", d.NgayDangKy);
+                string sql = string.Format("UPDATE DANGKY SET MaDD='{0}', NgayDangKy='{1}', MaTK='{2}' WHERE MaGiai='{3}'", d.MaDD,ngaydk,d.MaTK,d.MaGiai);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
@@ -70,7 +72,7 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("DELETE FROM DANGKY WHERE MaTK='{0}'", d.MaTK);
+                string sql = string.Format("DELETE FROM DANGKY WHERE MaGiai='{0}'", d.MaGiai);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;

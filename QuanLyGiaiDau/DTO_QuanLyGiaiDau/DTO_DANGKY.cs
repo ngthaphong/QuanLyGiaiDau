@@ -35,7 +35,7 @@ namespace DTO_QuanLyGiaiDau
         }
         //contructor
         public DTO_DANGKY() { }
-        public DTO_DANGKY(string magiai, string mad, DateTime ngaydk, string matk)
+        public DTO_DANGKY(string magiai, string madd, DateTime ngaydk, string matk)
         {
             this.MaGiai = magiai;
             this.MaDD = madd;

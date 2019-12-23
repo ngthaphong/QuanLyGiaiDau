@@ -25,7 +25,7 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("INSERT INTO DANGNHAP(MaTK,username,password) VALUES ('{0}','{1}','{2}')", d.MaTK, d.username, d.password);
+                string sql = string.Format("INSERT INTO DAIDIEN(MaDD,MaDoi,TenNguoiDD) VALUES ('{0}','{1}',N'{2}')", d.MaDD, d.MaDoi, d.TenNguoiDD);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
@@ -41,18 +41,18 @@ namespace DAL_QuanLyGiaiDau
         //top 1
         public DataTable topDAIDIEN()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM DANGNHAP ORDER BY MaTK DESC", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM DAIDIEN ORDER BY MaDD DESC", connect);
             DataTable dtDANGNHAP = new DataTable();
             data.Fill(dtDANGNHAP);
             return dtDANGNHAP;
         }
         //sua
-        public bool upDAIDIEN(DTO_DANGNHAP d)
+        public bool upDAIDIEN(DTO_DAIDIEN d)
         {
             try
             {
                 connect.Open();
-                string sql = string.Format("UPDATE DANGNHAP SET username='{0}', password='{1}' WHERE MaTK='{3}'", d.username, d.password, d.MaTK);
+                string sql = string.Format("UPDATE DAIDIEN SET MaDoi='{0}', TenNguoiDD=N'{1}' WHERE MaDD='{3}'", d.MaDoi, d.TenNguoiDD, d.MaDD);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
@@ -70,7 +70,7 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("DELETE FROM DANGNHAP WHERE MaTK='{0}'", d.MaTK);
+                string sql = string.Format("DELETE FROM DAIDIEN WHERE MaDD='{0}'", d.MaDD);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;

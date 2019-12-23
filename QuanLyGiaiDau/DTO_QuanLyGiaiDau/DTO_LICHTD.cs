@@ -15,7 +15,7 @@ namespace DTO_QuanLyGiaiDau
         private DateTime _ThoiGianDienRa;
         private string _TrongTai;
         private int _BanThang1;
-        private int _BangThang2;
+        private int _BanThang2;
         private int _TheVang1;
         private int _TheVang2;
         private int _TheDo1;
@@ -33,7 +33,7 @@ namespace DTO_QuanLyGiaiDau
             get { return _MaDoi2; }
             set { _MaDoi2 = value; }
         }
-        public string SoTran
+        public int SoTran
         {
             get { return _SoTran; }
             set { _SoTran = value; }
@@ -96,7 +96,7 @@ namespace DTO_QuanLyGiaiDau
 
         //contructor
         public DTO_LICHTD() { }
-        public DTO_LICHTD(string mad1, string mad2, string sotran, string tensan, DateTime thoigiandienra, string trongtai, int bt1, int bt2, int tv1, int tv2, int td1, int td2, int sd1, int sd2)
+        public DTO_LICHTD(string mad1, string mad2, int sotran, string tensan, DateTime thoigiandienra, string trongtai, int bt1, int bt2, int tv1, int tv2, int td1, int td2, int sd1, int sd2)
         {
             this.MaDoi1 = mad1;
             this.MaDoi2 = mad2;

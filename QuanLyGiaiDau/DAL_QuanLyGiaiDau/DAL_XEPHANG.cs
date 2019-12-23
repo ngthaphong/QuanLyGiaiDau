@@ -25,7 +25,7 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("INSERT INTO XEPHANG(MaTK,username,password) VALUES ('{0}','{1}','{2}')", d.MaTK, d.username, d.password);
+                string sql = string.Format("INSERT INTO XEPHANG(MaGiai,MaDoi,TongDiem,HieuSo,ViThu) VALUES ('{0}','{1}',{2},{3},{4})", d.MaGiai, d.MaDoi, d.TongDiem,d.HieuSo,d.ViThu);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
@@ -41,7 +41,7 @@ namespace DAL_QuanLyGiaiDau
         //top 1
         public DataTable topXEPHANGT()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM XEPHANG ORDER BY MaTK DESC", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM XEPHANG ORDER BY MaGiai DESC", connect);
             DataTable dtXEPHANG = new DataTable();
             data.Fill(dtXEPHANG);
             return dtXEPHANG;
@@ -52,7 +52,7 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("UPDATE XEPHANG SET username='{0}', password='{1}' WHERE MaTK='{3}'", d.username, d.password, d.MaTK);
+                string sql = string.Format("UPDATE XEPHANG SET MaDoi='{0}', TongDiem={1}, HieuSo={2}, ViThu={3} WHERE MaGiai='{4}'", d.MaDoi, d.TongDiem, d.HieuSo, d.ViThu, d.MaGiai);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
@@ -70,7 +70,7 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("DELETE FROM XEPHANG WHERE MaTK='{0}'", d.MaTK);
+                string sql = string.Format("DELETE FROM XEPHANG WHERE MaGiai='{0}'", d.MaGiai);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;

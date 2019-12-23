@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO_QuanLyGiaiDau
 {
-    public class DTO_TRAN
+    public class DTO_VONG
     {
         private string _MaGiai;
         private string _TenVong;
@@ -23,8 +23,8 @@ namespace DTO_QuanLyGiaiDau
         }
 
         //contructor
-        public DTO_TRAN() { }
-        public DTO_TRAN(string magiai, string tenvong)
+        public DTO_VONG() { }
+        public DTO_VONG(string magiai, string tenvong)
         {
             this.MaGiai = magiai; 
             this.TenVong = tenvong;

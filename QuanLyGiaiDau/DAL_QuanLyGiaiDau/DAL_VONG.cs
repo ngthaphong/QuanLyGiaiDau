@@ -25,7 +25,7 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("INSERT INTO VONG(MaTK,username,password) VALUES ('{0}','{1}','{2}')", d.MaTK, d.username, d.password);
+                string sql = string.Format("INSERT INTO VONG(MaGiai,TenVong) VALUES ('{0}','{1}')", d.MaGiai, d.TenVong);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
@@ -41,7 +41,7 @@ namespace DAL_QuanLyGiaiDau
         //top 1
         public DataTable topVONG()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM VONG ORDER BY MaTK DESC", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM VONG ORDER BY MaGiai DESC", connect);
             DataTable dtVONG = new DataTable();
             data.Fill(dtVONG);
             return dtVONG;
@@ -52,7 +52,7 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("UPDATE VONG SET username='{0}', password='{1}' WHERE MaTK='{3}'", d.username, d.password, d.MaTK);
+                string sql = string.Format("UPDATE VONG SET TenVong='{0}' WHERE MaGiai='{1}'", d.TenVong, d.MaGiai);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
@@ -70,7 +70,7 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("DELETE FROM VONG WHERE MaTK='{0}'", d.MaTK);
+                string sql = string.Format("DELETE FROM VONG WHERE MaGiai='{0}'", d.MaGiai);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;

@@ -51,9 +51,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL_CAUTHU.cs" />
+    <Compile Include="DAL_DAIDIEN.cs" />
+    <Compile Include="DAL_DANGKY.cs" />
     <Compile Include="DAL_DANGNHAP.cs" />
     <Compile Include="DAL_DOI.cs" />
     <Compile Include="DAL_GIAIDAU.cs" />
+    <Compile Include="DAL_LICHTD.cs" />
+    <Compile Include="DAL_THONGKECT.cs" />
+    <Compile Include="DAL_TRAN.cs" />
+    <Compile Include="DAL_VONG.cs" />
+    <Compile Include="DAL_XEPHANG.cs" />
     <Compile Include="DBConnect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

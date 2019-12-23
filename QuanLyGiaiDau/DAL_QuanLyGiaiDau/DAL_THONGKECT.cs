@@ -25,7 +25,7 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("INSERT INTO THONGKECT(MaTK,username,password) VALUES ('{0}','{1}','{2}')", d.MaTK, d.username, d.password);
+                string sql = string.Format("INSERT INTO THONGKECT(MaGiai,MaDoi,HoTenCT,SoAo,BanThang,TheVang,TheDo) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", d.MaGiai, d.MaDoi, d.HoTenCT, d.SoAo, d.BanThang, d.TheVang, d.TheDo);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
@@ -41,7 +41,7 @@ namespace DAL_QuanLyGiaiDau
         //top 1
         public DataTable topTHONGKECT()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM LICHTD ORDER BY MaTK DESC", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM LICHTD ORDER BY MaGiai DESC", connect);
             DataTable dtTHONGKECT = new DataTable();
             data.Fill(dtTHONGKECT);
             return dtTHONGKECT;
@@ -52,7 +52,7 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("UPDATE THONGKECT SET username='{0}', password='{1}' WHERE MaTK='{3}'", d.username, d.password, d.MaTK);
+                string sql = string.Format("UPDATE THONGKECT SET MaDoi='{0}', HoTenCT=N'{1}', SoAo={2}, BanThang={3}, TheVang={4}, TheDo={5} WHERE MaGiai='{6}'", d.MaDoi, d.HoTenCT, d.SoAo, d.BanThang, d.TheVang, d.TheDo, d.MaGiai);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
@@ -70,7 +70,7 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("DELETE FROM THONGKECT WHERE MaTK='{0}'", d.MaTK);
+                string sql = string.Format("DELETE FROM THONGKECT WHERE MaGiai='{0}'", d.MaGiai);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;

@@ -25,7 +25,7 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("INSERT INTO TRAN(MaTK,username,password) VALUES ('{0}','{1}','{2}')", d.MaTK, d.username, d.password);
+                string sql = string.Format("INSERT INTO TRAN(SoTran,TenVong) VALUES ({0},'{1}')", d.SoTran, d.TenVong);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
@@ -41,7 +41,7 @@ namespace DAL_QuanLyGiaiDau
         //top 1
         public DataTable topTRAN()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM LICHTD ORDER BY MaTK DESC", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM LICHTD ORDER BY SoTran DESC", connect);
             DataTable dtTRAN = new DataTable();
             data.Fill(dtTRAN);
             return dtTRAN;
@@ -52,7 +52,7 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("UPDATE LICHTD SET username='{0}', password='{1}' WHERE MaTK='{3}'", d.username, d.password, d.MaTK);
+                string sql = string.Format("UPDATE LICHTD SET TenVong='{0}' WHERE SoTran={1}", d.TenVong, d.SoTran);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
@@ -70,7 +70,7 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("DELETE FROM TRAN WHERE MaTK='{0}'", d.MaTK);
+                string sql = string.Format("DELETE FROM TRAN WHERE SoTran={0}", d.SoTran);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
