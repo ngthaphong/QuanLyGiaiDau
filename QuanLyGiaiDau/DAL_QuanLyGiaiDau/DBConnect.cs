@@ -9,6 +9,6 @@ namespace DAL_QuanLyGiaiDau
 {
     public class DBConnect
     {
-        protected SqlConnection connect = new SqlConnection("data source=PHONG-ALIENWARE;initial catalog=QuanLyGiaiDau;integrated security=True");
+        protected SqlConnection connect = new SqlConnection("data source=HUNGNGUYEN\SQLEXPRESS;initial catalog=QuanLyGiaiDau;integrated security=True");
     }
 }
