@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO_DANGNHAP.cs" />
+    <Compile Include="DTO_DOI.cs" />
     <Compile Include="DTO_GIAIDAU.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

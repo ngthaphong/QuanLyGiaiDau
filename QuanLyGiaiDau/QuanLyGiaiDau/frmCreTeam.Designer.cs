@@ -29,41 +29,57 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cboThanhVien = new System.Windows.Forms.ComboBox();
+            this.cboMau = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
+            this.txtDoiTruong = new System.Windows.Forms.TextBox();
+            this.txtTenHLV = new System.Windows.Forms.TextBox();
+            this.txtTenDoi = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.cboThanhVien);
+            this.panel1.Controls.Add(this.cboMau);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.btnExit);
+            this.panel1.Controls.Add(this.btnCreate);
+            this.panel1.Controls.Add(this.txtDoiTruong);
+            this.panel1.Controls.Add(this.txtTenHLV);
+            this.panel1.Controls.Add(this.txtTenDoi);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(288, 409);
             this.panel1.TabIndex = 1;
+            // 
+            // cboThanhVien
+            // 
+            this.cboThanhVien.FormattingEnabled = true;
+            this.cboThanhVien.Location = new System.Drawing.Point(3, 252);
+            this.cboThanhVien.Name = "cboThanhVien";
+            this.cboThanhVien.Size = new System.Drawing.Size(260, 21);
+            this.cboThanhVien.TabIndex = 8;
+            // 
+            // cboMau
+            // 
+            this.cboMau.FormattingEnabled = true;
+            this.cboMau.Location = new System.Drawing.Point(3, 306);
+            this.cboMau.Name = "cboMau";
+            this.cboMau.Size = new System.Drawing.Size(260, 21);
+            this.cboMau.TabIndex = 7;
             // 
             // label4
             // 
@@ -120,60 +136,44 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Tên đội:";
             // 
-            // button2
+            // btnExit
             // 
-            this.button2.Location = new System.Drawing.Point(155, 361);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Thoát";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnExit.Location = new System.Drawing.Point(155, 361);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 1;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnCreate
             // 
-            this.button1.Location = new System.Drawing.Point(44, 361);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Tạo";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCreate.Location = new System.Drawing.Point(44, 361);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(75, 23);
+            this.btnCreate.TabIndex = 1;
+            this.btnCreate.Text = "Tạo";
+            this.btnCreate.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // txtDoiTruong
             // 
-            this.textBox3.Location = new System.Drawing.Point(3, 192);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(260, 20);
-            this.textBox3.TabIndex = 0;
+            this.txtDoiTruong.Location = new System.Drawing.Point(3, 192);
+            this.txtDoiTruong.Name = "txtDoiTruong";
+            this.txtDoiTruong.Size = new System.Drawing.Size(260, 20);
+            this.txtDoiTruong.TabIndex = 0;
             // 
-            // textBox2
+            // txtTenHLV
             // 
-            this.textBox2.Location = new System.Drawing.Point(3, 138);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(260, 20);
-            this.textBox2.TabIndex = 0;
+            this.txtTenHLV.Location = new System.Drawing.Point(3, 138);
+            this.txtTenHLV.Name = "txtTenHLV";
+            this.txtTenHLV.Size = new System.Drawing.Size(260, 20);
+            this.txtTenHLV.TabIndex = 0;
             // 
-            // textBox1
+            // txtTenDoi
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 86);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(260, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(3, 306);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(260, 21);
-            this.comboBox1.TabIndex = 7;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(3, 252);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(260, 21);
-            this.comboBox2.TabIndex = 8;
+            this.txtTenDoi.Location = new System.Drawing.Point(3, 86);
+            this.txtTenDoi.Name = "txtTenDoi";
+            this.txtTenDoi.Size = new System.Drawing.Size(260, 20);
+            this.txtTenDoi.TabIndex = 0;
             // 
             // frmCreTeam
             // 
@@ -197,14 +197,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.TextBox txtTenDoi;
+        private System.Windows.Forms.TextBox txtDoiTruong;
+        private System.Windows.Forms.TextBox txtTenHLV;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboMau;
+        private System.Windows.Forms.ComboBox cboThanhVien;
     }
 }
