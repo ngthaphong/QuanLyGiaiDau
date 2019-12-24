@@ -39,7 +39,14 @@ namespace QuanLyGiaiDau
         private void btnCreate_Click(object sender, EventArgs e)
         {
             frmCreGroup create = new frmCreGroup();
-            create.StartPosition = FormStartPosition.CenterScreen;
+            create.StartPosition = FormStartPosition.CenterParent;
+            create.ShowDialog();
+        }
+
+        private void btnLeague_Click(object sender, EventArgs e)
+        {
+            frmCreTeam create = new frmCreTeam();
+            create.StartPosition = FormStartPosition.CenterParent;
             create.ShowDialog();
         }
     }

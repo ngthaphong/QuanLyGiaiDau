@@ -52,7 +52,7 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("UPDATE DAIDIEN SET MaDoi='{0}', TenNguoiDD=N'{1}' WHERE MaDD='{3}'", d.MaDoi, d.TenNguoiDD, d.MaDD);
+                string sql = string.Format("UPDATE DAIDIEN SET MaDoi='{0}', TenNguoiDD=N'{1}' WHERE MaDD='{2}'", d.MaDoi, d.TenNguoiDD, d.MaDD);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;

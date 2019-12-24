@@ -78,6 +78,7 @@
             this.btnLeague.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLeague.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnLeague.UseVisualStyleBackColor = true;
+            this.btnLeague.Click += new System.EventHandler(this.btnLeague_Click);
             // 
             // btnCreate
             // 

@@ -73,6 +73,12 @@
     <Compile Include="frmGroup.Designer.cs">
       <DependentUpon>frmGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmKicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKicker.Designer.cs">
+      <DependentUpon>frmKicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRank.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGroup.resx">
       <DependentUpon>frmGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKicker.resx">
+      <DependentUpon>frmKicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRank.resx">
       <DependentUpon>frmRank.cs</DependentUpon>

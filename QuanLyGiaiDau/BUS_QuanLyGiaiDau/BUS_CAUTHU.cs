@@ -8,37 +8,36 @@ using DTO_QuanLyGiaiDau;
 using System.Data;
 using System.Text.RegularExpressions;
 
-
 namespace BUS_QuanLyGiaiDau
 {
-    public class BUS_DOI
+    public class BUS_CAUTHU
     {
-        DAL_DOI dalDOI = new DAL_DOI();
-        public DataTable getDOI()
+        DAL_CAUTHU dalCAUTHU = new DAL_CAUTHU();
+        public DataTable getCAUTHU()
         {
-            return dalDOI.getDOI();
+            return dalCAUTHU.getCAUTHU();
         }
-        public bool addDOI(DTO_DOI g)
+        public bool addCAUTHU(DTO_CAUTHU g)
         {
-            return dalDOI.addDOI(g);
+            return dalCAUTHU.addCAUTHU(g);
         }
-        public DataTable topDOI()
+        public DataTable topCAUTHU()
         {
-            return dalDOI.topDOI();
+            return dalCAUTHU.topCAUTHU();
         }
-        public bool upDOI(DTO_DOI g)
+        public bool upCAUTHU(DTO_CAUTHU g)
         {
-            return dalDOI.upDOI(g);
+            return dalCAUTHU.upCAUTHU(g);
         }
-        public bool delDOI(DTO_DOI g)
+        public bool delCAUTHU(DTO_CAUTHU g)
         {
-            return dalDOI.delDOI(g);
+            return dalCAUTHU.delCAUTHU(g);
         }
         public string nextMa(string str)
         {
-            BUS_DOI temp = new BUS_DOI();
+            BUS_CAUTHU temp = new BUS_CAUTHU();
             //get last matk
-            DataTable t = temp.topDOI();
+            DataTable t = temp.topCAUTHU();
             string Tmag = t.Rows[0].Field<string>(0);
             //get int in a string to add 1 after string
             string mastr = Regex.Match(Tmag, @"\d+").Value;
