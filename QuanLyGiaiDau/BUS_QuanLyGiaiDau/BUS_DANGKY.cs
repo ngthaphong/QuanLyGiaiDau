@@ -33,18 +33,5 @@ namespace BUS_QuanLyGiaiDau
         {
             return dalDANGKY.delDANGKY(g);
         }
-        public string nextMa(string str)
-        {
-            BUS_DANGKY temp = new BUS_DANGKY();
-            //get last matk
-            DataTable t = temp.topDANGKY();
-            string Tmag = t.Rows[0].Field<string>(0);
-            //get int in a string to add 1 after string
-            string mastr = Regex.Match(Tmag, @"\d+").Value;
-            int ma = Int32.Parse(mastr);
-            ma++; mastr = null;
-            mastr += str; mastr += ma;
-            return mastr;
-        }
     }
 }

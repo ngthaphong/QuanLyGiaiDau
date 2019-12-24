@@ -12,6 +12,7 @@ namespace BUS_QuanLyGiaiDau
 {
     public class BUS_DANGNHAP
     {
+        
         DAL_DANGNHAP dalDANGNHAP = new DAL_DANGNHAP();
         public DataTable getDANGNHAP()
         {
@@ -27,9 +28,8 @@ namespace BUS_QuanLyGiaiDau
         }
         public string nextMa(string str)
         {
-            BUS_DANGNHAP temp = new BUS_DANGNHAP();
             //get last matk
-            DataTable t = temp.topDANGNHAP();
+            DataTable t = topDANGNHAP();
             string Tmag = t.Rows[0].Field<string>(0);
             //get int in a string to add 1 after string
             string mastr = Regex.Match(Tmag, @"\d+").Value;
@@ -38,5 +38,6 @@ namespace BUS_QuanLyGiaiDau
             mastr += str; mastr += ma;
             return mastr;
         }
+        
     }
 }

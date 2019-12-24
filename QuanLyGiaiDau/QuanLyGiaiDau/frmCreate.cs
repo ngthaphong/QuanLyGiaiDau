@@ -24,15 +24,49 @@ namespace QuanLyGiaiDau
 
         private void btnTao_Click(object sender, EventArgs e)
         {
-            DTO_DAIDIEN dd = new DTO_DAIDIEN();
-            DTO_DANGKY dk = new DTO_DANGKY();
+            
+            
+            if (txtDaiDien.TextLength < 10 || txtDaiDien.TextLength > 50)
+            {
+                MessageBox.Show("Tên đại diện phải lớn hơn 10 kí tự và nhỏ hơn 50 kí tự", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                //create daidien
+                string madd = dd.nextMa("MDD");
+                DTO_DAIDIEN dtodd = new DTO_DAIDIEN(madd, null, txtDaiDien.Text);
+                if (dd.addDAIDIEN(dtodd))
+                {
+                    //create dangky
+                    string magiai = (string)cboGiaiDau.SelectedValue;
+                    string matk = BUS_Main.getMaDN();
+                    DTO_DANGKY dtodk = new DTO_DANGKY(magiai,madd,dtaNgayDangKy.Value,matk);
+                    if (dk.addDANGKY(dtodk)) MessageBox.Show("Bạn đã hoàn tất đăng ký, vui lòng tạo một đội bóng để có thể tham gia Giải Đấu", "Chúc mừng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else MessageBox.Show("Tạo thất bại, vui lòng kiểm tra lại thông tin đăng kí", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else MessageBox.Show("Tạo thất bại, vui lòng kiểm tra lại thông tin người đại diện", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void frmCreate_Load(object sender, EventArgs e)
         {
             DataTable t = giai.getGIAIDAU();
             cboGiaiDau.DataSource = t;
+            cboGiaiDau.ValueMember = "MaGiai";
             cboGiaiDau.DisplayMember = "TenGiai";
+            btnTao.Enabled = false;
+            lblTao.Text = "Mời chọn Giải";
+        }
+
+        private void cboGiaiDau_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnTao.Enabled = true;
+            lblTao.Text = "";
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

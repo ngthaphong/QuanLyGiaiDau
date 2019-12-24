@@ -40,6 +40,7 @@ namespace QuanLyGiaiDau
                     if (row.Field<string>(1) == txtUser.Text && row.Field<string>(2) == txtPass.Text)
                     {
                         MessageBox.Show("Đăng nhập thành công!", "Chúc mừng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        BUS_Main.setMaDN(txtUser.Text, txtPass.Text);
                         txtUser.Text = null;
                         txtPass.Text = null;
                         this.Hide();

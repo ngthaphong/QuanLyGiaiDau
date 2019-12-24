@@ -25,7 +25,7 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string sql = string.Format("INSERT INTO DAIDIEN(MaDD,MaDoi,TenNguoiDD) VALUES ('{0}','{1}',N'{2}')", d.MaDD, d.MaDoi, d.TenNguoiDD);
+                string sql = string.Format("INSERT INTO DAIDIEN(MaDD,MaDoi,TenNguoiDD) VALUES ('{0}',NULL,N'{1}')", d.MaDD, d.TenNguoiDD);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;

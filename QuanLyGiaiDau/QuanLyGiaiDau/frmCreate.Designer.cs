@@ -34,9 +34,10 @@
             this.dtaNgayDangKy = new System.Windows.Forms.DateTimePicker();
             this.btnThoat = new System.Windows.Forms.Button();
             this.grbDangKy = new System.Windows.Forms.GroupBox();
+            this.cboGiaiDau = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cboGiaiDau = new System.Windows.Forms.ComboBox();
+            this.lblTao = new System.Windows.Forms.Label();
             this.grbDangKy.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,9 +82,11 @@
             this.btnThoat.TabIndex = 2;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // grbDangKy
             // 
+            this.grbDangKy.Controls.Add(this.lblTao);
             this.grbDangKy.Controls.Add(this.cboGiaiDau);
             this.grbDangKy.Controls.Add(this.txtDaiDien);
             this.grbDangKy.Controls.Add(this.dtaNgayDangKy);
@@ -97,6 +100,15 @@
             this.grbDangKy.Size = new System.Drawing.Size(306, 230);
             this.grbDangKy.TabIndex = 4;
             this.grbDangKy.TabStop = false;
+            // 
+            // cboGiaiDau
+            // 
+            this.cboGiaiDau.FormattingEnabled = true;
+            this.cboGiaiDau.Location = new System.Drawing.Point(58, 19);
+            this.cboGiaiDau.Name = "cboGiaiDau";
+            this.cboGiaiDau.Size = new System.Drawing.Size(228, 21);
+            this.cboGiaiDau.TabIndex = 4;
+            this.cboGiaiDau.SelectedIndexChanged += new System.EventHandler(this.cboGiaiDau_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -116,13 +128,13 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Giải đấu:";
             // 
-            // cboGiaiDau
+            // lblTao
             // 
-            this.cboGiaiDau.FormattingEnabled = true;
-            this.cboGiaiDau.Location = new System.Drawing.Point(58, 19);
-            this.cboGiaiDau.Name = "cboGiaiDau";
-            this.cboGiaiDau.Size = new System.Drawing.Size(228, 21);
-            this.cboGiaiDau.TabIndex = 4;
+            this.lblTao.AutoSize = true;
+            this.lblTao.Location = new System.Drawing.Point(52, 185);
+            this.lblTao.Name = "lblTao";
+            this.lblTao.Size = new System.Drawing.Size(0, 13);
+            this.lblTao.TabIndex = 5;
             // 
             // frmCreate
             // 
@@ -150,5 +162,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboGiaiDau;
+        private System.Windows.Forms.Label lblTao;
     }
 }
