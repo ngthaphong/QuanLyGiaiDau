@@ -38,6 +38,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.txtTenGiai = new System.Windows.Forms.TextBox();
+            this.btnThem = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +50,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnThem);
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.btnCreate);
             this.panel1.Controls.Add(this.txtTenGiai);
@@ -111,7 +113,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(155, 279);
+            this.btnExit.Location = new System.Drawing.Point(151, 279);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 1;
@@ -121,7 +123,7 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(44, 279);
+            this.btnCreate.Location = new System.Drawing.Point(55, 279);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 1;
@@ -135,6 +137,16 @@
             this.txtTenGiai.Name = "txtTenGiai";
             this.txtTenGiai.Size = new System.Drawing.Size(260, 20);
             this.txtTenGiai.TabIndex = 0;
+            // 
+            // btnThem
+            // 
+            this.btnThem.Location = new System.Drawing.Point(171, 240);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(92, 23);
+            this.btnThem.TabIndex = 1;
+            this.btnThem.Text = "Thêm đại diện";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // frmCreGroup
             // 
@@ -163,5 +175,6 @@
         private System.Windows.Forms.DateTimePicker dateBegin;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnThem;
     }
 }

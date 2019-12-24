@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace DTO_QuanLyGiaiDau
 {
     public class DTO_DAIDIEN
@@ -31,7 +26,7 @@ namespace DTO_QuanLyGiaiDau
         public DTO_DAIDIEN() { }
         public DTO_DAIDIEN(string madd, string mad, string nguoi)
         {
-            this.MaTK = matk;
+            this.MaDD = madd;
             this.MaDoi = mad;
             this.TenNguoiDD = nguoi;
         }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DAL_QuanLyGiaiDau;
 using DTO_QuanLyGiaiDau;
 using System.Data;
+using System.Text.RegularExpressions;
 
 namespace BUS_QuanLyGiaiDau
 {
@@ -23,6 +24,19 @@ namespace BUS_QuanLyGiaiDau
         public DataTable topDANGNHAP()
         {
             return dalDANGNHAP.topDANGNHAP();
+        }
+        public string nextMa(string str)
+        {
+            BUS_DANGNHAP temp = new BUS_DANGNHAP();
+            //get last matk
+            DataTable t = temp.topDANGNHAP();
+            string Tmag = t.Rows[0].Field<string>(0);
+            //get int in a string to add 1 after string
+            string mastr = Regex.Match(Tmag, @"\d+").Value;
+            int ma = Int32.Parse(mastr);
+            ma++; mastr = null;
+            mastr += str; mastr += ma;
+            return mastr;
         }
     }
 }

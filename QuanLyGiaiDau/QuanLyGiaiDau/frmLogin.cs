@@ -65,14 +65,7 @@ namespace QuanLyGiaiDau
             }
             else
             {
-                //get last matk
-                DataTable t = busdn.topDANGNHAP();
-                string Tmatk=t.Rows[0].Field<string>(0);
-                //get int in a string to add 1
-                string matk = Regex.Match(Tmatk, @"\d+").Value;
-                int ma=Int32.Parse(matk);
-                ma++;matk = null;
-                matk += "TK";matk += ma;
+                string matk = busdn.nextMa("TK");
                 //init
                 DTO_DANGNHAP dtodn = new DTO_DANGNHAP(matk,txtUser.Text,txtPass.Text);
                 if (busdn.addDANGNHAP(dtodn))

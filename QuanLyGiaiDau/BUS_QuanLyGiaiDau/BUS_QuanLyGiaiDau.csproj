@@ -40,9 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS_DAIDIEN.cs" />
+    <Compile Include="BUS_DANGKY.cs" />
     <Compile Include="BUS_DANGNHAP.cs" />
     <Compile Include="BUS_DOI.cs" />
     <Compile Include="BUS_GIAIDAU.cs" />
+    <Compile Include="BUS_Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

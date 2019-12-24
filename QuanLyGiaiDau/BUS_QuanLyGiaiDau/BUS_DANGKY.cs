@@ -10,34 +10,34 @@ using System.Text.RegularExpressions;
 
 namespace BUS_QuanLyGiaiDau
 {
-    public class BUS_GIAIDAU
+    public class BUS_DANGKY
     {
-        DAL_GIAIDAU dalGIAIDAU = new DAL_GIAIDAU();
-        public DataTable getGIAIDAU()
+        DAL_DANGKY dalDANGKY = new DAL_DANGKY();
+        public DataTable getDANGKY()
         {
-            return dalGIAIDAU.getGIAIDAU();
+            return dalDANGKY.getDANGKY();
         }
-        public bool addGIAIDAU(DTO_GIAIDAU g)
+        public bool addDANGKY(DTO_DANGKY g)
         {
-            return dalGIAIDAU.addGIAIDAU(g);
+            return dalDANGKY.addDANGKY(g);
         }
-        public DataTable topGIAIDAU()
+        public DataTable topDANGKY()
         {
-            return dalGIAIDAU.topGIAIDAU();
+            return dalDANGKY.topDANGKY();
         }
-        public bool upGIAIDAU(DTO_GIAIDAU g)
+        public bool upDANGKY(DTO_DANGKY g)
         {
-            return dalGIAIDAU.upGIAIDAU(g);
+            return dalDANGKY.upDANGKY(g);
         }
-        public bool delGIAIDAU(DTO_GIAIDAU g)
+        public bool delDANGKY(DTO_DANGKY g)
         {
-            return dalGIAIDAU.delGIAIDAU(g);
+            return dalDANGKY.delDANGKY(g);
         }
         public string nextMa(string str)
         {
-            BUS_GIAIDAU temp = new BUS_GIAIDAU();
+            BUS_DANGKY temp = new BUS_DANGKY();
             //get last matk
-            DataTable t = temp.topGIAIDAU();
+            DataTable t = temp.topDANGKY();
             string Tmag = t.Rows[0].Field<string>(0);
             //get int in a string to add 1 after string
             string mastr = Regex.Match(Tmag, @"\d+").Value;

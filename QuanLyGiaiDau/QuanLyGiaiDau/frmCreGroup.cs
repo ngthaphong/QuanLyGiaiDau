@@ -21,6 +21,13 @@ namespace QuanLyGiaiDau
             InitializeComponent();
         }
 
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmCreate them = new frmCreate();
+            them.ShowDialog();
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -34,18 +41,11 @@ namespace QuanLyGiaiDau
             }
             else
             {
-                //get last matk
-                DataTable t = giai.topGIAIDAU();
-                string Tmag = t.Rows[0].Field<string>(0);
-                //get int in a string to add 1 after string
-                string mag = Regex.Match(Tmag, @"\d+").Value;
-                int ma = Int32.Parse(mag);
-                ma++; mag = null;
-                mag += "MG"; mag += ma;
+                string mag = giai.nextMa("MG");
                 DTO_GIAIDAU dto = new DTO_GIAIDAU(mag, txtTenGiai.Text, dateBegin.Value, dateEnd.Value);
                 if (giai.addGIAIDAU(dto))
                 {
-                    MessageBox.Show("Đã hoàn tất tạo giải đấu", "Chúc mừng!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Đã hoàn tất tạo giải đấu, vui lòng cập nhật giải đấu bằng cách nhấp vào nút 'Thêm đại diện' ở bên dưới", "Chúc mừng!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else MessageBox.Show("Tạo thất bại, xin thử lại", "Rất tiếc!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
