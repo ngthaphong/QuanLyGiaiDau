@@ -41,7 +41,7 @@ namespace DAL_QuanLyGiaiDau
         //top 1
         public DataTable topDANGNHAP()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM DANGNHAP ORDER BY MaTK DESC", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM DANGNHAP ORDER BY LEFT(MaTK,PATINDEX('%[0-9]%',MaTK)-1),CONVERT(INT,SUBSTRING(MaTK,PATINDEX('%[0-9]%',MaTK),LEN(MaTK))) DESC", connect);
             DataTable dtDANGNHAP = new DataTable();
             data.Fill(dtDANGNHAP);
             return dtDANGNHAP;

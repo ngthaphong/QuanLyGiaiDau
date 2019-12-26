@@ -25,7 +25,9 @@ namespace QuanLyGiaiDau
         {
             this.Hide();
             frmCreate them = new frmCreate();
+            them.StartPosition = FormStartPosition.CenterParent;
             them.ShowDialog();
+            this.Close();
         }
 
         private void btnExit_Click(object sender, EventArgs e)

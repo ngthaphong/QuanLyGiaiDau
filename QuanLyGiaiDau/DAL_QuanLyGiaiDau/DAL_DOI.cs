@@ -19,6 +19,14 @@ namespace DAL_QuanLyGiaiDau
             data.Fill(dt);
             return dt;
         }
+        //get bang so cau thu dang ki vao doi
+        public DataTable getRegister()
+        {
+            SqlDataAdapter data = new SqlDataAdapter("SELECT d.MaDoi, d.TenDoi, d.SoThanhVien, COUNT(ct.MaCT) as SoCauThu FROM DOI d LEFT JOIN CAUTHU ct ON ct.MaDoi = d.MaDoi GROUP BY d.MaDoi, d.TenDoi, d.SoThanhVien", connect);
+            DataTable dt = new DataTable();
+            data.Fill(dt);
+            return dt;
+        }
         //them
         public bool addDOI(DTO_DOI g)
         {
@@ -41,7 +49,7 @@ namespace DAL_QuanLyGiaiDau
         //top 1 from below
         public DataTable topDOI()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM DOI ORDER BY MaDoi DESC", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM DOI ORDER BY LEFT(MaDoi,PATINDEX('%[0-9]%',MaDoi)-1),CONVERT(INT,SUBSTRING(MaDoi,PATINDEX('%[0-9]%',MaDoi),LEN(MaDoi))) DESC", connect);
             DataTable dt = new DataTable();
             data.Fill(dt);
             return dt;

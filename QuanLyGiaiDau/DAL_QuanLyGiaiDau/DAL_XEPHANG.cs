@@ -38,14 +38,6 @@ namespace DAL_QuanLyGiaiDau
             }
             return false;
         }
-        //top 1
-        public DataTable topXEPHANGT()
-        {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM XEPHANG ORDER BY MaGiai DESC", connect);
-            DataTable dtXEPHANG = new DataTable();
-            data.Fill(dtXEPHANG);
-            return dtXEPHANG;
-        }
         //sua
         public bool upXEPHANG(DTO_XEPHANG d)
         {

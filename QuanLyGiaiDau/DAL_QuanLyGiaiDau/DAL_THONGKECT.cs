@@ -38,14 +38,6 @@ namespace DAL_QuanLyGiaiDau
             }
             return false;
         }
-        //top 1
-        public DataTable topTHONGKECT()
-        {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM LICHTD ORDER BY MaGiai DESC", connect);
-            DataTable dtTHONGKECT = new DataTable();
-            data.Fill(dtTHONGKECT);
-            return dtTHONGKECT;
-        }
         //sua
         public bool upTHONGKECT(DTO_THONGKECT d)
         {

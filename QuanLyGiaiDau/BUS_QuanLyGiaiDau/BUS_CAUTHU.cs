@@ -33,11 +33,11 @@ namespace BUS_QuanLyGiaiDau
         {
             return dalCAUTHU.delCAUTHU(g);
         }
-        public string nextMa(string str)
+        public string nextMa()
         {
-            BUS_CAUTHU temp = new BUS_CAUTHU();
+            string str = "CT";
             //get last matk
-            DataTable t = temp.topCAUTHU();
+            DataTable t = topCAUTHU();
             string Tmag = t.Rows[0].Field<string>(0);
             //get int in a string to add 1 after string
             string mastr = Regex.Match(Tmag, @"\d+").Value;

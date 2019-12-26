@@ -39,14 +39,6 @@ namespace DAL_QuanLyGiaiDau
             }
             return false;
         }
-        //top 1
-        public DataTable topDANGKY()
-        {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM DANGKY ORDER BY MaGiai DESC", connect);
-            DataTable dtDANGNHAP = new DataTable();
-            data.Fill(dtDANGNHAP);
-            return dtDANGNHAP;
-        }
         //sua
         public bool upDANGKY(DTO_DANGKY d)
         {

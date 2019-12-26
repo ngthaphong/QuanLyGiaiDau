@@ -37,7 +37,16 @@ namespace QuanLyGiaiDau
             string[] vitri = new string[11];
             vitri[0] = "Thủ môn"; vitri[1] = "Hậu vệ"; vitri[2] = "Hậu vệ quét"; vitri[3] = "Hậu vệ biên"; vitri[4] = "Hậu vệ tấn công"; vitri[5] = "Trung vệ"; vitri[6] = "Tiền vệ phòng ngự"; vitri[7] = "Tiền vệ trung tâm"; vitri[8] = "Tiền vệ cánh"; vitri[9] = "Tiền vệ tấn công"; vitri[10] = "Tiền đạo";
             cboViTri.DataSource = vitri;
-            cboDoi.DataSource = d.getDOI();
+            // combobox with 3 colum
+            DataTable t = d.getLimited();
+            var result = from table in t.AsEnumerable()
+                         select
+                            new
+                            {
+                                MaDoi = table.Field<string>("TenDoi"),
+                                TenDoi = table.Field<string>("TenDoi") + " - đã đký: " + table.Field<int>("SoCauThu") + " - thành viên: " + table.Field<int>("SoThanhVien")
+                            };
+            cboDoi.DataSource = result.ToArray();
             cboDoi.DisplayMember = "TenDoi";
             cboDoi.ValueMember = "MaDoi";
         }
@@ -54,11 +63,12 @@ namespace QuanLyGiaiDau
             }
             else
             {
-                string mact = ct.nextMa("CT");
-                string mad = cboDoi.ValueMember;
+                string mact = ct.nextMa();
+                string mad = (string)cboDoi.SelectedValue;
                 int soao = (int)cboSoAo.SelectedValue;
                 string vitri = (string)cboViTri.SelectedValue;
                 DTO_CAUTHU dtoct = new DTO_CAUTHU(mact, mad, txtHoTen.Text, dtaNgaySinh.Value, soao, vitri);
+                MessageBox.Show(mact + "|" + mad + "|" + txtHoTen.Text + "|" + dtaNgaySinh.Value + "|" + soao + "|" + vitri);
                 if (ct.addCAUTHU(dtoct)) MessageBox.Show("Đã thêm thành công cầu thủ", "Chúc mừng", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else MessageBox.Show("Thêm thất bại vui lòng thử lại!", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

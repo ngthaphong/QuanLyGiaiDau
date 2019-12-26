@@ -21,10 +21,6 @@ namespace BUS_QuanLyGiaiDau
         {
             return dalDANGKY.addDANGKY(g);
         }
-        public DataTable topDANGKY()
-        {
-            return dalDANGKY.topDANGKY();
-        }
         public bool upDANGKY(DTO_DANGKY g)
         {
             return dalDANGKY.upDANGKY(g);

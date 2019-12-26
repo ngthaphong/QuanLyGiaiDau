@@ -41,7 +41,7 @@ namespace DAL_QuanLyGiaiDau
         //top 1
         public DataTable topTRAN()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM LICHTD ORDER BY SoTran DESC", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM TRAN ORDER BY SoTran DESC", connect);
             DataTable dtTRAN = new DataTable();
             data.Fill(dtTRAN);
             return dtTRAN;

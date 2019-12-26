@@ -42,7 +42,7 @@ namespace DAL_QuanLyGiaiDau
         //top 1
         public DataTable topCAUTHU()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM CAUTHU ORDER BY MaCT DESC", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM CAUTHU ORDER BY LEFT(MaCT,PATINDEX('%[0-9]%',MaCT)-1),CONVERT(INT,SUBSTRING(MaCT,PATINDEX('%[0-9]%',MaCT),LEN(MaCT))) DESC", connect);
             DataTable dtCAUTHU = new DataTable();
             data.Fill(dtCAUTHU);
             return dtCAUTHU;

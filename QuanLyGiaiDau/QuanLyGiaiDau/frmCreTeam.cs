@@ -41,7 +41,7 @@ namespace QuanLyGiaiDau
             }
             else
             {
-                //create kicker
+                //create team
                 string mad = d.nextMa("MD");
                 int tv = (int)cboThanhVien.SelectedValue;
                 string mau = (string)cboMau.SelectedValue;
@@ -105,6 +105,7 @@ namespace QuanLyGiaiDau
             frmKicker kick = new frmKicker();
             kick.StartPosition = FormStartPosition.CenterParent;
             kick.ShowDialog();
+            this.Close();
         }
     }
 }

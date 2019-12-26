@@ -43,7 +43,7 @@ namespace DAL_QuanLyGiaiDau
         //top 1
         public DataTable topGIAIDAU()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM GIAIDAU ORDER BY MaGiai DESC", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM GIAIDAU ORDER BY LEFT(MaGiai,PATINDEX('%[0-9]%',MaGiai)-1),CONVERT(INT,SUBSTRING(MaGiai,PATINDEX('%[0-9]%',MaGiai),LEN(MaGiai))) DESC", connect);
             DataTable dtGIAIDAU = new DataTable();
             data.Fill(dtGIAIDAU);
             return dtGIAIDAU;

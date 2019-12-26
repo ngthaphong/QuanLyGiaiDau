@@ -41,7 +41,7 @@ namespace DAL_QuanLyGiaiDau
         //top 1
         public DataTable topDAIDIEN()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM DAIDIEN ORDER BY MaDD DESC", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM DAIDIEN ORDER BY LEFT(MaDD,PATINDEX('%[0-9]%',MaDD)-1),CONVERT(INT,SUBSTRING(MaDD,PATINDEX('%[0-9]%',MaDD),LEN(MaDD))) DESC", connect);
             DataTable dtDANGNHAP = new DataTable();
             data.Fill(dtDANGNHAP);
             return dtDANGNHAP;

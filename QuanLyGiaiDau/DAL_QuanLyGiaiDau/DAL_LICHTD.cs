@@ -39,14 +39,6 @@ namespace DAL_QuanLyGiaiDau
             }
             return false;
         }
-        //top 1
-        public DataTable topLICHTD()
-        {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM LICHTD ORDER BY MaDoi1 DESC", connect);
-            DataTable dtLICHTD = new DataTable();
-            data.Fill(dtLICHTD);
-            return dtLICHTD;
-        }
         //sua
         public bool upLICHTD(DTO_LICHTD d)
         {
