@@ -43,8 +43,8 @@ namespace QuanLyGiaiDau
                          select
                             new
                             {
-                                MaDoi = table.Field<string>("TenDoi"),
-                                TenDoi = table.Field<string>("TenDoi") + " - đã đký: " + table.Field<int>("SoCauThu") + " - thành viên: " + table.Field<int>("SoThanhVien")
+                                MaDoi = table.Field<string>("MaDoi"),
+                                TenDoi = table.Field<string>("TenDoi") + " - thành viên: " + table.Field<int>("SoCauThu") + " - tổng: " + table.Field<int>("SoThanhVien")
                             };
             cboDoi.DataSource = result.ToArray();
             cboDoi.DisplayMember = "TenDoi";
@@ -68,8 +68,22 @@ namespace QuanLyGiaiDau
                 int soao = (int)cboSoAo.SelectedValue;
                 string vitri = (string)cboViTri.SelectedValue;
                 DTO_CAUTHU dtoct = new DTO_CAUTHU(mact, mad, txtHoTen.Text, dtaNgaySinh.Value, soao, vitri);
-                MessageBox.Show(mact + "|" + mad + "|" + txtHoTen.Text + "|" + dtaNgaySinh.Value + "|" + soao + "|" + vitri);
-                if (ct.addCAUTHU(dtoct)) MessageBox.Show("Đã thêm thành công cầu thủ", "Chúc mừng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (ct.addCAUTHU(dtoct))
+                {
+                    MessageBox.Show("Đã thêm thành công cầu thủ", "Chúc mừng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // refresh combobox
+                    DataTable t = d.getLimited();
+                    var result = from table in t.AsEnumerable()
+                                 select
+                                    new
+                                    {
+                                        MaDoi = table.Field<string>("MaDoi"),
+                                        TenDoi = table.Field<string>("TenDoi") + " - thành viên: " + table.Field<int>("SoCauThu") + " - tổng: " + table.Field<int>("SoThanhVien")
+                                    };
+                    cboDoi.DataSource = result.ToArray();
+                    cboDoi.DisplayMember = "TenDoi";
+                    cboDoi.ValueMember = "MaDoi";
+                }
                 else MessageBox.Show("Thêm thất bại vui lòng thử lại!", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }

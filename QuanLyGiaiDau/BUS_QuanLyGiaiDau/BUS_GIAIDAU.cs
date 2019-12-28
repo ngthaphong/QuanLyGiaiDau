@@ -13,6 +13,29 @@ namespace BUS_QuanLyGiaiDau
     public class BUS_GIAIDAU
     {
         DAL_GIAIDAU dalGIAIDAU = new DAL_GIAIDAU();
+        public string nextMa(string str)
+        {
+            BUS_GIAIDAU temp = new BUS_GIAIDAU();
+            //get last matk
+            DataTable t = temp.topGIAIDAU();
+            string Tmag = t.Rows[0].Field<string>(0);
+            //get int in a string to add 1 after string
+            string mastr = Regex.Match(Tmag, @"\d+").Value;
+            int ma = Int32.Parse(mastr);
+            ma++; mastr = null;
+            mastr += str; mastr += ma;
+            return mastr;
+        }
+        public bool checkSoDoi1(int? so)
+        {
+            if (so < 2 || so > 64) return false;
+            else return true;
+        }
+        public bool checkSoDoi2(int? so)
+        {
+            if (so < 2 || so > 30) return false;
+            else return true;
+        }
         public DataTable getGIAIDAU()
         {
             return dalGIAIDAU.getGIAIDAU();
@@ -32,19 +55,6 @@ namespace BUS_QuanLyGiaiDau
         public bool delGIAIDAU(DTO_GIAIDAU g)
         {
             return dalGIAIDAU.delGIAIDAU(g);
-        }
-        public string nextMa(string str)
-        {
-            BUS_GIAIDAU temp = new BUS_GIAIDAU();
-            //get last matk
-            DataTable t = temp.topGIAIDAU();
-            string Tmag = t.Rows[0].Field<string>(0);
-            //get int in a string to add 1 after string
-            string mastr = Regex.Match(Tmag, @"\d+").Value;
-            int ma = Int32.Parse(mastr);
-            ma++; mastr = null;
-            mastr += str; mastr += ma;
-            return mastr;
         }
     }
 }

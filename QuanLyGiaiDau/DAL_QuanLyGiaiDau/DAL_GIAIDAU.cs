@@ -25,10 +25,25 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string start = String.Format("{0:yyyy/MM/dd}", g.NgayBatDau);
-                string end = String.Format("{0:yyyy/MM/dd}", g.NgayKetThuc);
-                string sql = string.Format("INSERT INTO GIAIDAU(MaGiai,TenGiai,NgayBatDau,NgayKetThuc) VALUES ('{0}',N'{1}','{2}','{3}')", g.MaGiai, g.TenGiai, start, end);
+                string start = string.Format("{0:yyyy/MM/dd}", g.NgayBatDau);
+                string end = string.Format("{0:yyyy/MM/dd}", g.NgayKetThuc);
+                string sql = "";
+                sql += "INSERT INTO GIAIDAU(MaGiai,TenGiai,NgayBatDau,NgayKetThuc,SoDoi,SoThanhVien,DiemThang,DiemHoa,DiemThua,SoLuot,Loai) ";
+                sql += "VALUES (@MA,@TEN,@DS,@DE,@SD,@STV,@DTG,@DH,@DTH,@LUOT,@LOAI)";
                 SqlCommand cmd = new SqlCommand(sql, connect);
+                cmd.CommandType= CommandType.Text;
+                cmd.Parameters.Add(new SqlParameter("@MA", g.MaGiai));
+                cmd.Parameters.Add(new SqlParameter("@TEN", g.TenGiai));
+                cmd.Parameters.Add(new SqlParameter("@DS", start));
+                cmd.Parameters.Add(new SqlParameter("@DE", end));
+                //Add param with confused beween two type
+                cmd.Parameters.Add(new SqlParameter("@SD", (object)g.SoDoi ?? DBNull.Value));
+                cmd.Parameters.Add(new SqlParameter("@STV", (object)g.SoThanhVien ?? DBNull.Value));
+                cmd.Parameters.Add(new SqlParameter("@DTG", (object)g.DiemThang ?? DBNull.Value));
+                cmd.Parameters.Add(new SqlParameter("@DH", (object)g.DiemHoa ?? DBNull.Value));
+                cmd.Parameters.Add(new SqlParameter("@DTH", (object)g.DiemThua ?? DBNull.Value));
+                cmd.Parameters.Add(new SqlParameter("@LUOT", (object)g.SoLuot ?? DBNull.Value));
+                cmd.Parameters.Add(new SqlParameter("@LOAI", (object)g.Loai ?? DBNull.Value));
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
             }
@@ -54,10 +69,24 @@ namespace DAL_QuanLyGiaiDau
             try
             {
                 connect.Open();
-                string start = String.Format("{0:yyyy/MM/dd}", g.NgayBatDau);
-                string end = String.Format("{0:yyyy/MM/dd}", g.NgayKetThuc);
-                string sql = string.Format("UPDATE GIAIDAU SET TenGiai=N'{0}', NgayBatDau='{1}', NgayKetThuc='{2}' WHERE MaGiai='{3}'", g.TenGiai,start,end,g.MaGiai);
+                string start = string.Format("{0:yyyy/MM/dd}", g.NgayBatDau);
+                string end = string.Format("{0:yyyy/MM/dd}", g.NgayKetThuc);
+                string sql = "UPDATE GIAIDAU SET TenGiai=@TE, NgayBatDau=@DS, NgayKetThuc=@DE, SoDoi=@SD, SoThanhVien=@STV, ";
+                sql+="DiemThang=@DTG, DiemHoa=@DH, DiemThua=@DTH, SoLuot=@LUOT, Loai=@LOAI WHERE MaGiai=@MA";
                 SqlCommand cmd = new SqlCommand(sql, connect);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Add(new SqlParameter("@MA", g.MaGiai));
+                cmd.Parameters.Add(new SqlParameter("@TEN", g.TenGiai));
+                cmd.Parameters.Add(new SqlParameter("@DS", start));
+                cmd.Parameters.Add(new SqlParameter("@DE", end));
+                //Add param with null-coalescing operator
+                cmd.Parameters.Add(new SqlParameter("@SD", (object)g.SoDoi ?? DBNull.Value));
+                cmd.Parameters.Add(new SqlParameter("@STV", (object)g.SoThanhVien ?? DBNull.Value));
+                cmd.Parameters.Add(new SqlParameter("@DTG", (object)g.DiemThang ?? DBNull.Value));
+                cmd.Parameters.Add(new SqlParameter("@DH", (object)g.DiemHoa ?? DBNull.Value));
+                cmd.Parameters.Add(new SqlParameter("@DTH", (object)g.DiemThua ?? DBNull.Value));
+                cmd.Parameters.Add(new SqlParameter("@LUOT", (object)g.SoLuot ?? DBNull.Value));
+                cmd.Parameters.Add(new SqlParameter("@LOAI", (object)g.Loai ?? DBNull.Value));
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
             }

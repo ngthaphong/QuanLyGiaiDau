@@ -13,6 +13,19 @@ namespace BUS_QuanLyGiaiDau
     public class BUS_CAUTHU
     {
         DAL_CAUTHU dalCAUTHU = new DAL_CAUTHU();
+        public string nextMa()
+        {
+            string str = "CT";
+            //get last matk
+            DataTable t = topCAUTHU();
+            string Tmag = t.Rows[0].Field<string>(0);
+            //get int in a string to add 1 after string
+            string mastr = Regex.Match(Tmag, @"\d+").Value;
+            int ma = Int32.Parse(mastr);
+            ma++; mastr = null;
+            mastr += str; mastr += ma;
+            return mastr;
+        }
         public DataTable getCAUTHU()
         {
             return dalCAUTHU.getCAUTHU();
@@ -33,18 +46,6 @@ namespace BUS_QuanLyGiaiDau
         {
             return dalCAUTHU.delCAUTHU(g);
         }
-        public string nextMa()
-        {
-            string str = "CT";
-            //get last matk
-            DataTable t = topCAUTHU();
-            string Tmag = t.Rows[0].Field<string>(0);
-            //get int in a string to add 1 after string
-            string mastr = Regex.Match(Tmag, @"\d+").Value;
-            int ma = Int32.Parse(mastr);
-            ma++; mastr = null;
-            mastr += str; mastr += ma;
-            return mastr;
-        }
+        
     }
 }
