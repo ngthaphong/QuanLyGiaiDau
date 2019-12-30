@@ -14,6 +14,10 @@ namespace BUS_QuanLyGiaiDau
     {
         
         DAL_DANGNHAP dalDANGNHAP = new DAL_DANGNHAP();
+        public DataTable getTenDangNhap(string madn)
+        {
+            return dalDANGNHAP.getTenDangNhap(madn);
+        }
         public DataTable getDANGNHAP()
         {
             return dalDANGNHAP.getDANGNHAP();

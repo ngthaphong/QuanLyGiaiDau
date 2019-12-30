@@ -36,9 +36,21 @@ namespace BUS_QuanLyGiaiDau
             if (so < 2 || so > 30) return false;
             else return true;
         }
+        public DataTable getLoai(int loai)
+        {
+            return dalGIAIDAU.getLoai(loai);
+        }
+        public DataTable getTenGiai(string teng)
+        {
+            return dalGIAIDAU.getTenGiai(teng);
+        }
         public DataTable getGIAIDAU()
         {
             return dalGIAIDAU.getGIAIDAU();
+        }
+        public DataTable getMaGiai(string mag)
+        {
+            return dalGIAIDAU.getMaGiai(mag);
         }
         public bool addGIAIDAU(DTO_GIAIDAU g)
         {

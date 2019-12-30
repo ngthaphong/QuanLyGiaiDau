@@ -69,9 +69,6 @@ namespace QuanLyGiaiDau
         {
             btnCreate.Enabled = false;
             lblCreate.Text = "Vui lòng điển đủ thông tin";
-            int[] stv= new int[3];
-            stv[0] = 5;stv[1] = 7;stv[2] = 11;
-            cboThanhVien.DataSource = stv;
             string[] mau = new string[10];
             mau[0] = "đỏ"; mau[1] = "xanh"; mau[2] = "trắng"; mau[3] = "đen"; mau[4] = "xanh lá"; mau[5] = "hồng"; mau[6] = "trắng sọc đen"; mau[7] = "xanh sọc trắng"; mau[8] = "đỏ sọc trắng"; mau[9] = "xanh lá sọc trắng";
             cboMau.DataSource = mau;
@@ -106,6 +103,14 @@ namespace QuanLyGiaiDau
             kick.StartPosition = FormStartPosition.CenterParent;
             kick.ShowDialog();
             this.Close();
+        }
+
+        private void cboDaiDien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cboDaiDien.ValueMember = "MaDD";
+            string madd = (string)cboDaiDien.SelectedValue;
+            cboThanhVien.DataSource = d.getSTV(madd);
+            cboThanhVien.DisplayMember = "SoThanhVien";
         }
     }
 }

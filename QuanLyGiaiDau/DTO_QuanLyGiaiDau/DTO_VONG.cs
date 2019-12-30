@@ -3,9 +3,15 @@ namespace DTO_QuanLyGiaiDau
 {
     public class DTO_VONG
     {
+        private string _MaVong;
         private string _MaGiai;
         private string _TenVong;
         //set, get
+        public string MaVong
+        {
+            get { return _MaVong; }
+            set { _MaVong = value; }
+        }
         public string MaGiai
         {
             get { return _MaGiai; }
@@ -19,8 +25,9 @@ namespace DTO_QuanLyGiaiDau
 
         //contructor
         public DTO_VONG() { }
-        public DTO_VONG(string magiai, string tenvong)
+        public DTO_VONG(string mav, string magiai, string tenvong)
         {
+            this.MaVong = mav;
             this.MaGiai = magiai; 
             this.TenVong = tenvong;
 

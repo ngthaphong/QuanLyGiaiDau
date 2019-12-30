@@ -19,6 +19,15 @@ namespace DAL_QuanLyGiaiDau
             data.Fill(dtDANGNHAP);
             return dtDANGNHAP;
         }
+        //lay dang nhap bang madn
+        public DataTable getTenDangNhap(string madn)
+        {
+            string str= string.Format("SELECT * FROM DANGNHAP WHERE MaTK = '{0}'",madn);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            DataTable dtDANGNHAP = new DataTable();
+            data.Fill(dtDANGNHAP);
+            return dtDANGNHAP;
+        }
         //them
         public bool addDANGNHAP(DTO_DANGNHAP d)
         {

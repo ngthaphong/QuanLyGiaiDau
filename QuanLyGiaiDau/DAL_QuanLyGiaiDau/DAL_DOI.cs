@@ -27,6 +27,15 @@ namespace DAL_QuanLyGiaiDau
             data.Fill(dt);
             return dt;
         }
+        //get sothanhvien tu magiai thong qua daidien
+        public DataTable getSTV(string madd)
+        {
+            string str = string.Format("SELECT G.SoThanhVien FROM GIAIDAU G, DANGKY DK, DAIDIEN DD, DOI D WHERE G.MaGiai=DK.MaGiai AND DK.MaDD=DD.MaDD AND DD.MaDD='{0}' GROUP BY G.SoThanhVien", madd);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            DataTable dt = new DataTable();
+            data.Fill(dt);
+            return dt;
+        }
         //them
         public bool addDOI(DTO_DOI g)
         {

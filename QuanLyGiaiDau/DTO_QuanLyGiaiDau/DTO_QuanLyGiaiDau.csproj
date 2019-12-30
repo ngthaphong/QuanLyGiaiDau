@@ -42,7 +42,7 @@
     <Compile Include="DTO_GIAIDAU.cs" />
     <Compile Include="DTO_LICHTD.cs" />
     <Compile Include="DTO_THONGKECT.cs" />
-    <Compile Include="DTO_TRAN.cs" />
+    <Compile Include="DTO_TRANDAU.cs" />
     <Compile Include="DTO_VONG.cs" />
     <Compile Include="DTO_XEPHANG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4,9 +4,9 @@ namespace DTO_QuanLyGiaiDau
 {
     public class DTO_LICHTD
     {
+        private string _MaTran;
         private string _MaDoi1;
         private string _MaDoi2;
-        private int _SoTran;
         private string _TenSan;
         private DateTime _ThoiGianDienRa;
         private string _TrongTai;
@@ -29,10 +29,10 @@ namespace DTO_QuanLyGiaiDau
             get { return _MaDoi2; }
             set { _MaDoi2 = value; }
         }
-        public int SoTran
+        public string MaTran
         {
-            get { return _SoTran; }
-            set { _SoTran = value; }
+            get { return _MaTran; }
+            set { _MaTran = value; }
         }
         public string TenSan
         {
@@ -92,11 +92,11 @@ namespace DTO_QuanLyGiaiDau
 
         //contructor
         public DTO_LICHTD() { }
-        public DTO_LICHTD(string mad1, string mad2, int sotran, string tensan, DateTime thoigiandienra, string trongtai, int bt1, int bt2, int tv1, int tv2, int td1, int td2, int sd1, int sd2)
+        public DTO_LICHTD(string mat, string mad1, string mad2, string tensan, DateTime thoigiandienra, string trongtai, int bt1, int bt2, int tv1, int tv2, int td1, int td2, int sd1, int sd2)
         {
+            this.MaTran = mat;
             this.MaDoi1 = mad1;
             this.MaDoi2 = mad2;
-            this.SoTran = sotran;
             this.TenSan = tensan;
             this.ThoiGianDienRa = thoigiandienra;
             this.TrongTai = trongtai;
@@ -108,8 +108,6 @@ namespace DTO_QuanLyGiaiDau
             this.TheDo2 = td2;
             this.SoDiem1 = sd1;
             this.SoDiem2 = sd2;
-           
-
         }
     }
 }

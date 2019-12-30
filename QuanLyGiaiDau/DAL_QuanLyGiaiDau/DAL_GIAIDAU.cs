@@ -19,6 +19,33 @@ namespace DAL_QuanLyGiaiDau
             data.Fill(dtGIAIDAU);
             return dtGIAIDAU;
         }
+        //lay ma giai 
+        public DataTable getMaGiai(string mag)
+        {
+            string t = string.Format("SELECT * FROM GIAIDAU WHERE MaGiai='{0}'", mag);
+            SqlDataAdapter data = new SqlDataAdapter(t, connect);
+            DataTable dt = new DataTable();
+            data.Fill(dt);
+            return dt;
+        }
+        //lay tengiai
+        public DataTable getTenGiai(string teng)
+        {
+            string t = string.Format("SELECT * FROM GIAIDAU WHERE TenGiai like N'%{0}%'", teng);
+            SqlDataAdapter data = new SqlDataAdapter(t, connect);
+            DataTable dt = new DataTable();
+            data.Fill(dt);
+            return dt;
+        }
+        //lay loai
+        public DataTable getLoai(int loai)
+        {
+            string t = string.Format("SELECT * FROM GIAIDAU WHERE Loai={0}", loai);
+            SqlDataAdapter data = new SqlDataAdapter(t, connect);
+            DataTable dt = new DataTable();
+            data.Fill(dt);
+            return dt;
+        }
         //them
         public bool addGIAIDAU(DTO_GIAIDAU g)
         {

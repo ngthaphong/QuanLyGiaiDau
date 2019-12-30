@@ -60,8 +60,33 @@ namespace QuanLyGiaiDau
 
         private void cboGiaiDau_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cboGiaiDau.ValueMember = "MaGiai";
             btnTao.Enabled = true;
             lblTao.Text = "";
+            string mag = (string)cboGiaiDau.SelectedValue;
+            DataTable t = giai.getMaGiai(mag);
+            t.Columns.Remove("MaGiai");
+            dtaGiai.DataSource = t;
+            dtaGiai.Columns[0].Width=200;
+            dtaGiai.Columns[0].HeaderText = "Tên Giải";
+            dtaGiai.Columns[1].Width = 100;
+            dtaGiai.Columns[1].HeaderText = "Ngày bắt đầu";
+            dtaGiai.Columns[2].Width = 100;
+            dtaGiai.Columns[2].HeaderText = "Ngày kết thúc";
+            dtaGiai.Columns[3].Width = 70;
+            dtaGiai.Columns[3].HeaderText = "Số đội";
+            dtaGiai.Columns[4].Width = 80;
+            dtaGiai.Columns[4].HeaderText = "Số thành viên";
+            dtaGiai.Columns[5].Width = 70;
+            dtaGiai.Columns[5].HeaderText = "Điểm thắng";
+            dtaGiai.Columns[6].Width = 60;
+            dtaGiai.Columns[6].HeaderText = "Điểm hòa";
+            dtaGiai.Columns[7].Width = 60;
+            dtaGiai.Columns[7].HeaderText = "Điểm thua";
+            dtaGiai.Columns[8].Width = 50;
+            dtaGiai.Columns[8].HeaderText = "Số lượt";
+            dtaGiai.Columns[9].Width = 50;
+            dtaGiai.Columns[9].HeaderText = "Loại";
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

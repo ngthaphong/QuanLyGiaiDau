@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cboDaiDien = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.lblCreate = new System.Windows.Forms.Label();
             this.cboThanhVien = new System.Windows.Forms.ComboBox();
             this.cboMau = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -37,15 +41,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnCreate = new System.Windows.Forms.Button();
             this.txtDoiTruong = new System.Windows.Forms.TextBox();
             this.txtTenHLV = new System.Windows.Forms.TextBox();
             this.txtTenDoi = new System.Windows.Forms.TextBox();
-            this.lblCreate = new System.Windows.Forms.Label();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cboDaiDien = new System.Windows.Forms.ComboBox();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,42 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(288, 417);
             this.panel1.TabIndex = 1;
+            // 
+            // cboDaiDien
+            // 
+            this.cboDaiDien.FormattingEnabled = true;
+            this.cboDaiDien.Location = new System.Drawing.Point(7, 86);
+            this.cboDaiDien.Name = "cboDaiDien";
+            this.cboDaiDien.Size = new System.Drawing.Size(185, 21);
+            this.cboDaiDien.TabIndex = 11;
+            this.cboDaiDien.SelectedIndexChanged += new System.EventHandler(this.cboDaiDien_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 70);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 13);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Đại diện:";
+            // 
+            // btnThem
+            // 
+            this.btnThem.Location = new System.Drawing.Point(188, 380);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(90, 23);
+            this.btnThem.TabIndex = 9;
+            this.btnThem.Text = "Thêm cầu thủ";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // lblCreate
+            // 
+            this.lblCreate.AutoSize = true;
+            this.lblCreate.Location = new System.Drawing.Point(41, 390);
+            this.lblCreate.Name = "lblCreate";
+            this.lblCreate.Size = new System.Drawing.Size(0, 13);
+            this.lblCreate.TabIndex = 2;
             // 
             // cboThanhVien
             // 
@@ -144,26 +180,6 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Tên đội:";
             // 
-            // btnExit
-            // 
-            this.btnExit.Location = new System.Drawing.Point(161, 435);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 1;
-            this.btnExit.Text = "Thoát";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.Location = new System.Drawing.Point(56, 435);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(75, 23);
-            this.btnCreate.TabIndex = 1;
-            this.btnCreate.Text = "Tạo";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
-            // 
             // txtDoiTruong
             // 
             this.txtDoiTruong.Location = new System.Drawing.Point(7, 232);
@@ -185,40 +201,25 @@
             this.txtTenDoi.Size = new System.Drawing.Size(260, 20);
             this.txtTenDoi.TabIndex = 0;
             // 
-            // lblCreate
+            // btnExit
             // 
-            this.lblCreate.AutoSize = true;
-            this.lblCreate.Location = new System.Drawing.Point(41, 390);
-            this.lblCreate.Name = "lblCreate";
-            this.lblCreate.Size = new System.Drawing.Size(0, 13);
-            this.lblCreate.TabIndex = 2;
+            this.btnExit.Location = new System.Drawing.Point(161, 435);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 1;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnThem
+            // btnCreate
             // 
-            this.btnThem.Location = new System.Drawing.Point(188, 380);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(90, 23);
-            this.btnThem.TabIndex = 9;
-            this.btnThem.Text = "Thêm cầu thủ";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 70);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 13);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Đại diện:";
-            // 
-            // cboDaiDien
-            // 
-            this.cboDaiDien.FormattingEnabled = true;
-            this.cboDaiDien.Location = new System.Drawing.Point(7, 86);
-            this.cboDaiDien.Name = "cboDaiDien";
-            this.cboDaiDien.Size = new System.Drawing.Size(185, 21);
-            this.cboDaiDien.TabIndex = 11;
+            this.btnCreate.Location = new System.Drawing.Point(56, 435);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(75, 23);
+            this.btnCreate.TabIndex = 1;
+            this.btnCreate.Text = "Tạo";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // frmCreTeam
             // 

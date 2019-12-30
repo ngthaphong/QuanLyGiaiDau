@@ -47,6 +47,8 @@
     <Compile Include="BUS_DOI.cs" />
     <Compile Include="BUS_GIAIDAU.cs" />
     <Compile Include="BUS_Main.cs" />
+    <Compile Include="BUS_TRANDAU.cs" />
+    <Compile Include="BUS_VONG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

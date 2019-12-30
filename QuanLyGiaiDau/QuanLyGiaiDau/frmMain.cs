@@ -22,13 +22,15 @@ namespace QuanLyGiaiDau
             
             lblWelcome.Text = "Chào mừng bạn đến với Giải Đấu";
             lblWelcome.Font = new Font("Arial", 20);
-            lblWelcome.ForeColor = System.Drawing.Color.DarkBlue;
+            lblWelcome.ForeColor = Color.DarkBlue;
             lblOption.Text = "Hệ thống quản lý giải đấu";
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            
+            frmGroup create = new frmGroup();
+            create.StartPosition = FormStartPosition.CenterParent;
+            create.ShowDialog();
         }
 
         private void frmMain_Load(object sender, EventArgs e)

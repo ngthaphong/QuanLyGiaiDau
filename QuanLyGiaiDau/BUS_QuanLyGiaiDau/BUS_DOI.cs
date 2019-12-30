@@ -16,9 +16,8 @@ namespace BUS_QuanLyGiaiDau
         DAL_DOI dalDOI = new DAL_DOI();
         public string nextMa(string str)
         {
-            BUS_DOI temp = new BUS_DOI();
             //get last matk
-            DataTable t = temp.topDOI();
+            DataTable t = topDOI();
             string Tmag = t.Rows[0].Field<string>(0);
             //get int in a string to add 1 after string
             string mastr = Regex.Match(Tmag, @"\d+").Value;
@@ -38,6 +37,10 @@ namespace BUS_QuanLyGiaiDau
             }
             t.AcceptChanges();
             return t;
+        }
+        public DataTable getSTV(string madd)
+        {
+            return dalDOI.getSTV(madd);
         }
         public DataTable getDOI()
         {

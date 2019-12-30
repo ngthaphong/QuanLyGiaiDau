@@ -59,7 +59,7 @@
     <Compile Include="DAL_GIAIDAU.cs" />
     <Compile Include="DAL_LICHTD.cs" />
     <Compile Include="DAL_THONGKECT.cs" />
-    <Compile Include="DAL_TRAN.cs" />
+    <Compile Include="DAL_TRANDAU.cs" />
     <Compile Include="DAL_VONG.cs" />
     <Compile Include="DAL_XEPHANG.cs" />
     <Compile Include="DBConnect.cs" />

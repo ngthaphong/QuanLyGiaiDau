@@ -16,6 +16,7 @@ namespace QuanLyGiaiDau
     public partial class frmCreGroup : Form
     {
         BUS_GIAIDAU giai = new BUS_GIAIDAU();
+        BUS_VONG v = new BUS_VONG();
         //init controls global
         NumericUpDown numSoDoi = new NumericUpDown();
         ComboBox cboSoThanhVien = new ComboBox();
@@ -45,6 +46,7 @@ namespace QuanLyGiaiDau
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            DTO_VONG dtov = new DTO_VONG();
             if (string.IsNullOrEmpty(txtTenGiai.Text) || txtTenGiai.TextLength < 6 || txtTenGiai.TextLength >= 50)
             {
                 MessageBox.Show("Bạn không nhập vào tên giải! Hoặc tên giải nhập sai, tên giải cần lớn hơn 5 kí tự và bé hơn 50 kí tự!", "Thử lại!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -57,13 +59,25 @@ namespace QuanLyGiaiDau
                 {
                     loai = 1;
                     sodoi = (int)numSoDoi.Value;
-                    if (!giai.checkSoDoi1(sodoi))
+                    if (!giai.checkSoDoi1(sodoi) || sodoi>64)
                     {
                         MessageBox.Show("Số đội phải từ 2-64 người!", "Thử lại!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         numSoDoi.Focus();
                     }
                     stv = (int)cboSoThanhVien.SelectedValue;
                     dtg = null;dh = null;dth = null;luot = null;
+                    //do it
+                    DTO_GIAIDAU dto = new DTO_GIAIDAU(mag, txtTenGiai.Text, dateBegin.Value, dateEnd.Value, sodoi, stv, dtg, dh, dth, luot, loai);
+                    if (giai.addGIAIDAU(dto))
+                    {
+                        MessageBox.Show("Đã hoàn tất tạo giải đấu, vui lòng cập nhật giải đấu bằng cách nhấp vào nút 'Thêm đại diện' ở bên dưới", "Chúc mừng!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (sodoi % 2 == 0)
+                        {
+                            int vong = (int)sodoi / 2;
+                            v.addVongChan(vong, mag);
+                        }
+                    }
+                    else MessageBox.Show("Tạo giải thất bại, vui lòng thử lại!", "Rất tiếc!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else if (radTron.Checked == true)
                 {
@@ -80,18 +94,19 @@ namespace QuanLyGiaiDau
                     dth = int.Parse(txtThua.Text);
                     if (btn1.BackColor == Color.GreenYellow) luot = 1;
                     else luot = 2;
+                    //do it
+                    DTO_GIAIDAU dto = new DTO_GIAIDAU(mag, txtTenGiai.Text, dateBegin.Value, dateEnd.Value, sodoi, stv, dtg, dh, dth, luot, loai);
+                    if (giai.addGIAIDAU(dto))
+                    {
+                        MessageBox.Show("Đã hoàn tất tạo giải đấu, vui lòng cập nhật giải đấu bằng cách nhấp vào nút 'Thêm đại diện' ở bên dưới", "Chúc mừng!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else MessageBox.Show("Tạo giải thất bại, vui lòng thử lại!", "Rất tiếc!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
                     MessageBox.Show("Mời check vào Phân loại!", "Thử lại!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     sodoi = null; stv = null; dtg = null; dh = null; dth = null; luot = null;loai = null;
                 }
-                DTO_GIAIDAU dto = new DTO_GIAIDAU(mag, txtTenGiai.Text, dateBegin.Value, dateEnd.Value,sodoi,stv,dtg,dh,dth,luot,loai);
-                if (giai.addGIAIDAU(dto))
-                {
-                    MessageBox.Show("Đã hoàn tất tạo giải đấu, vui lòng cập nhật giải đấu bằng cách nhấp vào nút 'Thêm đại diện' ở bên dưới", "Chúc mừng!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else MessageBox.Show("Tạo giải thất bại, vui lòng thử lại!", "Rất tiếc!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
