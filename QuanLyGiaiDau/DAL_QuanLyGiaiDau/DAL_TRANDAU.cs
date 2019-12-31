@@ -41,7 +41,7 @@ namespace DAL_QuanLyGiaiDau
         //top 1
         public DataTable topTRAN()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM TRANDAU ORDER BY MaTran DESC", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM TRANDAU ORDER BY LEFT(MaTran,PATINDEX('%[0-9]%',MaTran)-1),CONVERT(INT,SUBSTRING(MaTran,PATINDEX('%[0-9]%',MaTran),LEN(MaTran))) DESC", connect);
             DataTable dtTRAN = new DataTable();
             data.Fill(dtTRAN);
             return dtTRAN;

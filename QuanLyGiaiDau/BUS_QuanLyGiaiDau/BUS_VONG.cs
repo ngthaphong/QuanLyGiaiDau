@@ -17,7 +17,7 @@ namespace BUS_QuanLyGiaiDau
         {
             DTO_VONG dtov = new DTO_VONG();
             BUS_TRANDAU td = new BUS_TRANDAU();
-            switch (vong<=1?"ck":vong<=2?"bk":vong<=4?"tk":vong<=8?"16":"32")
+            switch (vong<=1?"ck":vong<=2?"bk":vong<=4?"tk":vong<=8?"8":vong <= 16?"16": vong<=32?"32":"sai")
             {
                 case "ck":
                     dtov.MaVong=nextMa();
@@ -53,6 +53,29 @@ namespace BUS_QuanLyGiaiDau
                     if (vong == 3) td.addTranDau(dtov.MaVong, 2);
                     td.addTranDau(dtov.MaVong, 4);
                     break;
+                case "8":
+                    dtov.MaVong = nextMa();
+                    dtov.MaGiai = mag;
+                    dtov.TenVong = "Chung Kết";
+                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 1);
+                    dtov.MaVong = nextMa();
+                    dtov.TenVong = "Bán Kết";
+                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 2);
+                    dtov.MaVong = nextMa();
+                    dtov.TenVong = "Tứ Kết";
+                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 4);
+                    dtov.MaVong = nextMa();
+                    dtov.TenVong = "1/8";
+                    addVONG(dtov);
+                    for (int i = 0; i <= 8; i++)
+                    {
+                        if (i % 2 == 0)
+                            if (i + 8 == vong * 2) td.addTranDau(dtov.MaVong, i);
+                    }
+                    break;
                 case "16":
                     dtov.MaVong = nextMa();
                     dtov.MaGiai = mag;
@@ -65,15 +88,19 @@ namespace BUS_QuanLyGiaiDau
                     td.addTranDau(dtov.MaVong, 2);
                     dtov.MaVong = nextMa();
                     dtov.TenVong = "Tứ Kết";
-                    td.addTranDau(dtov.MaVong, 4);
                     addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 4);
+                    dtov.MaVong = nextMa();
+                    dtov.TenVong = "1/8";
+                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 8);
                     dtov.MaVong = nextMa();
                     dtov.TenVong = "1/16";
                     addVONG(dtov);
-                    for (int i = 0; i <= 8; i++)
+                    for (int i = 0; i <= 16; i++)
                     {
                         if (i % 2 == 0)
-                            if (i + 8 == vong * 2) td.addTranDau(dtov.MaVong, i);
+                            if (i + 16 == vong * 2) td.addTranDau(dtov.MaVong, i);
                     }
                     break;
                 case "32":
@@ -91,69 +118,138 @@ namespace BUS_QuanLyGiaiDau
                     addVONG(dtov);
                     td.addTranDau(dtov.MaVong, 4);
                     dtov.MaVong = nextMa();
-                    dtov.TenVong = "1/16";
+                    dtov.TenVong = "1/8";
                     addVONG(dtov);
                     td.addTranDau(dtov.MaVong, 8);
                     dtov.MaVong = nextMa();
+                    dtov.TenVong = "1/16";
+                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 16);
+                    dtov.MaVong = nextMa();
                     dtov.TenVong = "1/32";
+                    addVONG(dtov);
+                    for (int i = 0; i <= 32; i++)
+                    {
+                        if (i % 2 == 0)
+                            if (i + 32 == vong * 2) td.addTranDau(dtov.MaVong, i);
+                    }
+                    break;
+
+            }
+        }
+        public void addVongLe(int sodoi, string mag)
+        {
+            BUS_TRANDAU td = new BUS_TRANDAU();
+            DTO_VONG dtov = new DTO_VONG();
+            switch (sodoi<=3?"bk":sodoi<=7?"tk":sodoi<=15?"8":sodoi<=31?"16":sodoi<=63?"32":"sai")
+            {
+                case "bk":
+                    dtov.MaVong = nextMa();
+                    dtov.MaGiai = mag;
+                    dtov.TenVong = "Chung Kết";
+                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 1);
+                    dtov.MaVong = nextMa();
+                    dtov.TenVong = "Bán Kết";
+                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 1);
+                    break;
+                case "tk":
+                    dtov.MaVong = nextMa();
+                    dtov.MaGiai = mag;
+                    dtov.TenVong = "Chung Kết";
+                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 1);
+                    dtov.MaVong = nextMa();
+                    dtov.TenVong = "Bán Kết";
+                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 2);
+                    dtov.MaVong = nextMa();
+                    dtov.TenVong = "Tứ Kết";
+                    addVONG(dtov);
+                    if (sodoi == 5) td.addTranDau(dtov.MaVong, 1);
+                    td.addTranDau(dtov.MaVong, 3);
+                    break;
+                case "8":
+                    dtov.MaVong = nextMa();
+                    dtov.MaGiai = mag;
+                    dtov.TenVong = "Chung Kết";
+                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 1);
+                    dtov.MaVong = nextMa();
+                    dtov.TenVong = "Bán Kết";
+                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 2);
+                    dtov.MaVong = nextMa();
+                    dtov.TenVong = "Tứ Kết";
+                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 4);
+                    dtov.MaVong = nextMa();
+                    dtov.TenVong = "1/8";
+                    addVONG(dtov);
+                    for (int i = 0; i <= 8; i++)
+                    {
+                        if (i % 2 != 0)
+                            if (i + 8 == sodoi) td.addTranDau(dtov.MaVong, i);
+                    }
+                    break;
+                case "16":
+                    dtov.MaVong = nextMa();
+                    dtov.MaGiai = mag;
+                    dtov.TenVong = "Chung Kết";
+                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 1);
+                    dtov.MaVong = nextMa();
+                    dtov.TenVong = "Bán Kết";
+                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 2);
+                    dtov.MaVong = nextMa();
+                    dtov.TenVong = "Tứ Kết";
+                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 4);
+                    dtov.MaVong = nextMa();
+                    dtov.TenVong = "1/8";
+                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 8);
+                    dtov.MaVong = nextMa();
+                    dtov.TenVong = "1/16";
                     addVONG(dtov);
                     for (int i = 0; i <= 16; i++)
                     {
-                        if (i % 2 == 0)
-                            if (i + 16 == vong * 2) td.addTranDau(dtov.MaVong, i);
+                        if (i % 2 != 0)
+                            if (i + 16 == sodoi) td.addTranDau(dtov.MaVong, i);
                     }
                     break;
-            }
-        }
-        public void addVongLe(int vong, int sodoi, string mag)
-        {
-            DTO_VONG dtov = new DTO_VONG();
-            switch (vong)
-            {
-                case 1:
+                case "32":
+                    dtov.MaVong = nextMa();
                     dtov.MaGiai = mag;
                     dtov.TenVong = "Chung Kết";
                     addVONG(dtov);
-                    break;
-                case 2:
-                    dtov.MaGiai = mag;
-                    dtov.TenVong = "Chung Kết";
-                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 1);
+                    dtov.MaVong = nextMa();
                     dtov.TenVong = "Bán Kết";
                     addVONG(dtov);
-                    break;
-                case 3 - 4:
-                    dtov.MaGiai = mag;
-                    dtov.TenVong = "Chung Kết";
-                    addVONG(dtov);
-                    dtov.TenVong = "Bán Kết";
-                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 2);
+                    dtov.MaVong = nextMa();
                     dtov.TenVong = "Tứ Kết";
                     addVONG(dtov);
-                    break;
-                case 5 - 8:
-                    dtov.MaGiai = mag;
-                    dtov.TenVong = "Chung Kết";
+                    td.addTranDau(dtov.MaVong, 4);
+                    dtov.MaVong = nextMa();
+                    dtov.TenVong = "1/8";
                     addVONG(dtov);
-                    dtov.TenVong = "Bán Kết";
-                    addVONG(dtov);
-                    dtov.TenVong = "Tứ Kết";
-                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 8);
+                    dtov.MaVong = nextMa();
                     dtov.TenVong = "1/16";
                     addVONG(dtov);
-                    break;
-                default:
-                    dtov.MaGiai = mag;
-                    dtov.TenVong = "Chung Kết";
-                    addVONG(dtov);
-                    dtov.TenVong = "Bán Kết";
-                    addVONG(dtov);
-                    dtov.TenVong = "Tứ Kết";
-                    addVONG(dtov);
-                    dtov.TenVong = "1/16";
-                    addVONG(dtov);
+                    td.addTranDau(dtov.MaVong, 16);
+                    dtov.MaVong = nextMa();
                     dtov.TenVong = "1/32";
                     addVONG(dtov);
+                    for (int i = 0; i <= 32; i++)
+                    {
+                        if (i % 2 != 0)
+                            if (i + 32 == sodoi) td.addTranDau(dtov.MaVong, i);
+                    }
                     break;
             }
         }

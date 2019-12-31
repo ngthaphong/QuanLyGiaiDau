@@ -76,6 +76,7 @@ namespace QuanLyGiaiDau
                             int vong = (int)sodoi / 2;
                             v.addVongChan(vong, mag);
                         }
+                        else v.addVongLe((int)sodoi, mag);
                     }
                     else MessageBox.Show("Tạo giải thất bại, vui lòng thử lại!", "Rất tiếc!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
