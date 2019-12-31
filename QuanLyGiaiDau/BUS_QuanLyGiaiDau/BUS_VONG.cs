@@ -13,8 +13,9 @@ namespace BUS_QuanLyGiaiDau
     public class BUS_VONG
     {
         DAL_VONG dalVONG = new DAL_VONG();
-        public void addVongChan(int vong, string mag)
+        public void addVongChan(int sodoi, string mag)
         {
+            int vong = sodoi / 2;
             DTO_VONG dtov = new DTO_VONG();
             BUS_TRANDAU td = new BUS_TRANDAU();
             switch (vong<=1?"ck":vong<=2?"bk":vong<=4?"tk":vong<=8?"8":vong <= 16?"16": vong<=32?"32":"sai")
