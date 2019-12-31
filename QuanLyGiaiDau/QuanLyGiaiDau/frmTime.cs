@@ -16,5 +16,26 @@ namespace QuanLyGiaiDau
         {
             InitializeComponent();
         }
+
+        private void frmTime_Load(object sender, EventArgs e)
+        {
+            btnBang.BackColor = Color.Gray;
+            btnBang.ForeColor = Color.OrangeRed;
+            btnMoHinh.BackColor = Color.Gray;
+            btnMoHinh.ForeColor = Color.OrangeRed;
+            btnBang_Click(sender, e);
+        }
+
+        private void btnBang_Click(object sender, EventArgs e)
+        {
+            btnBang.BackColor = Color.GreenYellow;
+            btnMoHinh.BackColor = Color.Gray;
+        }
+
+        private void btnMoHinh_Click(object sender, EventArgs e)
+        {
+            btnMoHinh.BackColor = Color.GreenYellow;
+            btnBang.BackColor = Color.Gray;
+        }
     }
 }
