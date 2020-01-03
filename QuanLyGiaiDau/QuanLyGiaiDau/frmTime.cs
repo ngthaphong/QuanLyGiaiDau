@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS_QuanLyGiaiDau;
+using DTO_QuanLyGiaiDau;
 
 namespace QuanLyGiaiDau
 {
     public partial class frmTime : Form
     {
+        BUS_LICHTD l = new BUS_LICHTD();
         public frmTime()
         {
             InitializeComponent();
@@ -24,6 +27,8 @@ namespace QuanLyGiaiDau
             btnMoHinh.BackColor = Color.Gray;
             btnMoHinh.ForeColor = Color.OrangeRed;
             btnBang_Click(sender, e);
+            l.SetupTimewithLoai("MG17",18);
+            dtaTime.DataSource = l.getLICHTD();
         }
 
         private void btnBang_Click(object sender, EventArgs e)

@@ -17,6 +17,7 @@ namespace QuanLyGiaiDau
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmTime());
+            //Application.Run(new frmCreGroup());
         }
     }
 }
