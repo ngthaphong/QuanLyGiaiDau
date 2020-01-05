@@ -38,6 +38,10 @@ namespace BUS_QuanLyGiaiDau
             t.AcceptChanges();
             return t;
         }
+        public string getMa(string ten)
+        {
+            return dalDOI.getMa(ten);
+        }
         public DataTable getSTV(string madd)
         {
             return dalDOI.getSTV(madd);

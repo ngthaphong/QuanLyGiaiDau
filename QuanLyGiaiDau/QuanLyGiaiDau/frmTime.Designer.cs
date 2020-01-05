@@ -34,6 +34,8 @@
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.btnMoHinh = new System.Windows.Forms.Button();
             this.btnBang = new System.Windows.Forms.Button();
+            this.cboGiai = new System.Windows.Forms.ComboBox();
+            this.btnLoad = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtaTime)).BeginInit();
             this.panTime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
@@ -58,6 +60,7 @@
             this.dtaTime.Name = "dtaTime";
             this.dtaTime.Size = new System.Drawing.Size(1089, 553);
             this.dtaTime.TabIndex = 1;
+            this.dtaTime.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtaTime_CellEndEdit);
             // 
             // panTime
             // 
@@ -94,12 +97,34 @@
             this.btnBang.UseVisualStyleBackColor = true;
             this.btnBang.Click += new System.EventHandler(this.btnBang_Click);
             // 
+            // cboGiai
+            // 
+            this.cboGiai.FormattingEnabled = true;
+            this.cboGiai.Location = new System.Drawing.Point(12, 42);
+            this.cboGiai.Name = "cboGiai";
+            this.cboGiai.Size = new System.Drawing.Size(317, 21);
+            this.cboGiai.TabIndex = 4;
+            this.cboGiai.SelectedIndexChanged += new System.EventHandler(this.cboGiai_SelectedIndexChanged);
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoad.Location = new System.Drawing.Point(335, 40);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(54, 23);
+            this.btnLoad.TabIndex = 6;
+            this.btnLoad.Text = "Load";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
             // frmTime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::QuanLyGiaiDau.Properties.Resources.sanbong;
-            this.ClientSize = new System.Drawing.Size(1119, 637);
+            this.ClientSize = new System.Drawing.Size(1119, 640);
+            this.Controls.Add(this.btnLoad);
+            this.Controls.Add(this.cboGiai);
             this.Controls.Add(this.btnBang);
             this.Controls.Add(this.btnMoHinh);
             this.Controls.Add(this.panTime);
@@ -123,5 +148,7 @@
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Button btnBang;
         private System.Windows.Forms.Button btnMoHinh;
+        private System.Windows.Forms.ComboBox cboGiai;
+        private System.Windows.Forms.Button btnLoad;
     }
 }

@@ -86,5 +86,14 @@ namespace QuanLyGiaiDau
                 dtaGiai.DataSource = t;
             }
         }
+
+        private void btnLich_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmTime create = new frmTime();
+            create.StartPosition = FormStartPosition.CenterParent;
+            create.ShowDialog();
+            this.Close();
+        }
     }
 }

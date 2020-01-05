@@ -47,6 +47,7 @@
             this.cboTrangThai = new System.Windows.Forms.ComboBox();
             this.cboHinhThuc = new System.Windows.Forms.ComboBox();
             this.txtFind = new System.Windows.Forms.TextBox();
+            this.btnLich = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtaGiai)).BeginInit();
             this.panel1.SuspendLayout();
             this.toolGiaiDau.SuspendLayout();
@@ -62,6 +63,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnLich);
             this.panel1.Controls.Add(this.toolGiaiDau);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.cboTrangThai);
@@ -215,6 +217,16 @@
             this.txtFind.Click += new System.EventHandler(this.txtFind_Click);
             this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             // 
+            // btnLich
+            // 
+            this.btnLich.Location = new System.Drawing.Point(1017, 80);
+            this.btnLich.Name = "btnLich";
+            this.btnLich.Size = new System.Drawing.Size(75, 23);
+            this.btnLich.TabIndex = 4;
+            this.btnLich.Text = "Lịch TD";
+            this.btnLich.UseVisualStyleBackColor = true;
+            this.btnLich.Click += new System.EventHandler(this.btnLich_Click);
+            // 
             // frmGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,5 +268,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripLabel toolAcc;
         private System.Windows.Forms.ToolStripLabel toolAccounted;
+        private System.Windows.Forms.Button btnLich;
     }
 }

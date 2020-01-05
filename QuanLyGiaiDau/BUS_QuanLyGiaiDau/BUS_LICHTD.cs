@@ -48,7 +48,7 @@ namespace BUS_QuanLyGiaiDau
                         string ten1 = ten.Rows[i * 2].Field<string>(0);
                         string ten2 = ten.Rows[i * 2 + 1].Field<string>(0);
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                         string str = string.Format("W#{0} Vòng 1/32", i + 1);
                         win32.Add(str);
                     }
@@ -123,7 +123,7 @@ namespace BUS_QuanLyGiaiDau
                             }
                         }
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                         string str = string.Format("W#{0} Vòng 1/16", i + 1);
                         win16.Add(str);
                     }
@@ -137,7 +137,7 @@ namespace BUS_QuanLyGiaiDau
                         ten1 = win16[i * 2];
                         ten2 = win16[i * 2 + 1];
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                         string str = string.Format("W#{0} Vòng 1/8", i + 1);
                         win8.Add(str);
                     }
@@ -151,7 +151,7 @@ namespace BUS_QuanLyGiaiDau
                         ten1 = win8[i * 2];
                         ten2 = win8[i * 2 + 1];
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                         string str = string.Format("W#{0} Vòng Tứ Kết", i + 1);
                         win4.Add(str);
                     }
@@ -165,7 +165,7 @@ namespace BUS_QuanLyGiaiDau
                         ten1 = win4[i * 2];
                         ten2 = win4[i * 2 + 1];
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                         string str = string.Format("W#{0} Vòng Bán Kết", i + 1);
                         win2.Add(str);
                     }
@@ -178,7 +178,7 @@ namespace BUS_QuanLyGiaiDau
                         ten1 = win2[i * 2];
                         ten2 = win2[i * 2 + 1];
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                     }
                     break;
                 case "1/16":
@@ -202,7 +202,7 @@ namespace BUS_QuanLyGiaiDau
                         string ten1 = ten.Rows[i * 2].Field<string>(0);
                         string ten2 = ten.Rows[i * 2 + 1].Field<string>(0);
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                         string str = string.Format("W#{0} Vòng 1/16", i + 1);
                         win16.Add(str);
                     }
@@ -256,7 +256,7 @@ namespace BUS_QuanLyGiaiDau
                             }
                         }
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                         string str = string.Format("W#{0} Vòng 1/8", i + 1);
                         win8.Add(str);
                     }
@@ -270,7 +270,7 @@ namespace BUS_QuanLyGiaiDau
                         ten1 = win8[i * 2];
                         ten2 = win8[i * 2 + 1];
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                         string str = string.Format("W#{0} Vòng Tứ Kết", i + 1);
                         win4.Add(str);
                     }
@@ -284,7 +284,7 @@ namespace BUS_QuanLyGiaiDau
                         ten1 = win4[i * 2];
                         ten2 = win4[i * 2 + 1];
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                         string str = string.Format("W#{0} Vòng Bán Kết", i + 1);
                         win2.Add(str);
                     }
@@ -297,7 +297,7 @@ namespace BUS_QuanLyGiaiDau
                         ten1 = win2[i * 2];
                         ten2 = win2[i * 2 + 1];
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                     }
                     break;
                 case "1/8":
@@ -321,7 +321,7 @@ namespace BUS_QuanLyGiaiDau
                         string ten1 = ten.Rows[i * 2].Field<string>(0);
                         string ten2 = ten.Rows[i * 2 + 1].Field<string>(0);
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                         string str = string.Format("W#{0} Vòng 1/8", i + 1);
                         win8.Add(str);
                     }
@@ -375,8 +375,8 @@ namespace BUS_QuanLyGiaiDau
                             }
                         }
                             DTO_LICHTD dtol = new DTO_LICHTD(matran,ten1,ten2,null,null,null,null,null,null,null,null,null,null);
-                            addLICHTD(dtol);
-                            string str = string.Format("W#{0} Vòng Tứ Kết", i + 1);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
+                        string str = string.Format("W#{0} Vòng Tứ Kết", i + 1);
                             win4.Add(str);
                     }
                     //ban ket
@@ -389,7 +389,7 @@ namespace BUS_QuanLyGiaiDau
                         ten1 = win4[i * 2];
                         ten2 = win4[i * 2 + 1];
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                         string str = string.Format("W#{0} Vòng Bán Kết", i + 1);
                         win2.Add(str);
                     }
@@ -402,7 +402,7 @@ namespace BUS_QuanLyGiaiDau
                         ten1 = win2[i * 2];
                         ten2 = win2[i * 2 + 1];
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                     }
                     break;
                 case "Tứ Kết":
@@ -426,7 +426,7 @@ namespace BUS_QuanLyGiaiDau
                         string ten1 = ten.Rows[i * 2].Field<string>(0);
                         string ten2 = ten.Rows[i * 2 + 1].Field<string>(0);
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                         string str = string.Format("W#{0} Vòng Tứ Kết", i + 1);
                         win4.Add(str);
                     }
@@ -480,7 +480,7 @@ namespace BUS_QuanLyGiaiDau
                             }
                         }
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                         string str = string.Format("W#{0} Vòng Bán Kết", i + 1);
                         win2.Add(str);
                     }
@@ -493,7 +493,7 @@ namespace BUS_QuanLyGiaiDau
                         ten1 = win2[i * 2];
                         ten2 = win2[i * 2 + 1];
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                     }
                     break;
                 case "Bán Kết":
@@ -517,7 +517,7 @@ namespace BUS_QuanLyGiaiDau
                         string ten1 = ten.Rows[i * 2].Field<string>(0);
                         string ten2 = ten.Rows[i * 2 + 1].Field<string>(0);
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                         string str = string.Format("W#{0} Vòng Bán Kết", i + 1);
                         win2.Add(str);
                     }
@@ -568,7 +568,7 @@ namespace BUS_QuanLyGiaiDau
                             }
                         }
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                     }
                     //chung ket
                     sotran = t.Rows[1].Field<int>(3);
@@ -579,7 +579,7 @@ namespace BUS_QuanLyGiaiDau
                         ten1 = win2[i * 2];
                         ten2 = win2[i * 2 + 1];
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                     }
                     break;
                 case "Chung Kết":
@@ -593,14 +593,81 @@ namespace BUS_QuanLyGiaiDau
                         ten1 = ten.Rows[i * 2].Field<string>(0);
                         ten2 = ten.Rows[i * 2+1].Field<string>(0);
                         DTO_LICHTD dtol = new DTO_LICHTD(matran, ten1, ten2, null, null, null, null, null, null, null, null, null, null);
-                        addLICHTD(dtol);
+                        if (CheckTrungbelow(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
                     }
                     break;
             }
         }
-        public void SetupTimewithTron()
+        public void SetupTimewithTron(string mag, int sodoitg)
         {
+            DataTable ten = getTeam(mag);
+            int sodoidk = ten.Rows.Count;
+            //neu sodoi co the tham gia lon hon sodoi da dang ky
+            if (sodoidk < sodoitg)  //them ten doi cho cac doi
+            {
+                for (int i = sodoidk + 1; i <= sodoitg; i++)
+                {
+                    string str = string.Format("Đội #{0}", i);
+                    ten.Rows.Add(str);
+                }
+            }
+            List<string> tendoi = ten.AsEnumerable().Select(x => x[0].ToString()).ToList();
+            ListMatches(tendoi,mag);
+        }
+        public void ListMatches(List<string> ListTeam, string mag)
+        {
+            DataTable t = getRangenon(mag);
+            List<string> teamdone = new List<string>();
+            if (ListTeam.Count % 2 != 0)
+            {
+                ListTeam.Add("Bye");
+            }
+            int numTeams = ListTeam.Count;
+            int numDays = (numTeams - 1);
+            int halfSize = numTeams / 2;
 
+            List<string> teams = new List<string>();
+
+            teams.AddRange(ListTeam.Skip(halfSize).Take(halfSize));
+            teams.AddRange(ListTeam.Skip(1).Take(halfSize - 1).ToArray().Reverse());
+
+            int teamsSize = teams.Count;
+            for (int day = 0; day < numDays; day++)
+            {
+                //add dau tien
+                string matran=t.Rows[day*halfSize].Field<string>(0);
+                int teamIdx = day % teamsSize;
+                DTO_LICHTD dtol = new DTO_LICHTD(matran, teams[teamIdx], ListTeam[0],null, null, null, null, null, null, null, null, null, null);
+                if (CheckTrung(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
+                for (int idx = 1; idx < halfSize; idx++)
+                {
+                    int firstTeam = (day + idx) % teamsSize;
+                    int secondTeam = (day + teamsSize - idx) % teamsSize;
+                    matran = t.Rows[(day*halfSize)+idx].Field<string>(0);
+                    dtol = new DTO_LICHTD(matran, teams[firstTeam], teams[secondTeam], null, null, null, null, null, null, null, null, null, null);
+                    if (CheckTrung(mag, dtol.TenDoi1, dtol.TenDoi2)) addLICHTD(dtol);
+                }
+            }
+        }
+        public bool CheckTrung(string mag, string tendoi1, string tendoi2)
+        {
+            DataTable temp = getLICHTD(mag);
+            if (temp.Rows.Count == 0) return true;
+                foreach (DataRow r in temp.Rows)
+                {
+                    if (r.Field<string>(1) == tendoi1 && r.Field<string>(2) == tendoi2) return false;
+                }
+                return true;
+        }
+        public bool CheckTrungbelow(string mag, string tendoi1, string tendoi2)
+        {
+            DataTable temp = getLICHTD(mag);
+            if (temp.Rows.Count == 0) return true;
+                foreach (DataRow r in temp.Rows)
+                {
+                    if (r.Field<string>(1) == tendoi1 && r.Field<string>(2) == tendoi2) return false;
+                }
+                return true;
         }
         public DataTable getGoal(string mat)
         {
@@ -614,9 +681,13 @@ namespace BUS_QuanLyGiaiDau
         {
             return dalLICHTD.getRange(mag);
         }
-        public DataTable getLICHTD()
+        public DataTable getRangenon(string mag)
         {
-            return dalLICHTD.getLICHTD();
+            return dalLICHTD.getRangenon(mag);
+        }
+        public DataTable getLICHTD(string mag)
+        {
+            return dalLICHTD.getLICHTD(mag);
         }
         public bool addLICHTD(DTO_LICHTD g)
         {

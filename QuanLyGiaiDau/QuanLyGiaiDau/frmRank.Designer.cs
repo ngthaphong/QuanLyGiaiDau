@@ -28,18 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtaXepHang = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.cboGiai = new System.Windows.Forms.ComboBox();
+            this.btnLoad = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dtaXepHang)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dtaXepHang
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 66);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1095, 559);
-            this.dataGridView1.TabIndex = 0;
+            this.dtaXepHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtaXepHang.Location = new System.Drawing.Point(12, 66);
+            this.dtaXepHang.Name = "dtaXepHang";
+            this.dtaXepHang.Size = new System.Drawing.Size(1095, 559);
+            this.dtaXepHang.TabIndex = 0;
             // 
             // label1
             // 
@@ -53,17 +55,39 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Bảng xếp hạng các đội";
             // 
+            // cboGiai
+            // 
+            this.cboGiai.FormattingEnabled = true;
+            this.cboGiai.Location = new System.Drawing.Point(12, 42);
+            this.cboGiai.Name = "cboGiai";
+            this.cboGiai.Size = new System.Drawing.Size(249, 21);
+            this.cboGiai.TabIndex = 2;
+            this.cboGiai.SelectedIndexChanged += new System.EventHandler(this.cboGiai_SelectedIndexChanged);
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(267, 40);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(45, 23);
+            this.btnLoad.TabIndex = 3;
+            this.btnLoad.Text = "Load";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
             // frmRank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::QuanLyGiaiDau.Properties.Resources.sanbong;
             this.ClientSize = new System.Drawing.Size(1119, 637);
+            this.Controls.Add(this.btnLoad);
+            this.Controls.Add(this.cboGiai);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtaXepHang);
             this.Name = "frmRank";
             this.Text = "Xếp hạng";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.frmRank_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dtaXepHang)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -71,7 +95,9 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtaXepHang;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cboGiai;
+        private System.Windows.Forms.Button btnLoad;
     }
 }

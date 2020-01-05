@@ -11,6 +11,15 @@ namespace DAL_QuanLyGiaiDau
 {
     public class DAL_DOI : DBConnect
     {
+        public string getMa(string ten)
+        {
+            string str = string.Format("SELECT MaDoi FROM DOI WHERE TenDoi=N'{0}'", ten);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            DataTable dt = new DataTable();
+            data.Fill(dt);
+            str = dt.Rows[0].Field<string>(0);
+            return str;
+        }
         //Lay het user, pass
         public DataTable getDOI()
         {

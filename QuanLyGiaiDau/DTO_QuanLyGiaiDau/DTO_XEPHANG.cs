@@ -5,9 +5,9 @@ namespace DTO_QuanLyGiaiDau
     {
         private string _MaGiai;
         private string _MaDoi;
-        private int _TongDiem;
-        private int _HieuSo;
-        private int _ViThu;
+        private int? _TongDiem;
+        private int? _HieuSo;
+        private int? _ViThu;
         //set, get
         public string MaGiai
         {
@@ -19,17 +19,17 @@ namespace DTO_QuanLyGiaiDau
             get { return _MaDoi; }
             set { _MaDoi = value; }
         }
-        public int TongDiem
+        public int? TongDiem
         {
             get { return _TongDiem; }
             set { _TongDiem = value; }
         }
-        public int HieuSo
+        public int? HieuSo
         {
             get { return _HieuSo; }
             set { _HieuSo = value; }
         }
-        public int ViThu
+        public int? ViThu
         {
             get { return _ViThu; }
             set { _ViThu = value; }
@@ -37,7 +37,7 @@ namespace DTO_QuanLyGiaiDau
 
         //contructor
         public DTO_XEPHANG() { }
-        public DTO_XEPHANG(string magiai, string mad, int tongdiem, int hieuso, int vithu)
+        public DTO_XEPHANG(string magiai, string mad, int? tongdiem, int? hieuso, int? vithu)
         {
             this.MaGiai = magiai;
             this.MaDoi = mad;

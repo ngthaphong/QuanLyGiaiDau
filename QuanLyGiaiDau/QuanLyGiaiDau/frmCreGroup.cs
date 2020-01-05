@@ -96,6 +96,7 @@ namespace QuanLyGiaiDau
                     if (giai.addGIAIDAU(dto))
                     {
                         MessageBox.Show("Đã hoàn tất tạo giải đấu, vui lòng cập nhật giải đấu bằng cách nhấp vào nút 'Thêm đại diện' ở bên dưới", "Chúc mừng!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        v.addVongTron((int)sodoi, mag, (int)luot);
                     }
                     else MessageBox.Show("Tạo giải thất bại, vui lòng thử lại!", "Rất tiếc!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }

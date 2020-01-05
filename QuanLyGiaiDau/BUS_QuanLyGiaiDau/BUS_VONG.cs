@@ -254,6 +254,27 @@ namespace BUS_QuanLyGiaiDau
                     break;
             }
         }
+        public void addVongTron(int sodoi, string mag, int soluot)
+        {
+            DTO_VONG dtov = new DTO_VONG();
+            BUS_TRANDAU td = new BUS_TRANDAU();
+            string mav="";
+            //add vong
+            for(int i = 0; i < sodoi-1; i++)
+            {
+                mav = nextMa();
+                dtov.MaVong = mav;
+                dtov.MaGiai = mag;
+                dtov.TenVong = (i + 1).ToString();
+                addVONG(dtov);
+                //add tran
+                for (int j = 0; j < sodoi / 2; j++)
+                {
+                    td.addTranDau(mav, soluot);
+                }
+            }
+            
+        }
         public string nextMa()
         {
             string str = "MV";

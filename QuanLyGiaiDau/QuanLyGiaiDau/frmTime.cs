@@ -15,6 +15,7 @@ namespace QuanLyGiaiDau
     public partial class frmTime : Form
     {
         BUS_LICHTD l = new BUS_LICHTD();
+        BUS_GIAIDAU g = new BUS_GIAIDAU();
         public frmTime()
         {
             InitializeComponent();
@@ -27,20 +28,110 @@ namespace QuanLyGiaiDau
             btnMoHinh.BackColor = Color.Gray;
             btnMoHinh.ForeColor = Color.OrangeRed;
             btnBang_Click(sender, e);
-            l.SetupTimewithLoai("MG17",18);
-            dtaTime.DataSource = l.getLICHTD();
+            cboGiai.DataSource= g.getGIAIDAU();
+            cboGiai.DisplayMember = "TenGiai";
+            //l.SetupTimewithLoai("MG16",34);
+            //dtaTime.DataSource = l.getLICHTD();
         }
 
         private void btnBang_Click(object sender, EventArgs e)
         {
             btnBang.BackColor = Color.GreenYellow;
             btnMoHinh.BackColor = Color.Gray;
+            dtaTime.Show();
         }
-
+        
         private void btnMoHinh_Click(object sender, EventArgs e)
         {
             btnMoHinh.BackColor = Color.GreenYellow;
             btnBang.BackColor = Color.Gray;
+            dtaTime.Hide();
+            FlowLayoutPanel flow = new FlowLayoutPanel();
+            flow.Size = new Size(1089, 553);
+            flow.Location = new Point(3,3);
+            flow.AutoScroll = true;
+            panTime.Controls.Add(flow);
+            for (int i = 0; i < 400; i++)
+            {
+                Button bt = new Button();
+                flow.Controls.Add(bt);
+                bt.Text = "1111111111111111";
+                bt.Top = ((i - 1) / 9) % 9 * bt.Height + 1 + ((i - 1) / 27) * 10 + 10;
+                bt.Left = (i - 1) % 9 * bt.Width + 1 + ((i - 1) % 9) / 3 * 10 + 10;
+            }
+        }
+
+        private void cboGiai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cboGiai.ValueMember = "MaGiai";
+            dtaTime.DataSource = l.getLICHTD((string)cboGiai.SelectedValue);
+            cboGiai.ValueMember = "Loai";
+            if ((int)cboGiai.SelectedValue == 2) btnMoHinh.Enabled = false;
+            else btnMoHinh.Enabled = true;
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            cboGiai.ValueMember = "Loai";
+            int loai = (int)cboGiai.SelectedValue;
+            if (loai == 1)
+            {
+                cboGiai.ValueMember = "MaGiai";
+                string mag = (string)cboGiai.SelectedValue;
+                cboGiai.ValueMember = "SoDoi";
+                int sodoi = (int)cboGiai.SelectedValue;
+                l.SetupTimewithLoai(mag, sodoi);
+            }
+            else
+            {
+                cboGiai.ValueMember = "MaGiai";
+                string mag = (string)cboGiai.SelectedValue;
+                cboGiai.ValueMember = "SoDoi";
+                int sodoi = (int)cboGiai.SelectedValue;
+                l.SetupTimewithTron(mag, sodoi);
+            }
+            cboGiai.ValueMember = "MaGiai";
+            dtaTime.DataSource = l.getLICHTD((string)cboGiai.SelectedValue);
+        }
+
+        private void dtaTime_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            int? rowIdx = e?.RowIndex;
+            int? colIdx = e?.ColumnIndex;
+            if (rowIdx.HasValue && colIdx.HasValue)
+            {
+                var dgv = (DataGridView)sender;
+                var cell = dgv?.Rows?[rowIdx.Value]?.Cells?[colIdx.Value]?.Value;
+                if (!string.IsNullOrEmpty(cell?.ToString()))
+                {
+                    DataGridViewRow row = dgv?.Rows?[rowIdx.Value];
+                    string mat = row?.Cells?[0]?.Value.ToString();
+                    string ten1 = row?.Cells?[1]?.Value.ToString();
+                    string ten2 = row?.Cells?[2]?.Value.ToString();
+                    object o = row?.Cells?[3]?.Value;
+                    DateTime? time = o == DBNull.Value ? null : (DateTime?)o;
+                    string tt = row?.Cells?[4]?.Value.ToString();
+                    //convert to null param
+                    o = row?.Cells?[5]?.Value;
+                    int? bt1 = o == DBNull.Value ? null : (int?)o;
+                    o = row?.Cells?[6]?.Value;
+                    int? bt2 = o == DBNull.Value ? null : (int?)o;
+                    o = row?.Cells?[7]?.Value;
+                    int? tv1 = o == DBNull.Value ? null : (int?)o;
+                    o = row?.Cells?[8]?.Value;
+                    int? tv2 = o == DBNull.Value ? null : (int?)o;
+                    o = row?.Cells?[9]?.Value;
+                    int? td1 = o == DBNull.Value ? null : (int?)o;
+                    o = row?.Cells?[10]?.Value;
+                    int? td2 = o == DBNull.Value ? null : (int?)o;
+                    o = row?.Cells?[11]?.Value;
+                    int? sd1 = o == DBNull.Value ? null : (int?)o;
+                    o = row?.Cells?[12]?.Value;
+                    int? sd2 = o == DBNull.Value ? null : (int?)o;
+                    DTO_LICHTD dtol = new DTO_LICHTD(mat,ten1,ten2,time,tt,bt1,bt2,tv1,tv2,td1,td2,sd1,sd2);
+                    l.upLICHTD(dtol);
+                };
+            };
         }
     }
 }

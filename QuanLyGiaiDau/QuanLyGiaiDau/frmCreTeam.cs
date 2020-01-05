@@ -43,6 +43,7 @@ namespace QuanLyGiaiDau
             {
                 //create team
                 string mad = d.nextMa("MD");
+                cboThanhVien.ValueMember = "SoThanhVien";
                 int tv = (int)cboThanhVien.SelectedValue;
                 string mau = (string)cboMau.SelectedValue;
                 DTO_DOI dtod = new DTO_DOI(mad,txtTenDoi.Text,txtTenHLV.Text,txtDoiTruong.Text,tv,mau);
