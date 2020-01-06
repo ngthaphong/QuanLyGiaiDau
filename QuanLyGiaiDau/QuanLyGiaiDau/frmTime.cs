@@ -41,11 +41,9 @@ namespace QuanLyGiaiDau
             dtaTime.Columns[1].Width = 200;
             dtaTime.Columns[1].HeaderText = "Tên đội 1";
             dtaTime.Columns[1].DefaultCellStyle.BackColor = Color.ForestGreen;
-            dtaTime.Columns[1].ReadOnly = true;
             dtaTime.Columns[1].DefaultCellStyle.Font = new Font(dtaTime.ColumnHeadersDefaultCellStyle.Font, FontStyle.Bold);
             dtaTime.Columns[2].Width = 200;
             dtaTime.Columns[2].HeaderText = "Tên đội 2";
-            dtaTime.Columns[2].ReadOnly = true;
             dtaTime.Columns[2].DefaultCellStyle.Font = new Font(dtaTime.ColumnHeadersDefaultCellStyle.Font, FontStyle.Bold);
             dtaTime.Columns[3].Width = 150;
             dtaTime.Columns[3].HeaderText = "Thời gian dự tính";
@@ -91,6 +89,12 @@ namespace QuanLyGiaiDau
             dtaTime.RowsDefaultCellStyle.ForeColor = Color.Purple;
             dtaTime.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dtaTime.AllowUserToResizeRows = false;
+
+            foreach (DataGridViewRow row in dtaTime.Rows)
+            {
+                DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)(row.Cells["TenDoi1"]);
+                cell.DataSource = new string[] { "10", "30" };
+            }
         }
 
         private void btnBang_Click(object sender, EventArgs e)
