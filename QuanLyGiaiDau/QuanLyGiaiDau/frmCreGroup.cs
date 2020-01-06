@@ -337,5 +337,14 @@ namespace QuanLyGiaiDau
             btn2.BackColor = Color.GreenYellow;
             btn1.BackColor = Color.Transparent;
         }
+
+        private void dateEnd_ValueChanged(object sender, EventArgs e)
+        {
+            if (dateEnd.Value < dateBegin.Value)
+            {
+                MessageBox.Show("Ngày kết thúc không được nhỏ hơn ngày bắt đầu", "Thử lại!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dateEnd.Focus();
+            }
+        }
     }
 }

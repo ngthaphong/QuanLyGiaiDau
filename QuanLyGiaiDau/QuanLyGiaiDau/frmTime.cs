@@ -90,11 +90,11 @@ namespace QuanLyGiaiDau
             dtaTime.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dtaTime.AllowUserToResizeRows = false;
 
-            foreach (DataGridViewRow row in dtaTime.Rows)
-            {
-                DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)(row.Cells["TenDoi1"]);
-                cell.DataSource = new string[] { "10", "30" };
-            }
+            //foreach (DataGridViewRow row in dtaTime.Rows)
+            //{
+            //    DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)(row.Cells["TenDoi1"]);
+            //    cell.DataSource = new string[] { "10", "30" };
+            //}
         }
 
         private void btnBang_Click(object sender, EventArgs e)
@@ -195,6 +195,15 @@ namespace QuanLyGiaiDau
                     l.upLICHTD(dtol);
                 };
             };
+        }
+
+        private void btnRank_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmRank create = new frmRank();
+            create.StartPosition = FormStartPosition.CenterParent;
+            create.ShowDialog();
+            this.Close();
         }
     }
 }

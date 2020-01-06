@@ -52,8 +52,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cboThanhVien = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cboMau = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtMau = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -149,6 +149,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtMau);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.cboDaiDien);
             this.groupBox1.Controls.Add(this.txtTenDoi);
@@ -163,7 +164,6 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cboThanhVien);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.cboMau);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.ForeColor = System.Drawing.Color.MediumBlue;
             this.groupBox1.Location = new System.Drawing.Point(922, 325);
@@ -314,18 +314,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Tên huấn luyện viên:";
             // 
-            // cboMau
-            // 
-            this.cboMau.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.cboMau.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboMau.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.cboMau.FormattingEnabled = true;
-            this.cboMau.Location = new System.Drawing.Point(14, 252);
-            this.cboMau.Name = "cboMau";
-            this.cboMau.Size = new System.Drawing.Size(260, 21);
-            this.cboMau.TabIndex = 7;
-            this.cboMau.SelectedIndexChanged += new System.EventHandler(this.cboMau_SelectedIndexChanged);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -335,6 +323,15 @@
             this.label6.Size = new System.Drawing.Size(76, 13);
             this.label6.TabIndex = 3;
             this.label6.Text = "Số thành viên:";
+            // 
+            // txtMau
+            // 
+            this.txtMau.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtMau.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.txtMau.Location = new System.Drawing.Point(14, 252);
+            this.txtMau.Name = "txtMau";
+            this.txtMau.Size = new System.Drawing.Size(260, 20);
+            this.txtMau.TabIndex = 12;
             // 
             // frmCreTeam
             // 
@@ -374,7 +371,6 @@
         private System.Windows.Forms.TextBox txtTenHLV;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cboMau;
         private System.Windows.Forms.ComboBox cboThanhVien;
         private System.Windows.Forms.Label lblCreate;
         private System.Windows.Forms.Label label7;
@@ -387,5 +383,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.ComboBox cboXoa;
+        private System.Windows.Forms.TextBox txtMau;
     }
 }

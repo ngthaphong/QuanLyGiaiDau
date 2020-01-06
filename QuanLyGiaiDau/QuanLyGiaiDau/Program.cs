@@ -16,10 +16,10 @@ namespace QuanLyGiaiDau
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            frmLogin log = new frmLogin();
-            log.StartPosition = FormStartPosition.CenterScreen;
-            Application.Run(log);
-            //Application.Run(new frmCreGroup());
+            //frmLogin log = new frmLogin();
+            //log.StartPosition = FormStartPosition.CenterScreen;
+            //Application.Run(log);
+            Application.Run(new frmCreGroup());
         }
     }
 }

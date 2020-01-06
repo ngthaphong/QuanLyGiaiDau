@@ -21,6 +21,34 @@ namespace QuanLyGiaiDau
             InitializeComponent();
         }
 
+        public void refresh()
+        {
+            //refresh
+            DataTable t = ct.tableLimitCauThu();
+            var result = from table in t.AsEnumerable()
+                         select
+                            new
+                            {
+                                MaCT = table.Field<string>("MaCT"),
+                                TenDoi = table.Field<string>("MaDoi") + " - tên: " + table.Field<string>("HoTenCT") + " - ngày sinh: " + table.Field<DateTime>("NgaySinh")
+                            };
+            cboXoa.DataSource = result.ToArray();
+            cboXoa.DisplayMember = "TenDoi";
+            cboXoa.ValueMember = "MaCT";
+            dtaCauThu.DataSource = ct.tableCauThu();
+            t = d.getLimited();
+            var results = from table in t.AsEnumerable()
+                         select
+                            new
+                            {
+                                MaDoi = table.Field<string>("MaDoi"),
+                                TenDoi = table.Field<string>("TenDoi") + " - thành viên: " + table.Field<int>("SoCauThu") + " - tổng: " + table.Field<int>("SoThanhVien")
+                            };
+            cboDoi.DataSource = results.ToArray();
+            cboDoi.DisplayMember = "TenDoi";
+            cboDoi.ValueMember = "MaDoi";
+        }
+
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -38,29 +66,9 @@ namespace QuanLyGiaiDau
             vitri[0] = "Thủ môn"; vitri[1] = "Hậu vệ"; vitri[2] = "Hậu vệ quét"; vitri[3] = "Hậu vệ biên"; vitri[4] = "Hậu vệ tấn công"; vitri[5] = "Trung vệ"; vitri[6] = "Tiền vệ phòng ngự"; vitri[7] = "Tiền vệ trung tâm"; vitri[8] = "Tiền vệ cánh"; vitri[9] = "Tiền vệ tấn công"; vitri[10] = "Tiền đạo";
             cboViTri.DataSource = vitri;
             // combobox with 3 colum
-            DataTable t = d.getLimited();
-            var result = from table in t.AsEnumerable()
-                         select
-                            new
-                            {
-                                MaDoi = table.Field<string>("MaDoi"),
-                                TenDoi = table.Field<string>("TenDoi") + " - thành viên: " + table.Field<int>("SoCauThu") + " - tổng: " + table.Field<int>("SoThanhVien")
-                            };
-            cboDoi.DataSource = result.ToArray();
-            cboDoi.DisplayMember = "TenDoi";
-            cboDoi.ValueMember = "MaDoi";
+            
             /////////
-            t= ct.tableLimitCauThu();
-            var results = from table in t.AsEnumerable()
-                         select
-                            new
-                            {
-                                MaCT = table.Field<string>("MaCT"),
-                                TenDoi = table.Field<string>("MaDoi") + " - tên: " + table.Field<string>("HoTenCT") + " - ngày sinh: " + table.Field<DateTime>("NgaySinh")
-                            };
-            cboXoa.DataSource = results.ToArray();
-            cboXoa.DisplayMember = "TenDoi";
-            cboXoa.ValueMember = "MaCT";
+            refresh();
 
             dtaCauThu.DataSource = ct.tableCauThu();
             dtaCauThu.Columns[0].Width = 200;
@@ -114,18 +122,7 @@ namespace QuanLyGiaiDau
                 {
                     MessageBox.Show("Đã thêm thành công cầu thủ", "Chúc mừng", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     // refresh combobox
-                    DataTable t = d.getLimited();
-                    var result = from table in t.AsEnumerable()
-                                 select
-                                    new
-                                    {
-                                        MaDoi = table.Field<string>("MaDoi"),
-                                        TenDoi = table.Field<string>("TenDoi") + " - thành viên: " + table.Field<int>("SoCauThu") + " - tổng: " + table.Field<int>("SoThanhVien")
-                                    };
-                    cboDoi.DataSource = result.ToArray();
-                    cboDoi.DisplayMember = "TenDoi";
-                    cboDoi.ValueMember = "MaDoi";
-                    dtaCauThu.DataSource = ct.tableCauThu();
+                    refresh();
                 }
                 else MessageBox.Show("Thêm thất bại vui lòng thử lại!", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -135,19 +132,9 @@ namespace QuanLyGiaiDau
         {
             cboXoa.ValueMember = "MaCT";
             ct.delCAUTHU((string)cboXoa.SelectedValue);
-            //refresh
-            DataTable t = ct.tableLimitCauThu();
-            var result = from table in t.AsEnumerable()
-                         select
-                            new
-                            {
-                                MaCT = table.Field<string>("MaCT"),
-                                TenDoi = table.Field<string>("MaDoi") + " - tên: " + table.Field<string>("HoTenCT") + " - ngày sinh: " + table.Field<DateTime>("NgaySinh")
-                            };
-            cboXoa.DataSource = result.ToArray();
-            cboXoa.DisplayMember = "TenDoi";
-            cboXoa.ValueMember = "MaCT";
-            dtaCauThu.DataSource = ct.tableCauThu();
+            
+
+            refresh();
         }
     }
 }

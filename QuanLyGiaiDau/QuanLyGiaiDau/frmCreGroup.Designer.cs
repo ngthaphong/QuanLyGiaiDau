@@ -64,6 +64,7 @@
             this.panGiaiDau.Location = new System.Drawing.Point(12, 12);
             this.panGiaiDau.Name = "panGiaiDau";
             this.panGiaiDau.Size = new System.Drawing.Size(299, 355);
+            this.panGiaiDau.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -73,6 +74,7 @@
             this.groupBox1.Location = new System.Drawing.Point(7, 218);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(281, 91);
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Phân loại";
             // 
@@ -108,6 +110,7 @@
             this.label4.Location = new System.Drawing.Point(3, 23);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(167, 24);
+            this.label4.TabIndex = 1;
             this.label4.Text = "Tạo một giải đấu";
             // 
             // dateEnd
@@ -117,6 +120,7 @@
             this.dateEnd.Size = new System.Drawing.Size(200, 20);
             this.dateEnd.TabIndex = 3;
             this.dateEnd.Value = new System.DateTime(2021, 12, 17, 2, 10, 0, 0);
+            this.dateEnd.ValueChanged += new System.EventHandler(this.dateEnd_ValueChanged);
             // 
             // dateBegin
             // 
@@ -132,6 +136,7 @@
             this.label2.Location = new System.Drawing.Point(0, 122);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.TabIndex = 4;
             this.label2.Text = "Ngày bắt đầu:";
             // 
             // label3
@@ -141,6 +146,7 @@
             this.label3.Location = new System.Drawing.Point(0, 176);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.TabIndex = 5;
             this.label3.Text = "Ngày kết thúc:";
             // 
             // label1
@@ -150,6 +156,7 @@
             this.label1.Location = new System.Drawing.Point(0, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.TabIndex = 6;
             this.label1.Text = "Tên giải đấu:";
             // 
             // btnThem

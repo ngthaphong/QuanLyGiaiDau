@@ -37,6 +37,7 @@
             this.btnBang = new System.Windows.Forms.Button();
             this.cboGiai = new System.Windows.Forms.ComboBox();
             this.btnLoad = new System.Windows.Forms.Button();
+            this.btnRank = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtaTime)).BeginInit();
             this.panTime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
@@ -123,12 +124,24 @@
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
+            // btnRank
+            // 
+            this.btnRank.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRank.Location = new System.Drawing.Point(1205, 11);
+            this.btnRank.Name = "btnRank";
+            this.btnRank.Size = new System.Drawing.Size(108, 23);
+            this.btnRank.TabIndex = 7;
+            this.btnRank.Text = "Xếp hạng";
+            this.btnRank.UseVisualStyleBackColor = true;
+            this.btnRank.Click += new System.EventHandler(this.btnRank_Click);
+            // 
             // frmTime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::QuanLyGiaiDau.Properties.Resources.sanbong;
             this.ClientSize = new System.Drawing.Size(1329, 640);
+            this.Controls.Add(this.btnRank);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.cboGiai);
             this.Controls.Add(this.btnBang);
@@ -157,5 +170,6 @@
         private System.Windows.Forms.Button btnMoHinh;
         private System.Windows.Forms.ComboBox cboGiai;
         private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.Button btnRank;
     }
 }

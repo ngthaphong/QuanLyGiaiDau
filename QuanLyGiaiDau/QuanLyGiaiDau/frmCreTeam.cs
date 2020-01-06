@@ -39,6 +39,17 @@ namespace QuanLyGiaiDau
             t = d.getDOI();
             t.Columns.Remove("MaDoi");
             dtaDoi.DataSource = t;
+            //
+            t = dd.getDAIDIEN();
+            //delete with madoi!=null
+            foreach (DataRow r in t.Rows)
+            {
+                if (r.Field<string>(1) != null) r.Delete();
+            }
+            t.AcceptChanges();
+            cboDaiDien.DataSource = t;
+            cboDaiDien.DisplayMember = "TenNguoiDD";
+            cboDaiDien.ValueMember = "MaDD";
         }
         private void btnCreate_Click(object sender, EventArgs e)
         {
@@ -63,7 +74,7 @@ namespace QuanLyGiaiDau
                 string mad = d.nextMa("MD");
                 cboThanhVien.ValueMember = "SoThanhVien";
                 int tv = (int)cboThanhVien.SelectedValue;
-                string mau = (string)cboMau.SelectedValue;
+                string mau = txtMau.Text;
                 DTO_DOI dtod = new DTO_DOI(mad,txtTenDoi.Text,txtTenHLV.Text,txtDoiTruong.Text,tv,mau);
                 if (d.addDOI(dtod))
                 {
@@ -90,19 +101,6 @@ namespace QuanLyGiaiDau
         {
             btnCreate.Enabled = false;
             lblCreate.Text = "Vui lòng điển đủ thông tin";
-            string[] mau = new string[10];
-            mau[0] = "đỏ"; mau[1] = "xanh"; mau[2] = "trắng"; mau[3] = "đen"; mau[4] = "xanh lá"; mau[5] = "hồng"; mau[6] = "trắng sọc đen"; mau[7] = "xanh sọc trắng"; mau[8] = "đỏ sọc trắng"; mau[9] = "xanh lá sọc trắng";
-            cboMau.DataSource = mau;
-            DataTable t= dd.getDAIDIEN();
-            //delete with madoi!=null
-            foreach(DataRow r in t.Rows)
-            {
-                if (r.Field<string>(1) != null) r.Delete();
-            }
-            t.AcceptChanges();
-            cboDaiDien.DataSource = t;
-            cboDaiDien.DisplayMember = "TenNguoiDD";
-            cboDaiDien.ValueMember = "MaDD";
             //set cboXoa
             refresh();
             

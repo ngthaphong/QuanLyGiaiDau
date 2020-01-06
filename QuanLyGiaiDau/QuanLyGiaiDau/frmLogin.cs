@@ -94,5 +94,10 @@ namespace QuanLyGiaiDau
         {
             this.AcceptButton = btnDangNhap;
         }
+
+        private void txtPass_TextChanged(object sender, EventArgs e)
+        {
+            txtPass.PasswordChar = '*';
+        }
     }
 }
