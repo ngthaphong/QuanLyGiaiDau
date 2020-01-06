@@ -14,7 +14,7 @@ namespace DAL_QuanLyGiaiDau
         //Lay het user, pass
         public DataTable getGIAIDAU()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT * FROM GIAIDAU", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT * FROM GIAIDAU", connect());
             DataTable dtGIAIDAU = new DataTable();
             data.Fill(dtGIAIDAU);
             return dtGIAIDAU;
@@ -23,7 +23,7 @@ namespace DAL_QuanLyGiaiDau
         public DataTable getMaGiai(string mag)
         {
             string t = string.Format("SELECT * FROM GIAIDAU WHERE MaGiai='{0}'", mag);
-            SqlDataAdapter data = new SqlDataAdapter(t, connect);
+            SqlDataAdapter data = new SqlDataAdapter(t, connect());
             DataTable dt = new DataTable();
             data.Fill(dt);
             return dt;
@@ -32,7 +32,7 @@ namespace DAL_QuanLyGiaiDau
         public DataTable getTenGiai(string teng)
         {
             string t = string.Format("SELECT * FROM GIAIDAU WHERE TenGiai like N'%{0}%'", teng);
-            SqlDataAdapter data = new SqlDataAdapter(t, connect);
+            SqlDataAdapter data = new SqlDataAdapter(t, connect());
             DataTable dt = new DataTable();
             data.Fill(dt);
             return dt;
@@ -41,7 +41,7 @@ namespace DAL_QuanLyGiaiDau
         public DataTable getLoai(int loai)
         {
             string t = string.Format("SELECT * FROM GIAIDAU WHERE Loai={0}", loai);
-            SqlDataAdapter data = new SqlDataAdapter(t, connect);
+            SqlDataAdapter data = new SqlDataAdapter(t, connect());
             DataTable dt = new DataTable();
             data.Fill(dt);
             return dt;
@@ -51,13 +51,13 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect.Open();
+                connect().Open();
                 string start = string.Format("{0:yyyy/MM/dd}", g.NgayBatDau);
                 string end = string.Format("{0:yyyy/MM/dd}", g.NgayKetThuc);
                 string sql = "";
                 sql += "INSERT INTO GIAIDAU(MaGiai,TenGiai,NgayBatDau,NgayKetThuc,SoDoi,SoThanhVien,DiemThang,DiemHoa,DiemThua,SoLuot,Loai) ";
                 sql += "VALUES (@MA,@TEN,@DS,@DE,@SD,@STV,@DTG,@DH,@DTH,@LUOT,@LOAI)";
-                SqlCommand cmd = new SqlCommand(sql, connect);
+                SqlCommand cmd = new SqlCommand(sql, connect());
                 cmd.CommandType= CommandType.Text;
                 cmd.Parameters.Add(new SqlParameter("@MA", g.MaGiai));
                 cmd.Parameters.Add(new SqlParameter("@TEN", g.TenGiai));
@@ -77,15 +77,15 @@ namespace DAL_QuanLyGiaiDau
             catch (Exception e) { }
             finally
             {
-                //close connect
-                connect.Close();
+                //close connect()
+                connect().Close();
             }
             return false;
         }
         //top 1
         public DataTable topGIAIDAU()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM GIAIDAU ORDER BY LEFT(MaGiai,PATINDEX('%[0-9]%',MaGiai)-1),CONVERT(INT,SUBSTRING(MaGiai,PATINDEX('%[0-9]%',MaGiai),LEN(MaGiai))) DESC", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM GIAIDAU ORDER BY LEFT(MaGiai,PATINDEX('%[0-9]%',MaGiai)-1),CONVERT(INT,SUBSTRING(MaGiai,PATINDEX('%[0-9]%',MaGiai),LEN(MaGiai))) DESC", connect());
             DataTable dtGIAIDAU = new DataTable();
             data.Fill(dtGIAIDAU);
             return dtGIAIDAU;
@@ -95,12 +95,12 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect.Open();
+                connect().Open();
                 string start = string.Format("{0:yyyy/MM/dd}", g.NgayBatDau);
                 string end = string.Format("{0:yyyy/MM/dd}", g.NgayKetThuc);
                 string sql = "UPDATE GIAIDAU SET TenGiai=@TE, NgayBatDau=@DS, NgayKetThuc=@DE, SoDoi=@SD, SoThanhVien=@STV, ";
                 sql+="DiemThang=@DTG, DiemHoa=@DH, DiemThua=@DTH, SoLuot=@LUOT, Loai=@LOAI WHERE MaGiai=@MA";
-                SqlCommand cmd = new SqlCommand(sql, connect);
+                SqlCommand cmd = new SqlCommand(sql, connect());
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.Add(new SqlParameter("@MA", g.MaGiai));
                 cmd.Parameters.Add(new SqlParameter("@TEN", g.TenGiai));
@@ -120,7 +120,7 @@ namespace DAL_QuanLyGiaiDau
             catch (Exception e) { }
             finally
             {
-                connect.Close();
+                connect().Close();
             }
             return false;
         }
@@ -129,16 +129,16 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect.Open();
+                connect().Open();
                 string sql = string.Format("DELETE FROM GIAIDAU WHERE MaGiai='{0}'", g.MaGiai);
-                SqlCommand cmd = new SqlCommand(sql, connect);
+                SqlCommand cmd = new SqlCommand(sql, connect());
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
             }
             catch (Exception e) { }
             finally
             {
-                connect.Close();
+                connect().Close();
             }
             return false;
         }

@@ -14,7 +14,7 @@ namespace DAL_QuanLyGiaiDau
         //Lay het user, pass
         public DataTable getTRAN()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT * FROM TRANDAU", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT * FROM TRANDAU", connect());
             DataTable dtTRAN = new DataTable();
             data.Fill(dtTRAN);
             return dtTRAN;
@@ -24,24 +24,24 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect.Open();
+                connect().Open();
                 string sql = string.Format("INSERT INTO TRANDAU(MaTran,MaVong,SoTran) VALUES ('{0}','{1}',{2})", d.MaTran,d.MaVong,d.SoTran);
-                SqlCommand cmd = new SqlCommand(sql, connect);
+                SqlCommand cmd = new SqlCommand(sql, connect());
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
             }
             catch (Exception e) { }
             finally
             {
-                //close connect
-                connect.Close();
+                //close connect()
+                connect().Close();
             }
             return false;
         }
         //top 1
         public DataTable topTRAN()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM TRANDAU ORDER BY LEFT(MaTran,PATINDEX('%[0-9]%',MaTran)-1),CONVERT(INT,SUBSTRING(MaTran,PATINDEX('%[0-9]%',MaTran),LEN(MaTran))) DESC", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM TRANDAU ORDER BY LEFT(MaTran,PATINDEX('%[0-9]%',MaTran)-1),CONVERT(INT,SUBSTRING(MaTran,PATINDEX('%[0-9]%',MaTran),LEN(MaTran))) DESC", connect());
             DataTable dtTRAN = new DataTable();
             data.Fill(dtTRAN);
             return dtTRAN;
@@ -51,16 +51,16 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect.Open();
+                connect().Open();
                 string sql = string.Format("UPDATE LICHTD SET MaVong='{0}', SoTran={1} WHERE MaTran='{2}'", d.MaVong,d.SoTran,d.MaTran);
-                SqlCommand cmd = new SqlCommand(sql, connect);
+                SqlCommand cmd = new SqlCommand(sql, connect());
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
             }
             catch (Exception e) { }
             finally
             {
-                connect.Close();
+                connect().Close();
             }
             return false;
         }
@@ -69,16 +69,16 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect.Open();
+                connect().Open();
                 string sql = string.Format("DELETE FROM TRANDAU WHERE MaTran={0}", d.MaTran);
-                SqlCommand cmd = new SqlCommand(sql, connect);
+                SqlCommand cmd = new SqlCommand(sql, connect());
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
             }
             catch (Exception e) { }
             finally
             {
-                connect.Close();
+                connect().Close();
             }
             return false;
         }

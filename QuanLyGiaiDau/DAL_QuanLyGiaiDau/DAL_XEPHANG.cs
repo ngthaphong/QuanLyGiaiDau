@@ -14,7 +14,7 @@ namespace DAL_QuanLyGiaiDau
         public DataTable getTenGiai(string mag)
         {
             string str = string.Format("SELECT * FROM GIAIDAU WHERE MaGiai='{0}'", mag);
-            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect());
             DataTable team = new DataTable();
             data.Fill(team);
             return team;
@@ -22,7 +22,7 @@ namespace DAL_QuanLyGiaiDau
         public DataTable getTenDoi(string mad)
         {
             string str = string.Format("SELECT * FROM DOI WHERE MaDoi='{0}'", mad);
-            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect());
             DataTable team = new DataTable();
             data.Fill(team);
             return team;
@@ -30,7 +30,7 @@ namespace DAL_QuanLyGiaiDau
         public DataTable SortRank(string mag)
         {
             string str = string.Format("SELECT * FROM XEPHANG WHERE MaGiai='{0}' ORDER BY ViThu ASC", mag);
-            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect());
             DataTable team = new DataTable();
             data.Fill(team);
             return team;
@@ -38,7 +38,7 @@ namespace DAL_QuanLyGiaiDau
         public DataTable SortwithTong(string mag)
         {
             string str = string.Format("SELECT * FROM XEPHANG WHERE MaGiai='{0}' ORDER BY TongDiem DESC",mag);
-            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect());
             DataTable team = new DataTable();
             data.Fill(team);
             return team;
@@ -46,7 +46,7 @@ namespace DAL_QuanLyGiaiDau
         public DataTable SortwithHieu(string mag)
         {
             string str = string.Format("SELECT * FROM XEPHANG WHERE MaGiai='{0}' ORDER BY HieuSo DESC",mag);
-            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect());
             DataTable team = new DataTable();
             data.Fill(team);
             return team;
@@ -56,7 +56,7 @@ namespace DAL_QuanLyGiaiDau
         {
             //lay bang cac doi trong giai
             string str = string.Format("SELECT TenDoi1,TenDoi2,BanThang1,BanThang2 FROM GIAIDAU G, VONG V, TRANDAU T, LICHTD L WHERE G.MaGiai=V.MaGiai AND V.MaVong=T.MaVong AND T.MaTran=L.MaTran AND G.MaGiai='{0}'", mag);
-            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect());
             DataTable team = new DataTable();
             data.Fill(team);
             int? subbt = 0;
@@ -82,7 +82,7 @@ namespace DAL_QuanLyGiaiDau
             team.AcceptChanges();
             ///////////////////
             str = string.Format("SELECT D.TenDoi,D.SoThanhVien FROM DOI D, DAIDIEN DD, DANGKY DK, GIAIDAU G, VONG V, TRANDAU T, LICHTD L WHERE D.MaDoi=DD.MaDoi AND DD.MaDD=DK.MaDD AND DK.MaGiai=G.MaGiai AND G.MaGiai=V.MaGiai AND V.MaVong=T.MaVong AND T.MaTran=L.MaTran AND G.MaGiai='{0}' GROUP BY D.TenDoi,D.SoThanhVien", mag);
-            data = new SqlDataAdapter(str, connect);
+            data = new SqlDataAdapter(str, connect());
             DataTable t = new DataTable();
             data.Fill(t);
             //reset to 0
@@ -106,7 +106,7 @@ namespace DAL_QuanLyGiaiDau
         {
             //lay bang cac doi trong giai
             string str = string.Format("SELECT D.TenDoi,D.SoThanhVien FROM DOI D, DAIDIEN DD, DANGKY DK, GIAIDAU G, VONG V, TRANDAU T, LICHTD L WHERE D.MaDoi=DD.MaDoi AND DD.MaDD=DK.MaDD AND DK.MaGiai=G.MaGiai AND G.MaGiai=V.MaGiai AND V.MaVong=T.MaVong AND T.MaTran=L.MaTran AND G.MaGiai='{0}' GROUP BY D.TenDoi,D.SoThanhVien", mag);
-            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect());
             DataTable team = new DataTable();
             data.Fill(team);
             int sumsd=0;
@@ -118,7 +118,7 @@ namespace DAL_QuanLyGiaiDau
                 sumsd = 0;
                 string tendoi = r.Field<string>(0);
                 str = string.Format("SELECT SUM(SoDiem1) as sd1 FROM LICHTD WHERE TenDoi1='{0}'", tendoi);
-                data = new SqlDataAdapter(str, connect);
+                data = new SqlDataAdapter(str, connect());
                 DataTable dt = new DataTable();
                 data.Fill(dt);
                 object o = dt.Rows[0].Field<int?>(0);
@@ -129,7 +129,7 @@ namespace DAL_QuanLyGiaiDau
                 sumsd = 0;
                 tendoi = r.Field<string>(0);
                 str = string.Format("SELECT SUM(SoDiem2) as sd2 FROM LICHTD WHERE TenDoi2='{0}'", tendoi);
-                data = new SqlDataAdapter(str, connect);
+                data = new SqlDataAdapter(str, connect());
                 dt = new DataTable();
                 data.Fill(dt);
                 o = dt.Rows[0].Field<int?>(0);
@@ -149,7 +149,7 @@ namespace DAL_QuanLyGiaiDau
         //Lay het user, pass
         public DataTable getXEPHANG()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT * FROM XEPHANG", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT * FROM XEPHANG", connect());
             DataTable dtXEPHANG = new DataTable();
             data.Fill(dtXEPHANG);
             return dtXEPHANG;
@@ -158,7 +158,7 @@ namespace DAL_QuanLyGiaiDau
         public DataTable getXEPHANGwithMa(string mag)
         {
             string str = string.Format("SELECT * FROM XEPHANG", mag);
-            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect());
             DataTable dtXEPHANG = new DataTable();
             data.Fill(dtXEPHANG);
             return dtXEPHANG;
@@ -168,9 +168,9 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect.Open();
+                connect().Open();
                 string sql = "INSERT INTO XEPHANG(MaGiai,MaDoi,TongDiem,HieuSo,ViThu) VALUES (@MAG,@MAD,@SUM,@SUB,@RANK)";
-                SqlCommand cmd = new SqlCommand(sql, connect);
+                SqlCommand cmd = new SqlCommand(sql, connect());
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.Add(new SqlParameter("@MAG", d.MaGiai));
                 cmd.Parameters.Add(new SqlParameter("@MAD", d.MaDoi));
@@ -183,8 +183,8 @@ namespace DAL_QuanLyGiaiDau
             catch (Exception e) { }
             finally
             {
-                //close connect
-                connect.Close();
+                //close connect()
+                connect().Close();
             }
             return false;
         }
@@ -193,9 +193,9 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect.Open();
+                connect().Open();
                 string sql = "UPDATE XEPHANG SET ViThu=@RANK WHERE MaGiai=@MAG AND MaDoi=@MAD AND TongDiem=@SUM AND HieuSo=@SUB";
-                SqlCommand cmd = new SqlCommand(sql, connect);
+                SqlCommand cmd = new SqlCommand(sql, connect());
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.Add(new SqlParameter("@MAG", d.MaGiai));
                 cmd.Parameters.Add(new SqlParameter("@MAD", d.MaDoi));
@@ -208,7 +208,7 @@ namespace DAL_QuanLyGiaiDau
             catch (Exception e) { }
             finally
             {
-                connect.Close();
+                connect().Close();
             }
             return false;
         }
@@ -217,16 +217,16 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect.Open();
+                connect().Open();
                 string sql = string.Format("DELETE FROM XEPHANG WHERE MaGiai='{0}'", d.MaGiai);
-                SqlCommand cmd = new SqlCommand(sql, connect);
+                SqlCommand cmd = new SqlCommand(sql, connect());
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
             }
             catch (Exception e) { }
             finally
             {
-                connect.Close();
+                connect().Close();
             }
             return false;
         }

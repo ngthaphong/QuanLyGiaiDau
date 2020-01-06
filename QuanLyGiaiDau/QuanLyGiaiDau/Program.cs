@@ -19,7 +19,7 @@ namespace QuanLyGiaiDau
             //frmLogin log = new frmLogin();
             //log.StartPosition = FormStartPosition.CenterScreen;
             //Application.Run(log);
-            Application.Run(new frmCreGroup());
+            Application.Run(new frmLogin());
         }
     }
 }

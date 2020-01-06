@@ -14,7 +14,7 @@ namespace DAL_QuanLyGiaiDau
         //Lay het user, pass
         public DataTable getTHONGKECT()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT * FROM THONGKECT", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT * FROM THONGKECT", connect());
             DataTable dtTHONGKECT = new DataTable();
             data.Fill(dtTHONGKECT);
             return dtTHONGKECT;
@@ -24,17 +24,17 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect.Open();
+                connect().Open();
                 string sql = string.Format("INSERT INTO THONGKECT(MaGiai,MaDoi,HoTenCT,SoAo,BanThang,TheVang,TheDo) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')", d.MaGiai, d.MaDoi, d.HoTenCT, d.SoAo, d.BanThang, d.TheVang, d.TheDo);
-                SqlCommand cmd = new SqlCommand(sql, connect);
+                SqlCommand cmd = new SqlCommand(sql, connect());
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
             }
             catch (Exception e) { }
             finally
             {
-                //close connect
-                connect.Close();
+                //close connect()
+                connect().Close();
             }
             return false;
         }
@@ -43,16 +43,16 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect.Open();
+                connect().Open();
                 string sql = string.Format("UPDATE THONGKECT SET MaDoi='{0}', HoTenCT=N'{1}', SoAo={2}, BanThang={3}, TheVang={4}, TheDo={5} WHERE MaGiai='{6}'", d.MaDoi, d.HoTenCT, d.SoAo, d.BanThang, d.TheVang, d.TheDo, d.MaGiai);
-                SqlCommand cmd = new SqlCommand(sql, connect);
+                SqlCommand cmd = new SqlCommand(sql, connect());
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
             }
             catch (Exception e) { }
             finally
             {
-                connect.Close();
+                connect().Close();
             }
             return false;
         }
@@ -61,16 +61,16 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect.Open();
+                connect().Open();
                 string sql = string.Format("DELETE FROM THONGKECT WHERE MaGiai='{0}'", d.MaGiai);
-                SqlCommand cmd = new SqlCommand(sql, connect);
+                SqlCommand cmd = new SqlCommand(sql, connect());
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
             }
             catch (Exception e) { }
             finally
             {
-                connect.Close();
+                connect().Close();
             }
             return false;
         }

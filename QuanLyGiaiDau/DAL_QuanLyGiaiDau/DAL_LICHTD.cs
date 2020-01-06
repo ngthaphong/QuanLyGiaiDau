@@ -15,7 +15,7 @@ namespace DAL_QuanLyGiaiDau
         public DataTable getLICHTDbelow(string mag)
         {
             string str = string.Format("SELECT L.MaTran,L.TenDoi1,L.TenDoi2 FROM GIAIDAU G, VONG V, TRANDAU TD, LICHTD L WHERE G.MaGiai=V.MaGiai AND V.MaVong=TD.MaVong AND TD.MaTran=L.MaTran AND G.MaGiai='{0}' ORDER BY LEFT(L.MaTran,PATINDEX('%[0-9]%',L.MaTran)-1),CONVERT(INT,SUBSTRING(L.MaTran,PATINDEX('%[0-9]%',L.MaTran),LEN(L.MaTran))) DESC", mag);
-            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect());
             DataTable dtLICHTD = new DataTable();
             data.Fill(dtLICHTD);
             return dtLICHTD;
@@ -24,7 +24,7 @@ namespace DAL_QuanLyGiaiDau
         public DataTable getLICHTD(string mag)
         {
             string str = string.Format("SELECT L.MaTran,L.TenDoi1,L.TenDoi2,L.ThoiGianDienRa,L.TrongTai,L.BanThang1,L.BanThang2,L.TheVang1,L.TheVang2,L.TheDo1,L.TheDo2,L.SoDiem1,L.SoDiem2 FROM GIAIDAU G, VONG V, TRANDAU TD, LICHTD L WHERE G.MaGiai=V.MaGiai AND V.MaVong=TD.MaVong AND TD.MaTran=L.MaTran AND G.MaGiai='{0}'",mag);
-            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect());
             DataTable dtLICHTD = new DataTable();
             data.Fill(dtLICHTD);
             return dtLICHTD;
@@ -34,7 +34,7 @@ namespace DAL_QuanLyGiaiDau
         {
             //table: matran,mavong,tenvong,sotran
             string str = string.Format("SELECT MaTran,V.MaVong,TenVong,SoTran FROM TRANDAU TD, VONG V WHERE V.MaVong=TD.MaVong AND V.MaGiai='{0}' ORDER BY LEFT(MaTran,PATINDEX('%[0-9]%',MaTran)-1),CONVERT(INT,SUBSTRING(MaTran,PATINDEX('%[0-9]%',MaTran),LEN(MaTran))) DESC", mag);
-            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect());
             DataTable dt = new DataTable();
             data.Fill(dt);
             return dt;
@@ -44,7 +44,7 @@ namespace DAL_QuanLyGiaiDau
         {
             //table: matran,mavong,tenvong,sotran
             string str = string.Format("SELECT MaTran,V.MaVong,TenVong,SoTran FROM TRANDAU TD, VONG V WHERE V.MaVong=TD.MaVong AND V.MaGiai='{0}' ORDER BY LEFT(MaTran,PATINDEX('%[0-9]%',MaTran)-1),CONVERT(INT,SUBSTRING(MaTran,PATINDEX('%[0-9]%',MaTran),LEN(MaTran)))", mag);
-            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect());
             DataTable dt = new DataTable();
             data.Fill(dt);
             return dt;
@@ -54,7 +54,7 @@ namespace DAL_QuanLyGiaiDau
         {
             //table: tendoi
             string str = string.Format("SELECT D.TenDoi FROM GIAIDAU G, DANGKY DK, DAIDIEN DD, DOI D WHERE G.MaGiai=DK.MaGiai AND DK.MaDD=DD.MaDD AND DD.MaDoi=D.MaDoi AND G.MaGiai='{0}'", mag);
-            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect());
             DataTable dt = new DataTable();
             data.Fill(dt);
             return dt;
@@ -64,7 +64,7 @@ namespace DAL_QuanLyGiaiDau
         {
             //table: tendoi
             string str = string.Format("SELECT BanThang1,BanThang2 FROM LICHTD WHERE MaTran='{0}'", mat);
-            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect());
             DataTable dt = new DataTable();
             data.Fill(dt);
             return dt;
@@ -74,14 +74,14 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect.Open();
+                connect().Open();
                 string time;
                 if (string.Format("{0:yyyy/MM/dd HH:mm:ss}", d.ThoiGianDienRa) == "") time = null;
                 else time = string.Format("{0:yyyy/MM/dd HH:mm:ss}", d.ThoiGianDienRa);
                 string sql = "";
                 sql += "INSERT INTO LICHTD(MaTran,TenDoi1,TenDoi2,ThoiGianDienRa,TrongTai,BanThang1,BanThang2,TheVang1,TheVang2,TheDo1,TheDo2,SoDiem1,SoDiem2) ";
                 sql += "VALUES (@MA,@TEN1,@TEN2,@TIME,@TT,@BT1,@BT2,@TV1,@TV2,@TD1,@TD2,@SD1,@SD2)";
-                SqlCommand cmd = new SqlCommand(sql, connect);
+                SqlCommand cmd = new SqlCommand(sql, connect());
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.Add(new SqlParameter("@MA", d.MaTran));
                 cmd.Parameters.Add(new SqlParameter("@TEN1", d.TenDoi1));
@@ -103,8 +103,8 @@ namespace DAL_QuanLyGiaiDau
             catch (Exception e) { }
             finally
             {
-                //close connect
-                connect.Close();
+                //close connect()
+                connect().Close();
             }
             return false;
         }
@@ -113,13 +113,13 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect.Open();
+                connect().Open();
                 string time;
                 if (string.Format("{0:yyyy/MM/dd HH:mm:ss}", d.ThoiGianDienRa) == "") time = null;
                 else time = string.Format("{0:yyyy/MM/dd HH:mm:ss}", d.ThoiGianDienRa);
                 string sql = "UPDATE LICHTD SET ThoiGianDienRa=@TIME,TrongTai=@TT,BanThang1=@BT1,BanThang2=@BT2,";
                 sql+= "TheVang1=@TV1,TheVang2=@TV2,TheDo1=@TD1,TheDo2=@TD2,SoDiem1=@SD1,SoDiem2=@SD2 WHERE MaTran=@MA AND TenDoi1=@TEN1 AND TenDoi2=@TEN2";
-                SqlCommand cmd = new SqlCommand(sql, connect);
+                SqlCommand cmd = new SqlCommand(sql, connect());
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.Add(new SqlParameter("@MA", d.MaTran));
                 cmd.Parameters.Add(new SqlParameter("@TEN1", d.TenDoi1));
@@ -141,7 +141,7 @@ namespace DAL_QuanLyGiaiDau
             catch (Exception e) { }
             finally
             {
-                connect.Close();
+                connect().Close();
             }
             return false;
         }
@@ -150,16 +150,16 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect.Open();
+                connect().Open();
                 string sql = string.Format("DELETE FROM LICHTD WHERE MaTran='{0}'", d.MaTran);
-                SqlCommand cmd = new SqlCommand(sql, connect);
+                SqlCommand cmd = new SqlCommand(sql, connect());
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
             }
             catch (Exception e) { }
             finally
             {
-                connect.Close();
+                connect().Close();
             }
             return false;
         }

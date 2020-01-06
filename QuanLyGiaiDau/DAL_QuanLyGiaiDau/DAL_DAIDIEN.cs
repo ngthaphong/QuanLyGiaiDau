@@ -14,7 +14,7 @@ namespace DAL_QuanLyGiaiDau
         //Lay het user, pass
         public DataTable getDAIDIEN()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT * FROM DAIDIEN", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT * FROM DAIDIEN", connect());
             DataTable dtDANGNHAP = new DataTable();
             data.Fill(dtDANGNHAP);
             return dtDANGNHAP;
@@ -24,24 +24,24 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect.Open();
+                connect().Open();
                 string sql = string.Format("INSERT INTO DAIDIEN(MaDD,MaDoi,TenNguoiDD) VALUES ('{0}',NULL,N'{1}')", d.MaDD, d.TenNguoiDD);
-                SqlCommand cmd = new SqlCommand(sql, connect);
+                SqlCommand cmd = new SqlCommand(sql, connect());
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
             }
             catch (Exception e) { }
             finally
             {
-                //close connect
-                connect.Close();
+                //close connect()
+                connect().Close();
             }
             return false;
         }
         //top 1
         public DataTable topDAIDIEN()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM DAIDIEN ORDER BY LEFT(MaDD,PATINDEX('%[0-9]%',MaDD)-1),CONVERT(INT,SUBSTRING(MaDD,PATINDEX('%[0-9]%',MaDD),LEN(MaDD))) DESC", connect);
+            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM DAIDIEN ORDER BY LEFT(MaDD,PATINDEX('%[0-9]%',MaDD)-1),CONVERT(INT,SUBSTRING(MaDD,PATINDEX('%[0-9]%',MaDD),LEN(MaDD))) DESC", connect());
             DataTable dtDANGNHAP = new DataTable();
             data.Fill(dtDANGNHAP);
             return dtDANGNHAP;
@@ -51,9 +51,9 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect.Open();
+                connect().Open();
                 string sql = "UPDATE DAIDIEN SET MaDoi=@MAD, TenNguoiDD=@TEN WHERE MaDD=@MADD";
-                SqlCommand cmd = new SqlCommand(sql, connect);
+                SqlCommand cmd = new SqlCommand(sql, connect());
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.Add(new SqlParameter("@MADD", d.MaDD));
                 cmd.Parameters.Add(new SqlParameter("@MAD", (object)d.MaDoi ?? DBNull.Value));
@@ -64,7 +64,7 @@ namespace DAL_QuanLyGiaiDau
             catch (Exception e) { }
             finally
             {
-                connect.Close();
+                connect().Close();
             }
             return false;
         }
@@ -73,16 +73,16 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect.Open();
+                connect().Open();
                 string sql = string.Format("DELETE FROM DAIDIEN WHERE MaDD='{0}'", d.MaDD);
-                SqlCommand cmd = new SqlCommand(sql, connect);
+                SqlCommand cmd = new SqlCommand(sql, connect());
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
             }
             catch (Exception e) { }
             finally
             {
-                connect.Close();
+                connect().Close();
             }
             return false;
         }
