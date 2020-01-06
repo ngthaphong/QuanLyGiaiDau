@@ -38,6 +38,10 @@ namespace BUS_QuanLyGiaiDau
             t.AcceptChanges();
             return t;
         }
+        public DataTable getDaiDien(string mad)
+        {
+            return dalDOI.getDaiDien(mad);
+        }
         public string getMa(string ten)
         {
             return dalDOI.getMa(ten);
@@ -62,9 +66,9 @@ namespace BUS_QuanLyGiaiDau
         {
             return dalDOI.upDOI(g);
         }
-        public bool delDOI(DTO_DOI g)
+        public bool delDOI(string mad)
         {
-            return dalDOI.delDOI(g);
+            return dalDOI.delDOI(mad);
         }
     }
 }

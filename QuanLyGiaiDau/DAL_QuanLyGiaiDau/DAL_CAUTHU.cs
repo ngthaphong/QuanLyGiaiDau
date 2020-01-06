@@ -11,6 +11,15 @@ namespace DAL_QuanLyGiaiDau
 {
     public class DAL_CAUTHU : DBConnect
     {
+        //get tendoi by madoi
+        public DataTable getMADOI(string mad)
+        {
+            string str = string.Format("SELECT TenDoi FROM CAUTHU CT, DOI D WHERE CT.MaDoi=D.MaDoi AND CT.MaDoi='{0}' GROUP BY TenDoi", mad);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            DataTable dtCAUTHU = new DataTable();
+            data.Fill(dtCAUTHU);
+            return dtCAUTHU;
+        }
         //Lay het user, pass
         public DataTable getCAUTHU()
         {
@@ -67,12 +76,12 @@ namespace DAL_QuanLyGiaiDau
             return false;
         }
         //xoa
-        public bool delCAUTHU(DTO_CAUTHU d)
+        public bool delCAUTHU(string mact)
         {
             try
             {
                 connect.Open();
-                string sql = string.Format("DELETE FROM CAUTHU WHERE MaTK='{0}'", d.MaCT);
+                string sql = string.Format("DELETE FROM CAUTHU WHERE MaCT='{0}'", mact);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;

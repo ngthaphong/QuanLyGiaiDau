@@ -81,5 +81,18 @@ namespace QuanLyGiaiDau
                 
             }
         }
+
+        private void frmLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnDangNhap.PerformClick();
+            }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            this.AcceptButton = btnDangNhap;
+        }
     }
 }

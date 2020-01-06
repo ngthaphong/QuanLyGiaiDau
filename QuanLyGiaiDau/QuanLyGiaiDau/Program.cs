@@ -16,7 +16,9 @@ namespace QuanLyGiaiDau
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmRank());
+            frmLogin log = new frmLogin();
+            log.StartPosition = FormStartPosition.CenterScreen;
+            Application.Run(log);
             //Application.Run(new frmCreGroup());
         }
     }

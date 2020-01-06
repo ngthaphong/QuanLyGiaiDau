@@ -56,6 +56,50 @@ namespace QuanLyGiaiDau
             cboGiaiDau.DisplayMember = "TenGiai";
             btnTao.Enabled = false;
             lblTao.Text = "Mời chọn Giải";
+            dtaGiai.Columns[0].Width = 200;
+            dtaGiai.Columns[0].HeaderText = "Tên Giải";
+            dtaGiai.Columns[0].ReadOnly = true;
+            dtaGiai.Columns[0].Frozen = true;
+            dtaGiai.Columns[0].DefaultCellStyle.Font = new Font(dtaGiai.ColumnHeadersDefaultCellStyle.Font, FontStyle.Bold);
+            dtaGiai.Columns[1].Width = 100;
+            dtaGiai.Columns[1].HeaderText = "Ngày bắt đầu";
+            dtaGiai.Columns[1].ReadOnly = true;
+            dtaGiai.Columns[1].Frozen = true;
+            dtaGiai.Columns[2].Width = 100;
+            dtaGiai.Columns[2].HeaderText = "Ngày kết thúc";
+            dtaGiai.Columns[2].ReadOnly = true;
+            dtaGiai.Columns[3].Width = 70;
+            dtaGiai.Columns[3].HeaderText = "Số đội";
+            dtaGiai.Columns[3].ReadOnly = true;
+            dtaGiai.Columns[4].Width = 80;
+            dtaGiai.Columns[4].HeaderText = "Số thành viên";
+            dtaGiai.Columns[4].ReadOnly = true;
+            dtaGiai.Columns[5].Width = 70;
+            dtaGiai.Columns[5].HeaderText = "Điểm thắng";
+            dtaGiai.Columns[5].ReadOnly = true;
+            dtaGiai.Columns[6].Width = 60;
+            dtaGiai.Columns[6].HeaderText = "Điểm hòa";
+            dtaGiai.Columns[6].ReadOnly = true;
+            dtaGiai.Columns[7].Width = 60;
+            dtaGiai.Columns[7].HeaderText = "Điểm thua";
+            dtaGiai.Columns[7].ReadOnly = true;
+            dtaGiai.Columns[8].Width = 50;
+            dtaGiai.Columns[8].HeaderText = "Số lượt";
+            dtaGiai.Columns[8].ReadOnly = true;
+            dtaGiai.Columns[9].Width = 50;
+            dtaGiai.Columns[9].HeaderText = "Loại";
+            dtaGiai.Columns[9].ReadOnly = true;
+
+            dtaGiai.ColumnHeadersDefaultCellStyle.BackColor = Color.ForestGreen;
+            dtaGiai.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dtaGiai.ColumnHeadersDefaultCellStyle.ForeColor = Color.Orange;
+            dtaGiai.ColumnHeadersDefaultCellStyle.Font = new Font(dtaGiai.ColumnHeadersDefaultCellStyle.Font, FontStyle.Bold);
+            dtaGiai.ColumnHeadersHeight = 30;
+            dtaGiai.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dtaGiai.AllowUserToResizeRows = false;
+
+            dtaGiai.Controls[0].Enabled = false; // Index zero is the horizontal scrollbar
+            dtaGiai.Controls[1].Enabled = false; // Index one is the vertical scrollbar
         }
 
         private void cboGiaiDau_SelectedIndexChanged(object sender, EventArgs e)
@@ -67,31 +111,21 @@ namespace QuanLyGiaiDau
             DataTable t = giai.getMaGiai(mag);
             t.Columns.Remove("MaGiai");
             dtaGiai.DataSource = t;
-            dtaGiai.Columns[0].Width=200;
-            dtaGiai.Columns[0].HeaderText = "Tên Giải";
-            dtaGiai.Columns[1].Width = 100;
-            dtaGiai.Columns[1].HeaderText = "Ngày bắt đầu";
-            dtaGiai.Columns[2].Width = 100;
-            dtaGiai.Columns[2].HeaderText = "Ngày kết thúc";
-            dtaGiai.Columns[3].Width = 70;
-            dtaGiai.Columns[3].HeaderText = "Số đội";
-            dtaGiai.Columns[4].Width = 80;
-            dtaGiai.Columns[4].HeaderText = "Số thành viên";
-            dtaGiai.Columns[5].Width = 70;
-            dtaGiai.Columns[5].HeaderText = "Điểm thắng";
-            dtaGiai.Columns[6].Width = 60;
-            dtaGiai.Columns[6].HeaderText = "Điểm hòa";
-            dtaGiai.Columns[7].Width = 60;
-            dtaGiai.Columns[7].HeaderText = "Điểm thua";
-            dtaGiai.Columns[8].Width = 50;
-            dtaGiai.Columns[8].HeaderText = "Số lượt";
-            dtaGiai.Columns[9].Width = 50;
-            dtaGiai.Columns[9].HeaderText = "Loại";
+
+            dtaGiai.ColumnHeadersDefaultCellStyle.BackColor = Color.ForestGreen;
+            dtaGiai.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dtaGiai.ColumnHeadersDefaultCellStyle.ForeColor = Color.Orange;
+            dtaGiai.ColumnHeadersHeight = 30;
+            dtaGiai.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dtaGiai.AllowUserToResizeRows = false;
+
+            dtaGiai.Controls[0].Enabled = false; // Index zero is the horizontal scrollbar
+            dtaGiai.Controls[1].Enabled = false; // Index one is the vertical scrollbar
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
     }
 }

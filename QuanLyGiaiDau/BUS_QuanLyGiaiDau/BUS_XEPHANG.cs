@@ -72,6 +72,14 @@ namespace BUS_QuanLyGiaiDau
             }
             return true;
         }
+        public DataTable getTenGiai(string mag)
+        {
+            return dalXEPHANG.getTenGiai(mag);
+        }
+        public DataTable getTenDoi(string mad)
+        {
+            return dalXEPHANG.getTenDoi(mad);
+        }
         public DataTable SortRank(string mag)
         {
             return dalXEPHANG.SortRank(mag);

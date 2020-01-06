@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreate));
             this.txtDaiDien = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnTao = new System.Windows.Forms.Button();
@@ -48,6 +49,7 @@
             // 
             // txtDaiDien
             // 
+            this.txtDaiDien.ForeColor = System.Drawing.Color.MidnightBlue;
             this.txtDaiDien.Location = new System.Drawing.Point(358, 171);
             this.txtDaiDien.Name = "txtDaiDien";
             this.txtDaiDien.Size = new System.Drawing.Size(228, 20);
@@ -56,6 +58,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
             this.label1.Location = new System.Drawing.Point(306, 174);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 13);
@@ -64,6 +67,7 @@
             // 
             // btnTao
             // 
+            this.btnTao.ForeColor = System.Drawing.Color.MidnightBlue;
             this.btnTao.Location = new System.Drawing.Point(365, 248);
             this.btnTao.Name = "btnTao";
             this.btnTao.Size = new System.Drawing.Size(75, 23);
@@ -81,6 +85,7 @@
             // 
             // btnThoat
             // 
+            this.btnThoat.ForeColor = System.Drawing.Color.MidnightBlue;
             this.btnThoat.Location = new System.Drawing.Point(459, 248);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
@@ -91,19 +96,21 @@
             // 
             // grbGiai
             // 
+            this.grbGiai.BackColor = System.Drawing.Color.YellowGreen;
             this.grbGiai.Controls.Add(this.label4);
             this.grbGiai.Controls.Add(this.dtaGiai);
             this.grbGiai.Controls.Add(this.cboGiaiDau);
             this.grbGiai.Controls.Add(this.label3);
             this.grbGiai.Location = new System.Drawing.Point(3, 3);
             this.grbGiai.Name = "grbGiai";
-            this.grbGiai.Size = new System.Drawing.Size(916, 162);
+            this.grbGiai.Size = new System.Drawing.Size(877, 162);
             this.grbGiai.TabIndex = 4;
             this.grbGiai.TabStop = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.MidnightBlue;
             this.label4.Location = new System.Drawing.Point(6, 64);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(124, 13);
@@ -112,14 +119,19 @@
             // 
             // dtaGiai
             // 
-            this.dtaGiai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtaGiai.BackgroundColor = System.Drawing.Color.White;
+            this.dtaGiai.EnableHeadersVisualStyles = false;
             this.dtaGiai.Location = new System.Drawing.Point(6, 80);
             this.dtaGiai.Name = "dtaGiai";
-            this.dtaGiai.Size = new System.Drawing.Size(904, 58);
+            this.dtaGiai.RowHeadersVisible = false;
+            this.dtaGiai.Size = new System.Drawing.Size(864, 58);
             this.dtaGiai.TabIndex = 5;
             // 
             // cboGiaiDau
             // 
+            this.cboGiaiDau.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cboGiaiDau.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGiaiDau.ForeColor = System.Drawing.Color.MidnightBlue;
             this.cboGiaiDau.FormattingEnabled = true;
             this.cboGiaiDau.Location = new System.Drawing.Point(65, 19);
             this.cboGiaiDau.Name = "cboGiaiDau";
@@ -130,6 +142,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.MidnightBlue;
             this.label3.Location = new System.Drawing.Point(13, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
@@ -147,6 +160,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.MidnightBlue;
             this.label2.Location = new System.Drawing.Point(306, 203);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 13);
@@ -155,6 +169,7 @@
             // 
             // panDangKy
             // 
+            this.panDangKy.BackgroundImage = global::QuanLyGiaiDau.Properties.Resources.greenball;
             this.panDangKy.Controls.Add(this.lblTao);
             this.panDangKy.Controls.Add(this.grbGiai);
             this.panDangKy.Controls.Add(this.btnTao);
@@ -165,15 +180,18 @@
             this.panDangKy.Controls.Add(this.label2);
             this.panDangKy.Location = new System.Drawing.Point(12, 12);
             this.panDangKy.Name = "panDangKy";
-            this.panDangKy.Size = new System.Drawing.Size(922, 277);
+            this.panDangKy.Size = new System.Drawing.Size(885, 277);
             this.panDangKy.TabIndex = 6;
             // 
             // frmCreate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(946, 301);
+            this.ClientSize = new System.Drawing.Size(910, 301);
             this.Controls.Add(this.panDangKy);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmCreate";
             this.Text = "Đăng ký";
             this.Load += new System.EventHandler(this.frmCreate_Load);

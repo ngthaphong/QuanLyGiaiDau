@@ -83,6 +83,16 @@ namespace QuanLyGiaiDau.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap greenball {
+            get {
+                object obj = ResourceManager.GetObject("greenball", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap homepage {
             get {
                 object obj = ResourceManager.GetObject("homepage", resourceCulture);
@@ -96,6 +106,36 @@ namespace QuanLyGiaiDau.Properties {
         internal static System.Drawing.Bitmap image_dangnhap {
             get {
                 object obj = ResourceManager.GetObject("image-dangnhap", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player {
+            get {
+                object obj = ResourceManager.GetObject("player", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player1 {
+            get {
+                object obj = ResourceManager.GetObject("player1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap player2 {
+            get {
+                object obj = ResourceManager.GetObject("player2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

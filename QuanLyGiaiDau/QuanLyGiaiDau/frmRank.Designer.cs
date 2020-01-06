@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRank));
             this.dtaXepHang = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.cboGiai = new System.Windows.Forms.ComboBox();
@@ -37,10 +38,13 @@
             // 
             // dtaXepHang
             // 
+            this.dtaXepHang.BackgroundColor = System.Drawing.Color.White;
             this.dtaXepHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtaXepHang.EnableHeadersVisualStyles = false;
             this.dtaXepHang.Location = new System.Drawing.Point(12, 66);
             this.dtaXepHang.Name = "dtaXepHang";
-            this.dtaXepHang.Size = new System.Drawing.Size(1095, 559);
+            this.dtaXepHang.RowHeadersVisible = false;
+            this.dtaXepHang.Size = new System.Drawing.Size(980, 559);
             this.dtaXepHang.TabIndex = 0;
             // 
             // label1
@@ -49,7 +53,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.YellowGreen;
-            this.label1.Location = new System.Drawing.Point(305, 9);
+            this.label1.Location = new System.Drawing.Point(374, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(517, 54);
             this.label1.TabIndex = 1;
@@ -57,6 +61,9 @@
             // 
             // cboGiai
             // 
+            this.cboGiai.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cboGiai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGiai.ForeColor = System.Drawing.Color.MidnightBlue;
             this.cboGiai.FormattingEnabled = true;
             this.cboGiai.Location = new System.Drawing.Point(12, 42);
             this.cboGiai.Name = "cboGiai";
@@ -66,6 +73,7 @@
             // 
             // btnLoad
             // 
+            this.btnLoad.ForeColor = System.Drawing.Color.MidnightBlue;
             this.btnLoad.Location = new System.Drawing.Point(267, 40);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(45, 23);
@@ -79,11 +87,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::QuanLyGiaiDau.Properties.Resources.sanbong;
-            this.ClientSize = new System.Drawing.Size(1119, 637);
+            this.ClientSize = new System.Drawing.Size(1004, 637);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.cboGiai);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtaXepHang);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRank";
             this.Text = "Xếp hạng";
             this.Load += new System.EventHandler(this.frmRank_Load);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.lblPass = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
@@ -92,7 +93,7 @@
             // btnReg
             // 
             this.btnReg.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnReg.Location = new System.Drawing.Point(120, 148);
+            this.btnReg.Location = new System.Drawing.Point(119, 148);
             this.btnReg.Name = "btnReg";
             this.btnReg.Size = new System.Drawing.Size(75, 23);
             this.btnReg.TabIndex = 0;
@@ -115,8 +116,13 @@
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.lblPass);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmLogin";
             this.Text = "Đăng nhập";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLogin_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -11,6 +11,14 @@ namespace DAL_QuanLyGiaiDau
 {
     public class DAL_DOI : DBConnect
     {
+        public DataTable getDaiDien(string mad)
+        {
+            string str = string.Format("SELECT* FROM DAIDIEN WHERE MaDoi = '{0}'", mad);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            DataTable dt = new DataTable();
+            data.Fill(dt);
+            return dt;
+        }
         public string getMa(string ten)
         {
             string str = string.Format("SELECT MaDoi FROM DOI WHERE TenDoi=N'{0}'", ten);
@@ -91,17 +99,17 @@ namespace DAL_QuanLyGiaiDau
             return false;
         }
         //xoa
-        public bool delDOI(DTO_DOI g)
+        public bool delDOI(string mad)
         {
             try
             {
                 connect.Open();
-                string sql = string.Format("DELETE FROM DOI WHERE MaDoi='{0}'", g.MaDoi);
+                string sql = string.Format("DELETE FROM DOI WHERE MaDoi='{0}'", mad);
                 SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
             }
-            catch (Exception e) { }
+            catch (Exception e){ }
             finally
             {
                 connect.Close();

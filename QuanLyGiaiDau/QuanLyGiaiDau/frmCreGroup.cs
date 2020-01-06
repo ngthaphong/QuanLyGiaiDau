@@ -41,7 +41,7 @@ namespace QuanLyGiaiDau
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -129,6 +129,7 @@ namespace QuanLyGiaiDau
                 grpLoai.Name = "grpLoai";
                 grpLoai.Size = new Size(281, 100);
                 grpLoai.Text = "Loại trực tiếp";
+                grpLoai.ForeColor = Color.MidnightBlue;
                 panGiaiDau.Controls.Add(grpLoai);
                 grpLoai.Controls.Add(lblSoDoi);
                 grpLoai.Controls.Add(numSoDoi);
@@ -139,23 +140,28 @@ namespace QuanLyGiaiDau
                 lblSoDoi.AutoSize = true;
                 lblSoDoi.Text = "Số đội tham gia [2-64]:";
                 lblSoDoi.Location = new Point(3, 16);
+                lblSoDoi.ForeColor = Color.MidnightBlue;
                     //numSodoi
                 numSoDoi.Name = "numSoDoi";
                 numSoDoi.Location = new Point(3, 32); 
                 numSoDoi.Size = new Size(120, 20);
                 numSoDoi.TabIndex = 10;
                 numSoDoi.Value = new decimal(new int[] { 2, 0, 0, 0 });
+                numSoDoi.ForeColor = Color.MidnightBlue;
                     //lblSothanhvien
                 lblSoThanhVien.Name = "lblSoThanhVien";
                 lblSoThanhVien.AutoSize = true;
                 lblSoThanhVien.Text = "Số người mỗi đội:";
                 lblSoThanhVien.Location = new Point(3, 55);
+                lblSoThanhVien.ForeColor = Color.MidnightBlue;
                     //cboSothanhvien
                 cboSoThanhVien.Name = "cboSoThanhVien";
                 cboSoThanhVien.FormattingEnabled = true;
                 cboSoThanhVien.Location = new Point(3, 71);
                 cboSoThanhVien.Size = new Size(121, 21);
                 cboSoThanhVien.TabIndex = 11;
+                cboSoThanhVien.ForeColor = Color.MidnightBlue;
+                cboSoThanhVien.DropDownStyle = ComboBoxStyle.DropDownList;
                 //add element
                 int[] stv = new int[4];
                 stv[0] = 5; stv[1] = 7; stv[2] = 9; stv[3] = 11;
@@ -204,6 +210,7 @@ namespace QuanLyGiaiDau
                 grpTron.Name = "grpTron";
                 grpTron.Size = new Size(281, 183);
                 grpTron.Text = "Đấu vòng tròn";
+                grpTron.ForeColor = Color.MidnightBlue;
                 panGiaiDau.Controls.Add(grpTron);
                 grpTron.Controls.Add(lblSoDoi);
                 grpTron.Controls.Add(cboSoThanhVien);
@@ -223,49 +230,59 @@ namespace QuanLyGiaiDau
                 lblSoDoi.Location = new Point(3, 16);
                 lblSoDoi.Name = "lblSoDoi";
                 lblSoDoi.Text = "Số đội tham gia [2-30]:";
+                lblSoDoi.ForeColor = Color.MidnightBlue;
                     //numSodoi
                 numSoDoi.Location = new Point(3, 32);
                 numSoDoi.Name = "numSoDoi";
                 numSoDoi.Size = new Size(120, 20);
                 numSoDoi.Value = new decimal(new int[] {2,0,0,0});
+                numSoDoi.ForeColor = Color.MidnightBlue;
                     //lblThang
                 lblThang.AutoSize = true;
                 lblThang.Location = new Point(3, 55);
                 lblThang.Name = "lblThang";
                 lblThang.Text = "Điểm thắng:";
+                lblThang.ForeColor = Color.MidnightBlue;
                     //lblHoa
                 lblHoa.AutoSize = true;
                 lblHoa.Location = new Point(117, 55);
                 lblHoa.Name = "lblHoa";
                 lblHoa.Text = "Điểm hòa:";
+                lblHoa.ForeColor = Color.MidnightBlue;
                     // lblThua
                 lblThua.AutoSize = true;
                 lblThua.Location = new Point(217, 55);
                 lblThua.Name = "lblThua";
                 lblThua.Text = "Điểm thua:";
+                lblThua.ForeColor = Color.MidnightBlue;
                     // txtThang
                 txtThang.Location = new Point(6, 71);
                 txtThang.Name = "txtThang";
                 txtThang.Size = new Size(57, 20);
+                txtThang.ForeColor = Color.MidnightBlue;
                     // txtHoa
                 txtHoa.Location = new Point(120, 71);
                 txtHoa.Name = "txtHoa";
                 txtHoa.Size = new Size(52, 20);
+                txtHoa.ForeColor = Color.MidnightBlue;
                     // txtThua
                 txtThua.Location = new Point(220, 71);
                 txtThua.Name = "txtThua";
                 txtThua.Size = new Size(55, 20);
+                txtThua.ForeColor = Color.MidnightBlue;
                     // lblSoLuot
                 lblSoLuot.AutoSize = true;
                 lblSoLuot.Location = new Point(3, 104);
                 lblSoLuot.Name = "lblSoLuot";
                 lblSoLuot.Text = "Số lượt đá vòng tròn:";
+                lblSoLuot.ForeColor = Color.MidnightBlue;
                     // btn1
                 btn1.Location = new Point(129, 97);
                 btn1.Name = "btn1";
                 btn1.Size = new Size(52, 26);
                 btn1.Text = "1";
                 btn1.UseVisualStyleBackColor = true;
+                btn1.ForeColor = Color.MidnightBlue;
                 btn1.Click += new System.EventHandler(this.btn1_Click);
                     // btn2
                 btn2.Location = new Point(187, 97);
@@ -273,16 +290,20 @@ namespace QuanLyGiaiDau
                 btn2.Size = new Size(52, 26);
                 btn2.Text = "2";
                 btn2.UseVisualStyleBackColor = true;
+                btn2.ForeColor = Color.MidnightBlue;
                 btn2.Click += new System.EventHandler(this.btn2_Click);
                 // lblSoThanhVien
                 lblSoThanhVien.AutoSize = true;
                 lblSoThanhVien.Location = new Point(3, 135);
                 lblSoThanhVien.Name = "lblSoThanhVien";
                 lblSoThanhVien.Text = "Số người mỗi đội:";
+                lblSoThanhVien.ForeColor = Color.MidnightBlue;
                     // cboSoThanhVien
                 cboSoThanhVien.FormattingEnabled = true;
                 cboSoThanhVien.Location = new Point(6, 151);
                 cboSoThanhVien.Name = "cboSoThanhVien";
+                cboSoThanhVien.ForeColor = Color.MidnightBlue;
+                cboSoThanhVien.DropDownStyle = ComboBoxStyle.DropDownList;
                 cboSoThanhVien.Size = new Size(121, 21);
                 //add element
                 int[] stv = new int[4];

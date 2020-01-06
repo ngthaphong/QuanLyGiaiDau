@@ -21,14 +21,16 @@ namespace QuanLyGiaiDau
         {
             
             lblWelcome.Text = "Chào mừng bạn đến với Giải Đấu";
-            lblWelcome.Font = new Font("Arial", 20);
-            lblWelcome.ForeColor = Color.DarkBlue;
+            lblWelcome.Font = new Font("Arial", 25);
+            lblWelcome.ForeColor = Color.GreenYellow;
+            lblWelcome.Left += 50;
             lblOption.Text = "Hệ thống quản lý giải đấu";
+            lblOption.Left += 40;
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            frmGroup create = new frmGroup();
+            frmTime create = new frmTime();
             create.StartPosition = FormStartPosition.CenterParent;
             create.ShowDialog();
         }
@@ -40,7 +42,7 @@ namespace QuanLyGiaiDau
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            frmCreGroup create = new frmCreGroup();
+            frmGroup create = new frmGroup();
             create.StartPosition = FormStartPosition.CenterParent;
             create.ShowDialog();
         }
@@ -48,6 +50,13 @@ namespace QuanLyGiaiDau
         private void btnLeague_Click(object sender, EventArgs e)
         {
             frmCreTeam create = new frmCreTeam();
+            create.StartPosition = FormStartPosition.CenterParent;
+            create.ShowDialog();
+        }
+
+        private void btnKicker_Click(object sender, EventArgs e)
+        {
+            frmKicker create = new frmKicker();
             create.StartPosition = FormStartPosition.CenterParent;
             create.ShowDialog();
         }

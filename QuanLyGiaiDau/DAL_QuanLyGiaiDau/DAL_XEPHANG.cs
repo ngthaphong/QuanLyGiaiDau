@@ -11,6 +11,22 @@ namespace DAL_QuanLyGiaiDau
 {
     public class DAL_XEPHANG : DBConnect
     {
+        public DataTable getTenGiai(string mag)
+        {
+            string str = string.Format("SELECT * FROM GIAIDAU WHERE MaGiai='{0}'", mag);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            DataTable team = new DataTable();
+            data.Fill(team);
+            return team;
+        }
+        public DataTable getTenDoi(string mad)
+        {
+            string str = string.Format("SELECT * FROM DOI WHERE MaDoi='{0}'", mad);
+            SqlDataAdapter data = new SqlDataAdapter(str, connect);
+            DataTable team = new DataTable();
+            data.Fill(team);
+            return team;
+        }
         public DataTable SortRank(string mag)
         {
             string str = string.Format("SELECT * FROM XEPHANG WHERE MaGiai='{0}' ORDER BY ViThu ASC", mag);
