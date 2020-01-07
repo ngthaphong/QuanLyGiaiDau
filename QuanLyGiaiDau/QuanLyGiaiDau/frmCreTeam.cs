@@ -71,7 +71,7 @@ namespace QuanLyGiaiDau
             else
             {
                 //create team
-                string mad = d.nextMa("MD");
+                string mad = d.nextMa();
                 cboThanhVien.ValueMember = "SoThanhVien";
                 int tv = (int)cboThanhVien.SelectedValue;
                 string mau = txtMau.Text;

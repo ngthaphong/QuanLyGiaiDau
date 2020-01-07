@@ -14,7 +14,7 @@ namespace DAL_QuanLyGiaiDau
         //Lay het user, pass
         public DataTable getDANGNHAP()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT * FROM DANGNHAP", connect());
+            SqlDataAdapter data = new SqlDataAdapter("SELECT * FROM DANGNHAP", connect);
             DataTable dtDANGNHAP = new DataTable();
             data.Fill(dtDANGNHAP);
             return dtDANGNHAP;
@@ -23,7 +23,7 @@ namespace DAL_QuanLyGiaiDau
         public DataTable getTenDangNhap(string madn)
         {
             string str= string.Format("SELECT * FROM DANGNHAP WHERE MaTK = '{0}'",madn);
-            SqlDataAdapter data = new SqlDataAdapter(str, connect());
+            SqlDataAdapter data = new SqlDataAdapter(str, connect);
             DataTable dtDANGNHAP = new DataTable();
             data.Fill(dtDANGNHAP);
             return dtDANGNHAP;
@@ -33,24 +33,24 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect().Open();
+                connect.Open();
                 string sql = string.Format("INSERT INTO DANGNHAP(MaTK,username,password) VALUES ('{0}','{1}','{2}')", d.MaTK, d.username, d.password);
-                SqlCommand cmd = new SqlCommand(sql, connect());
+                SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
             }
             catch (Exception e) { }
             finally
             {
-                //close connect()
-                connect().Close();
+                //close connect
+                connect.Close();
             }
             return false;
         }
         //top 1
         public DataTable topDANGNHAP()
         {
-            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM DANGNHAP ORDER BY LEFT(MaTK,PATINDEX('%[0-9]%',MaTK)-1),CONVERT(INT,SUBSTRING(MaTK,PATINDEX('%[0-9]%',MaTK),LEN(MaTK))) DESC", connect());
+            SqlDataAdapter data = new SqlDataAdapter("SELECT TOP 1 * FROM DANGNHAP ORDER BY LEFT(MaTK,PATINDEX('%[0-9]%',MaTK)-1),CONVERT(INT,SUBSTRING(MaTK,PATINDEX('%[0-9]%',MaTK),LEN(MaTK))) DESC", connect);
             DataTable dtDANGNHAP = new DataTable();
             data.Fill(dtDANGNHAP);
             return dtDANGNHAP;
@@ -60,16 +60,16 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect().Open();
+                connect.Open();
                 string sql = string.Format("UPDATE DANGNHAP SET username='{0}', password='{1}' WHERE MaTK='{2}'", d.username, d.password, d.MaTK);
-                SqlCommand cmd = new SqlCommand(sql, connect());
+                SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
             }
             catch (Exception e) { }
             finally
             {
-                connect().Close();
+                connect.Close();
             }
             return false;
         }
@@ -78,16 +78,16 @@ namespace DAL_QuanLyGiaiDau
         {
             try
             {
-                connect().Open();
+                connect.Open();
                 string sql = string.Format("DELETE FROM DANGNHAP WHERE MaTK='{0}'", d.MaTK);
-                SqlCommand cmd = new SqlCommand(sql, connect());
+                SqlCommand cmd = new SqlCommand(sql, connect);
                 //kiem tra
                 if (cmd.ExecuteNonQuery() > 0) return true;
             }
             catch (Exception e) { }
             finally
             {
-                connect().Close();
+                connect.Close();
             }
             return false;
         }

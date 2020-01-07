@@ -59,7 +59,10 @@ namespace BUS_QuanLyGiaiDau
             mastr += str; mastr += ma;
             return mastr;
         }
-
+        public DataTable getThongKe(string mad, string ten)
+        {
+            return dalCAUTHU.getThongKe(mad,ten);
+        }
         public DataTable getMADOI(string mad)
         {
             return dalCAUTHU.getMADOI(mad);

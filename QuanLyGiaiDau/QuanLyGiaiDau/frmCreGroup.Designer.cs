@@ -161,13 +161,14 @@
             // 
             // btnThem
             // 
+            this.btnThem.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnThem.ForeColor = System.Drawing.Color.MidnightBlue;
             this.btnThem.Location = new System.Drawing.Point(196, 57);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(92, 23);
             this.btnThem.TabIndex = 1;
-            this.btnThem.Text = "Thêm đại diện";
-            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Text = "Đăng kí giải";
+            this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnExit

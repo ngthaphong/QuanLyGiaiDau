@@ -91,17 +91,6 @@ namespace QuanLyGiaiDau
             dtaGiai.DataSource = t;
         }
 
-        private void cboHinhThuc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string str = cboHinhThuc.SelectedText;
-            if(str== "Loại Trực Tiếp")
-            {
-                DataTable t = g.getLoai(1);
-                t.Columns.Remove("MaGiai");
-                dtaGiai.DataSource = t;
-            }
-        }
-
         private void toolHome_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -116,6 +105,13 @@ namespace QuanLyGiaiDau
         private void toolCreTeam_Click(object sender, EventArgs e)
         {
             frmCreTeam create = new frmCreTeam();
+            create.StartPosition = FormStartPosition.CenterParent;
+            create.ShowDialog();
+        }
+
+        private void toolDaiDien_Click(object sender, EventArgs e)
+        {
+            frmCreate create = new frmCreate();
             create.StartPosition = FormStartPosition.CenterParent;
             create.ShowDialog();
         }

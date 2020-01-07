@@ -114,5 +114,14 @@ namespace QuanLyGiaiDau
                 dtaXepHang.DataSource = t;
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmTime create = new frmTime();
+            create.StartPosition = FormStartPosition.CenterScreen;
+            create.ShowDialog();
+            this.Close();
+        }
     }
 }

@@ -14,8 +14,9 @@ namespace BUS_QuanLyGiaiDau
     public class BUS_DOI
     {
         DAL_DOI dalDOI = new DAL_DOI();
-        public string nextMa(string str)
+        public string nextMa()
         {
+            string str = "MD";
             //get last matk
             DataTable t = topDOI();
             string Tmag = t.Rows[0].Field<string>(0);
@@ -37,6 +38,10 @@ namespace BUS_QuanLyGiaiDau
             }
             t.AcceptChanges();
             return t;
+        }
+        public DataTable getCauThu(string mad)
+        {
+            return dalDOI.getCauThu(mad);
         }
         public DataTable getDaiDien(string mad)
         {

@@ -48,6 +48,7 @@
     <Compile Include="BUS_GIAIDAU.cs" />
     <Compile Include="BUS_LICHTD.cs" />
     <Compile Include="BUS_Main.cs" />
+    <Compile Include="BUS_THONGKECT.cs" />
     <Compile Include="BUS_TRANDAU.cs" />
     <Compile Include="BUS_VONG.cs" />
     <Compile Include="BUS_XEPHANG.cs" />

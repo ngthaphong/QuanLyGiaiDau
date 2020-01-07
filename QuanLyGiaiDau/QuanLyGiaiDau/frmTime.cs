@@ -16,17 +16,32 @@ namespace QuanLyGiaiDau
     {
         BUS_LICHTD l = new BUS_LICHTD();
         BUS_GIAIDAU g = new BUS_GIAIDAU();
+        BUS_DOI d = new BUS_DOI();
+        BUS_THONGKECT tk = new BUS_THONGKECT();
+        string madoi;
+        int? p;
         public frmTime()
         {
             InitializeComponent();
         }
-
+        void hide()
+        {
+            cboChon.Hide();
+            numChon.Hide();
+            btnChon.Hide();
+            lblChon.Hide();
+        }
+        void show()
+        {
+            cboChon.Show();
+            numChon.Show();
+            btnChon.Show();
+            lblChon.Show();
+        }
         private void frmTime_Load(object sender, EventArgs e)
         {
             btnBang.BackColor = Color.Gray;
             btnBang.ForeColor = Color.OrangeRed;
-            btnMoHinh.BackColor = Color.Gray;
-            btnMoHinh.ForeColor = Color.OrangeRed;
             btnBang_Click(sender, e);
             cboGiai.DataSource= g.getGIAIDAU();
             cboGiai.DisplayMember = "TenGiai";
@@ -95,42 +110,31 @@ namespace QuanLyGiaiDau
             //    DataGridViewComboBoxCell cell = (DataGridViewComboBoxCell)(row.Cells["TenDoi1"]);
             //    cell.DataSource = new string[] { "10", "30" };
             //}
+
+            hide();
         }
 
         private void btnBang_Click(object sender, EventArgs e)
         {
             btnBang.BackColor = Color.GreenYellow;
-            btnMoHinh.BackColor = Color.Gray;
             dtaTime.Show();
         }
         
-        private void btnMoHinh_Click(object sender, EventArgs e)
-        {
-            btnMoHinh.BackColor = Color.GreenYellow;
-            btnBang.BackColor = Color.Gray;
-            dtaTime.Hide();
-            FlowLayoutPanel flow = new FlowLayoutPanel();
-            flow.Size = new Size(1295, 553);
-            flow.Location = new Point(3,3);
-            flow.AutoScroll = true;
-            panTime.Controls.Add(flow);
-            for (int i = 0; i < 400; i++)
-            {
-                Button bt = new Button();
-                flow.Controls.Add(bt);
-                bt.Text = "1111111111111111";
-                bt.Top = ((i - 1) / 9) % 9 * bt.Height + 1 + ((i - 1) / 27) * 10 + 10;
-                bt.Left = (i - 1) % 9 * bt.Width + 1 + ((i - 1) % 9) / 3 * 10 + 10;
-            }
-        }
-
         private void cboGiai_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboGiai.ValueMember = "MaGiai";
             dtaTime.DataSource = l.getLICHTD((string)cboGiai.SelectedValue);
             cboGiai.ValueMember = "Loai";
-            if ((int)cboGiai.SelectedValue == 2) btnMoHinh.Enabled = false;
-            else btnMoHinh.Enabled = true;
+            if ((int)cboGiai.SelectedValue == 2)
+            {
+                dtaTime.Columns["SoDiem1"].Visible = true;
+                dtaTime.Columns["SoDiem2"].Visible = true;
+            }
+            else
+            {
+                dtaTime.Columns["SoDiem1"].Visible = false;
+                dtaTime.Columns["SoDiem2"].Visible = false;
+            }
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -193,6 +197,101 @@ namespace QuanLyGiaiDau
                     int? sd2 = o == DBNull.Value ? null : (int?)o;
                     DTO_LICHTD dtol = new DTO_LICHTD(mat,ten1,ten2,time,tt,bt1,bt2,tv1,tv2,td1,td2,sd1,sd2);
                     l.upLICHTD(dtol);
+                    //
+                    switch (colIdx)
+                    {
+                        case 5:
+                            show();
+                            lblChon.Text = "Ghi bàn đội 1";
+                            numChon.Maximum = (decimal)bt1;
+                            madoi = d.getMa(ten1);
+                            p = bt1;
+                            DataTable temp = d.getCauThu(madoi);
+                            if (temp.Rows.Count > 0)
+                            {
+                                cboChon.DataSource = temp;
+                                cboChon.DisplayMember = "HoTenCT";
+                                dtaTime.ColumnHeadersDefaultCellStyle.ForeColor = Color.Gray;
+                                dtaTime.RowsDefaultCellStyle.ForeColor = Color.Gray;
+                                dtaTime.Enabled = false;
+                            }
+                            break;
+                        case 6:
+                            show();
+                            lblChon.Text = "Ghi bàn đội 2";
+                            madoi = d.getMa(ten2);
+                            p = bt2;
+                            temp = d.getCauThu(madoi);
+                            if (temp.Rows.Count > 0)
+                            {
+                                cboChon.DataSource = temp;
+                                cboChon.DisplayMember = "HoTenCT";
+                                dtaTime.ColumnHeadersDefaultCellStyle.ForeColor = Color.Gray;
+                                dtaTime.RowsDefaultCellStyle.ForeColor = Color.Gray;
+                                dtaTime.Enabled = false;
+                            }
+                            break;
+                        case 7:
+                            show();
+                            lblChon.Text = "Thẻ vàng đội 1";
+                            madoi = d.getMa(ten1);
+                            p = tv1;
+                            temp = d.getCauThu(madoi);
+                            if (temp.Rows.Count > 0)
+                            {
+                                cboChon.DataSource = temp;
+                                cboChon.DisplayMember = "HoTenCT";
+                                dtaTime.ColumnHeadersDefaultCellStyle.ForeColor = Color.Gray;
+                                dtaTime.RowsDefaultCellStyle.ForeColor = Color.Gray;
+                                dtaTime.Enabled = false;
+                            }
+                            break;
+                        case 8:
+                            show();
+                            lblChon.Text = "Thẻ vàng đội 2";
+                            madoi = d.getMa(ten2);
+                            p = tv2;
+                            temp = d.getCauThu(madoi);
+                            if (temp.Rows.Count > 0)
+                            {
+                                cboChon.DataSource = temp;
+                                cboChon.DisplayMember = "HoTenCT";
+                                dtaTime.ColumnHeadersDefaultCellStyle.ForeColor = Color.Gray;
+                                dtaTime.RowsDefaultCellStyle.ForeColor = Color.Gray;
+                                dtaTime.Enabled = false;
+                            }
+                            break;
+                        case 9:
+                            show();
+                            lblChon.Text = "Thẻ đỏ đội 1";
+                            madoi = d.getMa(ten1);
+                            p = td1;
+                            temp = d.getCauThu(madoi);
+                            if (temp.Rows.Count > 0)
+                            {
+                                cboChon.DataSource = temp;
+                                cboChon.DisplayMember = "HoTenCT";
+                                dtaTime.ColumnHeadersDefaultCellStyle.ForeColor = Color.Gray;
+                                dtaTime.RowsDefaultCellStyle.ForeColor = Color.Gray;
+                                dtaTime.Enabled = false;
+                            }
+                            break;
+                        case 10:
+                            show();
+                            lblChon.Text = "Thẻ đỏ đội 2";
+                            madoi = d.getMa(ten2);
+                            p = td2;
+                            temp = d.getCauThu(madoi);
+                            if (temp.Rows.Count > 0)
+                            {
+                                cboChon.DataSource = temp;
+                                cboChon.DisplayMember = "HoTenCT";
+                                dtaTime.ColumnHeadersDefaultCellStyle.ForeColor = Color.Gray;
+                                dtaTime.RowsDefaultCellStyle.ForeColor = Color.Gray;
+                                dtaTime.Enabled = false;
+                            }
+                            break;
+                    } 
                 };
             };
         }
@@ -203,6 +302,66 @@ namespace QuanLyGiaiDau
             frmRank create = new frmRank();
             create.StartPosition = FormStartPosition.CenterParent;
             create.ShowDialog();
+            this.Close();
+        }
+
+        private void btnChon_Click(object sender, EventArgs e)
+        {
+            dtaTime.Enabled = true;
+            dtaTime.ColumnHeadersDefaultCellStyle.ForeColor = Color.Orange;
+            dtaTime.RowsDefaultCellStyle.ForeColor = Color.Purple;
+            cboGiai.ValueMember = "MaGiai";
+            cboChon.ValueMember = "SoAo";
+            switch (lblChon.Text)
+            {
+                case "Ghi bàn đội 1":
+                    string mag = (string)cboGiai.SelectedValue;
+                    DTO_THONGKECT dtotk = new DTO_THONGKECT(mag,madoi,cboChon.Text,(int)cboChon.SelectedValue,(int)numChon.Value,null,null);
+                    DataTable t=tk.getEmpty(mag, madoi);
+                    if (t.Rows.Count > 0) tk.upTHONGKECT(dtotk);
+                    else tk.addTHONGKECT(dtotk);
+                    break;
+                case "Ghi bàn đội 2":
+                    mag = (string)cboGiai.SelectedValue;
+                    dtotk = new DTO_THONGKECT(mag, madoi, cboChon.Text, (int)cboChon.SelectedValue, (int)numChon.Value, null, null);
+                    t = tk.getEmpty(mag, madoi);
+                    if (t.Rows.Count > 0) tk.upTHONGKECT(dtotk);
+                    else tk.addTHONGKECT(dtotk);
+                    break;
+                case "Thẻ vàng đội 1":
+                    mag = (string)cboGiai.SelectedValue;
+                    dtotk = new DTO_THONGKECT(mag, madoi, cboChon.Text, (int)cboChon.SelectedValue, (int)numChon.Value, null, null);
+                    t = tk.getEmpty(mag, madoi);
+                    if (t.Rows.Count > 0) tk.upTHONGKECT(dtotk);
+                    else tk.addTHONGKECT(dtotk);
+                    break;
+                case "Thẻ vàng đội 2":
+                    mag = (string)cboGiai.SelectedValue;
+                    dtotk = new DTO_THONGKECT(mag, madoi, cboChon.Text, (int)cboChon.SelectedValue, (int)numChon.Value, null, null);
+                    t = tk.getEmpty(mag, madoi);
+                    if (t.Rows.Count > 0) tk.upTHONGKECT(dtotk);
+                    else tk.addTHONGKECT(dtotk);
+                    break;
+                case "Thẻ đỏ đội 1":
+                    mag = (string)cboGiai.SelectedValue;
+                    dtotk = new DTO_THONGKECT(mag, madoi, cboChon.Text, (int)cboChon.SelectedValue, (int)numChon.Value, null, null);
+                    t = tk.getEmpty(mag, madoi);
+                    if (t.Rows.Count > 0) tk.upTHONGKECT(dtotk);
+                    else tk.addTHONGKECT(dtotk);
+                    break;
+                case "Thẻ đỏ đội 2":
+                    mag = (string)cboGiai.SelectedValue;
+                    dtotk = new DTO_THONGKECT(mag, madoi, cboChon.Text, (int)cboChon.SelectedValue, (int)numChon.Value, null, null);
+                    t = tk.getEmpty(mag, madoi);
+                    if (t.Rows.Count > 0) tk.upTHONGKECT(dtotk);
+                    else tk.addTHONGKECT(dtotk);
+                    break;
+            }
+            hide();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

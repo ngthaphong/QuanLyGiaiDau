@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cboGiai = new System.Windows.Forms.ComboBox();
             this.btnLoad = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtaXepHang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,14 +74,27 @@
             // 
             // btnLoad
             // 
+            this.btnLoad.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnLoad.ForeColor = System.Drawing.Color.MidnightBlue;
             this.btnLoad.Location = new System.Drawing.Point(267, 40);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(45, 23);
             this.btnLoad.TabIndex = 3;
             this.btnLoad.Text = "Load";
-            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.UseVisualStyleBackColor = false;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnBack.ForeColor = System.Drawing.Color.Black;
+            this.btnBack.Location = new System.Drawing.Point(12, 13);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 9;
+            this.btnBack.Text = "Quay lại";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // frmRank
             // 
@@ -88,11 +102,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::QuanLyGiaiDau.Properties.Resources.sanbong;
             this.ClientSize = new System.Drawing.Size(1004, 637);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.cboGiai);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtaXepHang);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmRank";
             this.Text = "Xếp hạng";
             this.Load += new System.EventHandler(this.frmRank_Load);
@@ -108,5 +125,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboGiai;
         private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.Button btnBack;
     }
 }

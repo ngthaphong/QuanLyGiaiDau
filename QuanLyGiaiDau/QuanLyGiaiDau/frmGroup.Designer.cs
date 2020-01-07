@@ -34,16 +34,16 @@
             this.toolGiaiDau = new System.Windows.Forms.ToolStrip();
             this.toolHome = new System.Windows.Forms.ToolStripButton();
             this.toolSpace = new System.Windows.Forms.ToolStripLabel();
-            this.toolCreaGroup = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolFinGroup = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolCreaGroup = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolDaiDien = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolCreTeam = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolAcc = new System.Windows.Forms.ToolStripLabel();
             this.toolAccounted = new System.Windows.Forms.ToolStripLabel();
-            this.cboTrangThai = new System.Windows.Forms.ComboBox();
-            this.cboHinhThuc = new System.Windows.Forms.ComboBox();
             this.txtFind = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtaGiai)).BeginInit();
             this.panel1.SuspendLayout();
@@ -66,8 +66,6 @@
             // 
             this.panel1.BackgroundImage = global::QuanLyGiaiDau.Properties.Resources.greenball;
             this.panel1.Controls.Add(this.toolGiaiDau);
-            this.panel1.Controls.Add(this.cboTrangThai);
-            this.panel1.Controls.Add(this.cboHinhThuc);
             this.panel1.Controls.Add(this.txtFind);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
@@ -85,6 +83,8 @@
             this.toolStripSeparator1,
             this.toolCreaGroup,
             this.toolStripSeparator2,
+            this.toolDaiDien,
+            this.toolStripSeparator3,
             this.toolCreTeam,
             this.toolStripSeparator4,
             this.toolAcc,
@@ -111,10 +111,26 @@
             // toolSpace
             // 
             this.toolSpace.Name = "toolSpace";
-            this.toolSpace.Size = new System.Drawing.Size(547, 37);
+            this.toolSpace.Size = new System.Drawing.Size(460, 37);
             this.toolSpace.Text = "                                                                                 " +
-    "                                                                                " +
-    "                   ";
+    "                                                                      ";
+            // 
+            // toolFinGroup
+            // 
+            this.toolFinGroup.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolFinGroup.ForeColor = System.Drawing.Color.Maroon;
+            this.toolFinGroup.IsLink = true;
+            this.toolFinGroup.LinkColor = System.Drawing.Color.Maroon;
+            this.toolFinGroup.Name = "toolFinGroup";
+            this.toolFinGroup.Size = new System.Drawing.Size(74, 37);
+            this.toolFinGroup.Text = "Tìm giải đấu";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.BackColor = System.Drawing.Color.Lime;
+            this.toolStripSeparator1.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 40);
             // 
             // toolCreaGroup
             // 
@@ -127,27 +143,25 @@
             this.toolCreaGroup.Text = "Tạo giải đấu";
             this.toolCreaGroup.Click += new System.EventHandler(this.toolCreaGroup_Click);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.BackColor = System.Drawing.Color.Lime;
-            this.toolStripSeparator1.ForeColor = System.Drawing.Color.DimGray;
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 40);
-            // 
-            // toolFinGroup
-            // 
-            this.toolFinGroup.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.toolFinGroup.ForeColor = System.Drawing.Color.Maroon;
-            this.toolFinGroup.IsLink = true;
-            this.toolFinGroup.LinkColor = System.Drawing.Color.Maroon;
-            this.toolFinGroup.Name = "toolFinGroup";
-            this.toolFinGroup.Size = new System.Drawing.Size(74, 37);
-            this.toolFinGroup.Text = "Tìm giải đấu";
-            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 40);
+            // 
+            // toolDaiDien
+            // 
+            this.toolDaiDien.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolDaiDien.IsLink = true;
+            this.toolDaiDien.LinkColor = System.Drawing.Color.Maroon;
+            this.toolDaiDien.Name = "toolDaiDien";
+            this.toolDaiDien.Size = new System.Drawing.Size(71, 37);
+            this.toolDaiDien.Text = "Đăng kí giải";
+            this.toolDaiDien.Click += new System.EventHandler(this.toolDaiDien_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 40);
             // 
             // toolCreTeam
             // 
@@ -180,38 +194,6 @@
             this.toolAccounted.ForeColor = System.Drawing.Color.OrangeRed;
             this.toolAccounted.Name = "toolAccounted";
             this.toolAccounted.Size = new System.Drawing.Size(0, 37);
-            // 
-            // cboTrangThai
-            // 
-            this.cboTrangThai.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.cboTrangThai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTrangThai.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboTrangThai.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.cboTrangThai.FormattingEnabled = true;
-            this.cboTrangThai.Items.AddRange(new object[] {
-            "Đăng ký",
-            "Hoạt động",
-            "Kết thúc"});
-            this.cboTrangThai.Location = new System.Drawing.Point(979, 109);
-            this.cboTrangThai.Name = "cboTrangThai";
-            this.cboTrangThai.Size = new System.Drawing.Size(113, 21);
-            this.cboTrangThai.TabIndex = 1;
-            // 
-            // cboHinhThuc
-            // 
-            this.cboHinhThuc.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.cboHinhThuc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboHinhThuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboHinhThuc.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.cboHinhThuc.FormattingEnabled = true;
-            this.cboHinhThuc.Items.AddRange(new object[] {
-            "Loại Trực Tiếp",
-            "Vòng Tròn"});
-            this.cboHinhThuc.Location = new System.Drawing.Point(848, 109);
-            this.cboHinhThuc.Name = "cboHinhThuc";
-            this.cboHinhThuc.Size = new System.Drawing.Size(125, 21);
-            this.cboHinhThuc.TabIndex = 1;
-            this.cboHinhThuc.SelectedIndexChanged += new System.EventHandler(this.cboHinhThuc_SelectedIndexChanged);
             // 
             // txtFind
             // 
@@ -253,8 +235,6 @@
 
         private System.Windows.Forms.DataGridView dtaGiai;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox cboTrangThai;
-        private System.Windows.Forms.ComboBox cboHinhThuc;
         private System.Windows.Forms.TextBox txtFind;
         private System.Windows.Forms.ToolStrip toolGiaiDau;
         private System.Windows.Forms.ToolStripButton toolHome;
@@ -267,5 +247,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripLabel toolAcc;
         private System.Windows.Forms.ToolStripLabel toolAccounted;
+        private System.Windows.Forms.ToolStripLabel toolDaiDien;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }

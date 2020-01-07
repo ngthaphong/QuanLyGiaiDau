@@ -16,6 +16,7 @@ namespace QuanLyGiaiDau
     {
         BUS_CAUTHU ct = new BUS_CAUTHU();
         BUS_DOI d = new BUS_DOI();
+        BUS_THONGKECT tk = new BUS_THONGKECT();
         public frmKicker()
         {
             InitializeComponent();
@@ -66,10 +67,28 @@ namespace QuanLyGiaiDau
             vitri[0] = "Thủ môn"; vitri[1] = "Hậu vệ"; vitri[2] = "Hậu vệ quét"; vitri[3] = "Hậu vệ biên"; vitri[4] = "Hậu vệ tấn công"; vitri[5] = "Trung vệ"; vitri[6] = "Tiền vệ phòng ngự"; vitri[7] = "Tiền vệ trung tâm"; vitri[8] = "Tiền vệ cánh"; vitri[9] = "Tiền vệ tấn công"; vitri[10] = "Tiền đạo";
             cboViTri.DataSource = vitri;
             // combobox with 3 colum
-            
+            DataTable t = tk.getTHONGKECT();
+            t.Columns.Remove("MaGiai");
+            t.Columns.Remove("MaDoi");
+            t.Columns.Remove("SoAo");
+            dtaTK.DefaultCellStyle.SelectionBackColor = dtaTK.DefaultCellStyle.BackColor;
+            dtaTK.DefaultCellStyle.SelectionForeColor = Color.Purple;
+            dtaTK.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dtaTK.ColumnHeadersDefaultCellStyle.Font = new Font(dtaTK.ColumnHeadersDefaultCellStyle.Font, FontStyle.Bold);
+            dtaTK.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkGreen;
+            dtaTK.ColumnHeadersDefaultCellStyle.ForeColor = Color.Orange;
+            dtaTK.DataSource = t;
             /////////
             refresh();
-
+            dtaTK.Columns[0].Width = 150;
+            dtaTK.Columns[0].HeaderText = "Họ tên";
+            dtaTK.Columns[1].Width = 50;
+            dtaTK.Columns[1].HeaderText = "Bàn thắng";
+            dtaTK.Columns[2].Width = 50;
+            dtaTK.Columns[2].HeaderText = "Thẻ vàng";
+            dtaTK.Columns[3].Width = 50;
+            dtaTK.Columns[3].HeaderText = "Thẻ đỏ";
+            /////////////
             dtaCauThu.DataSource = ct.tableCauThu();
             dtaCauThu.Columns[0].Width = 200;
             dtaCauThu.Columns[0].HeaderText = "Tên đội";
@@ -135,6 +154,17 @@ namespace QuanLyGiaiDau
             
 
             refresh();
+        }
+
+        private void dtaCauThu_SelectionChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dtaCauThu.SelectedRows)
+            {
+                string value1 = row.Cells[0].Value.ToString();
+                string value2 = row.Cells[1].Value.ToString();
+                string mad = d.getMa(row.Cells[0].Value.ToString());
+                dtaTK.DataSource = ct.getThongKe(mad, row.Cells[1].Value.ToString());
+            }
         }
     }
 }
